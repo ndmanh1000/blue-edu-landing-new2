@@ -1,71 +1,178 @@
-import Image from "next/image";
-import SectionTitle from "../Common/SectionTitle";
+"use client";
 
-const checkIcon = (
-  <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
-    <path d="M5.8535 12.6631C5.65824 12.8584 5.34166 12.8584 5.1464 12.6631L0.678505 8.1952C0.483242 7.99994 0.483242 7.68336 0.678505 7.4881L2.32921 5.83739C2.52467 5.64193 2.84166 5.64216 3.03684 5.83791L5.14622 7.95354C5.34147 8.14936 5.65859 8.14952 5.85403 7.95388L13.3797 0.420561C13.575 0.22513 13.8917 0.225051 14.087 0.420383L15.7381 2.07143C15.9333 2.26669 15.9333 2.58327 15.7381 2.77854L5.8535 12.6631Z" />
-  </svg>
-);
+import Link from "next/link";
 
 const AboutSectionOne = () => {
-  const List = ({ text }) => (
-    <p className="text-body-color mb-5 flex items-center text-lg font-medium">
-      <span className="bg-primary/10 text-primary mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md">
-        {checkIcon}
-      </span>
-      {text}
-    </p>
-  );
+  const features = [
+    {
+      title: "AI chuyên sâu tài liệu giáo dục",
+      icon: "🤖",
+      gradient: "from-blue-500 to-purple-500",
+      delay: 0,
+    },
+    {
+      title: "Tạo đề thi tự động",
+      icon: "⚡",
+      gradient: "from-purple-500 to-pink-500",
+      delay: 100,
+    },
+    {
+      title: "Số hóa tài liệu cực nhanh",
+      icon: "📄",
+      gradient: "from-green-500 to-emerald-500",
+      delay: 200,
+    },
+    {
+      title: "Dễ dùng cho giáo viên cá nhân",
+      icon: "👨‍🏫",
+      gradient: "from-orange-500 to-red-500",
+      delay: 300,
+    },
+    {
+      title: "Báo cáo tiến độ học sinh",
+      icon: "📊",
+      gradient: "from-cyan-500 to-blue-500",
+      delay: 400,
+    },
+    {
+      title: "Khả năng mở rộng lên hệ thống lớn",
+      icon: "🚀",
+      gradient: "from-indigo-500 to-purple-500",
+      delay: 500,
+    },
+  ];
 
   return (
-    <section id="about" className="pt-16 md:pt-20 lg:pt-28">
-      <div className="container">
-        <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
-          <div className="-mx-4 flex flex-wrap items-center">
-            <div className="w-full px-4 lg:w-1/2">
-              <SectionTitle
-                title="Crafted for Startup, SaaS and Business Sites."
-                paragraph="The main ‘thrust’ is to focus on educating attendees on how to best protect highly vulnerable business applications with interactive panel discussions and roundtables."
-                mb="44px"
-              />
+    <section id="about" className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-16 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-20 lg:py-28">
+      {/* Background decorative elements */}
+      <div className="absolute right-0 top-0 -z-0 animate-float-slow opacity-10">
+        <div className="h-96 w-96 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 blur-3xl"></div>
+      </div>
+      <div className="absolute bottom-0 left-0 -z-0 animate-float-slow-reverse opacity-10">
+        <div className="h-96 w-96 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 blur-3xl"></div>
+      </div>
 
-              <div
-                className="mb-12 max-w-[570px] lg:mb-0"
-                data-wow-delay=".15s"
-              >
-                <div className="mx-[-12px] flex flex-wrap">
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Premium quality" />
-                    <List text="Tailwind CSS" />
-                    <List text="Use for lifetime" />
-                  </div>
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 -z-0 opacity-5 dark:opacity-10">
+        <div className="h-full w-full" style={{
+          backgroundImage: `linear-gradient(rgba(74, 108, 247, 0.1) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(74, 108, 247, 0.1) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px',
+        }}></div>
+      </div>
 
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Next.js" />
-                    <List text="Rich documentation" />
-                    <List text="Developer friendly" />
+      <div className="container relative z-10">
+        {/* Section Title */}
+        <div className="mb-16 text-center animate-fade-in-down">
+          <h2 className="mb-4 text-3xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-5xl">
+            <span className="bg-gradient-to-r from-primary via-purple-600 to-primary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
+              Vì sao Blue Edu vượt trội nhất trên thị trường?
+            </span>
+          </h2>
+        </div>
+
+        {/* Comparison Table - 3 Columns */}
+        <div className="mx-auto max-w-6xl">
+          <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+            {/* Table Header */}
+            <div className="border-b border-gray-200 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10 p-6 dark:border-gray-700">
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="font-bold text-gray-600 dark:text-gray-300">Tính năng</div>
+                <div className="font-bold text-primary dark:text-primary">Blue Edu</div>
+                <div className="font-bold text-gray-400 dark:text-gray-500">Hệ thống khác</div>
+              </div>
+            </div>
+
+            {/* Table Body */}
+            <div className="divide-y divide-gray-200 dark:divide-gray-700">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="group animate-fade-in-up transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
+                  style={{ animationDelay: `${feature.delay}ms` }}
+                >
+                  <div className="grid grid-cols-3 gap-4 p-6">
+                    {/* Feature Column */}
+                    <div className="flex items-center gap-4">
+                      <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} text-2xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                        {feature.icon}
+                      </div>
+                      <p className="text-base font-semibold text-black dark:text-white md:text-lg">
+                        {feature.title}
+                      </p>
+                    </div>
+
+                    {/* Blue Edu Column */}
+                    <div className="flex items-center justify-center">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 text-white shadow-lg transition-all duration-300 group-hover:scale-110">
+                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Competitor Column */}
+                    <div className="flex items-center justify-center">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-300 text-white dark:bg-gray-600 transition-all duration-300 group-hover:scale-110">
+                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="w-full px-4 lg:w-1/2">
-              <div className="relative mx-auto aspect-25/24 max-w-[500px] lg:mr-0">
-                <Image
-                  src="/images/about/about-image.svg"
-                  alt="about-image"
-                  fill
-                  className="mx-auto max-w-full drop-shadow-three dark:hidden dark:drop-shadow-none lg:mr-0"
-                />
-                <Image
-                  src="/images/about/about-image-dark.svg"
-                  alt="about-image"
-                  fill
-                  className="mx-auto hidden max-w-full drop-shadow-three dark:block dark:drop-shadow-none lg:mr-0"
-                />
-              </div>
+              ))}
             </div>
           </div>
+        </div>
+
+        {/* Highlight Box */}
+        <div className="mx-auto mt-12 max-w-4xl animate-fade-in-up animation-delay-600">
+          <div className="relative overflow-hidden rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/10 via-purple-500/10 to-primary/10 p-8 shadow-xl dark:border-primary/30">
+            {/* Decorative elements */}
+            <div className="absolute -right-10 -top-10 h-32 w-32 animate-float rounded-full bg-primary/20 blur-2xl"></div>
+            <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-float-delayed rounded-full bg-purple-500/20 blur-2xl"></div>
+
+            <div className="relative z-10 text-center">
+              <h3 className="mb-4 text-2xl font-bold text-black dark:text-white md:text-3xl">
+                Blue Edu - Giải pháp toàn diện cho giáo viên
+              </h3>
+              <p className="mb-6 text-lg leading-relaxed text-body-color dark:text-body-color-dark">
+                Tất cả những gì bạn cần trong một nền tảng duy nhất, được thiết kế đặc biệt cho giáo viên Việt Nam
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="mx-auto mt-12 max-w-3xl text-center animate-fade-in-up animation-delay-800">
+          <Link
+            href="#contact"
+            className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-purple-600 to-primary px-12 py-5 text-lg font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95"
+          >
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-primary to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{
+              backgroundSize: '200% 100%',
+              animation: 'shimmer 3s linear infinite',
+            }}></div>
+
+            <span className="relative z-10 flex items-center">
+              <span className="mr-3 animate-bounce text-2xl">🚀</span>
+              <span>Bắt đầu ngay - miễn phí</span>
+              <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
+
+            {/* Shine effect */}
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
+
+            {/* Shadow running effect */}
+            <span className="absolute -inset-3 -translate-x-full bg-gradient-to-r from-transparent via-white/60 to-transparent blur-3xl transition-transform duration-1000 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
+            <span className="absolute -inset-2 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent blur-2xl transition-transform duration-1000 delay-75 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
+            <span className="absolute -inset-1 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent blur-xl transition-transform duration-1000 delay-150 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
+
+            {/* Pulse ring */}
+            <span className="absolute inset-0 rounded-xl border-2 border-white/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-ping"></span>
+          </Link>
         </div>
       </div>
     </section>
