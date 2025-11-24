@@ -1,44 +1,100 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Hero = () => {
   return (
     <>
       <section
         id="home"
-        className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
+        className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px] mt-10"
       >
         <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div className="mx-auto max-w-[800px] text-center">
-                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Free and Open-Source Next.js Template for Startup & SaaS
-                </h1>
-                <p className="mb-12 text-base leading-relaxed! text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                  Startup is free Next.js template for startups and SaaS
-                  business websites comes with all the essential pages,
-                  components, and sections you need to launch a complete
-                  business website, built-with Next 13.x and Tailwind CSS.
+          {/* Headline - Centered at top */}
+          <div className="mb-12 text-center animate-fade-in-down">
+            <h1 className="mx-auto max-w-4xl text-2xl font-extrabold leading-tight text-black dark:text-white sm:text-5xl sm:leading-tight md:text-3xl md:leading-tight lg:text-3xl xl:text-3xl">
+              <span className="bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
+                Blue Edu – LMS gọn nhẹ + AI siêu tốc cho giáo viên thời đại mới
+              </span>
+            </h1>
+          </div>
+
+          {/* Content Section - 2 columns layout */}
+          <div className="-mx-4 flex flex-wrap items-center">
+            {/* Content Section - Left */}
+            <div className="w-full px-4 lg:w-1/2">
+              <div className="mx-auto max-w-[600px] lg:mx-0">
+                {/* Sub-headline */}
+                <p className="mb-6 text-xl font-semibold leading-relaxed text-primary dark:text-primary sm:text-2xl md:text-xl lg:text-2xl animate-fade-in-up animation-delay-200">
+                  Soạn bài nhanh hơn. Tạo đề trong vài giây. Quản lớp thông minh – nhàn hơn gấp đôi.
                 </p>
-                <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+
+                {/* Description */}
+                <p className="mb-8 text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-base lg:text-lg animate-fade-in-up animation-delay-400">
+                  BlueEdu là phiên bản LMS tinh gọn của Blue Rise – thiết kế riêng cho giáo viên cá nhân: dễ dùng, mạnh mẽ, chi phí hợp lý và AI được huấn luyện theo chương trình giáo dục Việt Nam.
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="mb-8 flex flex-col items-start space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 animate-fade-in-up animation-delay-600">
                   <Link
-                    href="https://nextjstemplates.com/templates/saas-starter-startup"
-                    className="rounded-xs bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                    href="#contact"
+                    className="group relative w-full overflow-hidden rounded-xs bg-primary px-8 py-4 text-center text-base font-semibold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/90 hover:shadow-2xl active:scale-95"
                   >
-                    🔥 Get Pro
+                    <span className="relative z-10 flex items-center justify-center">
+                      <span className="mr-2 animate-bounce">👉</span>
+                      Dùng thử miễn phí
+                    </span>
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
                   </Link>
                   <Link
-                    href="https://github.com/NextJSTemplates/startup-nextjs"
-                    className="inline-block rounded-xs bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
+                    href="#features"
+                    className="group relative inline-block w-full overflow-hidden rounded-xs border-2 border-primary bg-transparent px-8 py-4 text-center text-base font-semibold text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/10 hover:shadow-lg active:scale-95 dark:text-primary dark:hover:bg-primary/20"
                   >
-                    Star on GitHub
+                    <span className="relative z-10">Xem demo 90s</span>
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/10 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
                   </Link>
+                </div>
+
+                {/* CTA Note */}
+                <p className="animate-fade-in-up animation-delay-800 text-sm text-body-color dark:text-body-color-dark sm:text-base">
+                  <span className="inline-block animate-pulse">👉</span> Dùng ngay trong 3 phút – không cần hướng dẫn.
+                </p>
+              </div>
+            </div>
+
+            {/* Visual Section - Right */}
+            <div className="w-full px-4 lg:w-1/2">
+              <div className="relative mx-auto max-w-[600px] animate-fade-in-right lg:mx-0">
+                <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-gray-light shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-primary/20 dark:bg-gray-dark">
+                  {/* Placeholder for visual - Replace with actual image */}
+                  <div className="flex h-full items-center justify-center">
+                    <div className="text-center">
+                      <div className="mb-4 animate-float text-6xl">📱</div>
+                      <p className="text-body-color animate-fade-in text-sm dark:text-body-color-dark">
+                        Ảnh minh họa màn hình giao diện hoặc animation AI
+                      </p>
+                    </div>
+                  </div>
+                  {/* Floating particles effect */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute left-1/4 top-1/4 h-2 w-2 animate-float-delayed rounded-full bg-primary/30"></div>
+                    <div className="absolute right-1/4 top-1/3 h-3 w-3 animate-float-delayed-2 rounded-full bg-primary/20"></div>
+                    <div className="absolute bottom-1/4 left-1/3 h-2 w-2 animate-float-delayed-3 rounded-full bg-primary/25"></div>
+                  </div>
+                  {/* Uncomment when you have the actual image:
+                  <Image
+                    src="/images/hero/dashboard-preview.png"
+                    alt="Blue Edu Dashboard Preview"
+                    fill
+                    className="object-contain animate-fade-in"
+                    priority
+                  />
+                  */}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="absolute right-0 top-0 z-[-1] opacity-30 lg:opacity-100">
+        <div className="absolute right-0 top-0 z-[-1] animate-float-slow opacity-30 lg:opacity-100">
           <svg
             width="450"
             height="556"
@@ -176,7 +232,7 @@ const Hero = () => {
             </defs>
           </svg>
         </div>
-        <div className="absolute bottom-0 left-0 z-[-1] opacity-30 lg:opacity-100">
+        <div className="absolute bottom-0 left-0 z-[-1] animate-float-slow-reverse opacity-30 lg:opacity-100">
           <svg
             width="364"
             height="201"
