@@ -74,13 +74,11 @@ const AboutSectionOne = () => {
         {/* Comparison Table - 3 Columns */}
         <div className="mx-auto max-w-6xl">
           <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-800">
-            {/* Table Header */}
-            <div className="border-b border-gray-200 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10 p-6 dark:border-gray-700">
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div className="font-bold text-gray-600 dark:text-gray-300">Tính năng</div>
-                <div className="font-bold text-primary dark:text-primary">Blue Edu</div>
-                <div className="font-bold text-gray-400 dark:text-gray-500">Hệ thống khác</div>
-              </div>
+            {/* Table Header - Hidden on mobile, shown on desktop */}
+            <div className="hidden border-b border-gray-200 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10 p-4 md:p-6 dark:border-gray-700 md:grid md:grid-cols-3 md:gap-4 md:text-center">
+              <div className="font-bold text-gray-600 dark:text-gray-300">Tính năng</div>
+              <div className="font-bold text-primary dark:text-primary">Blue Edu</div>
+              <div className="font-bold text-gray-400 dark:text-gray-500">Hệ thống khác</div>
             </div>
 
             {/* Table Body */}
@@ -91,7 +89,43 @@ const AboutSectionOne = () => {
                   className="group animate-fade-in-up transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
                   style={{ animationDelay: `${feature.delay}ms` }}
                 >
-                  <div className="grid grid-cols-3 gap-4 p-6">
+                  {/* Mobile Layout - Stacked */}
+                  <div className="block md:hidden">
+                    <div className="p-4">
+                      {/* Feature Title */}
+                      <div className="mb-4 flex items-center gap-3">
+                        <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} text-xl shadow-lg`}>
+                          {feature.icon}
+                        </div>
+                        <p className="text-sm font-semibold text-black dark:text-white">
+                          {feature.title}
+                        </p>
+                      </div>
+
+                      {/* Comparison Row */}
+                      <div className="flex items-center justify-between rounded-lg bg-gray-50 p-3 dark:bg-gray-800/50">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-medium text-gray-600 dark:text-gray-400">Blue Edu:</span>
+                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 text-white shadow-md">
+                            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-medium text-gray-600 dark:text-gray-400">Hệ thống khác:</span>
+                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-300 text-white dark:bg-gray-600">
+                            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Desktop Layout - 3 Columns */}
+                  <div className="hidden md:grid md:grid-cols-3 md:gap-4 md:p-6">
                     {/* Feature Column */}
                     <div className="flex items-center gap-4">
                       <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} text-2xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
