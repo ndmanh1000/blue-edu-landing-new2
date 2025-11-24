@@ -58,7 +58,7 @@ const Features = () => {
                 <div className="mb-4 animate-bounce text-5xl sm:mb-0 sm:mr-4 sm:text-6xl">⚠️</div>
                 <h2 className="relative text-3xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-5xl lg:text-4xl">
                   <span className="relative bg-gradient-to-r from-red-500 via-orange-500 to-red-500 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
-                    Giáo viên đang quá tải vì những việc 'không phải là dạy'
+                    Giáo viên đang quá tải vì những việc &apos;không phải là dạy&apos;
                   </span>
                   {/* Underline animation */}
                   <span className="absolute -bottom-2 left-0 h-1 w-full animate-pulse bg-gradient-to-r from-red-500 via-orange-500 to-red-500 opacity-50"></span>
@@ -133,7 +133,7 @@ const Features = () => {
               <div className="absolute -right-10 -top-10 h-32 w-32 animate-float rounded-full bg-red-200/30 blur-2xl dark:bg-red-800/20"></div>
               <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-float-delayed rounded-full bg-orange-200/30 blur-2xl dark:bg-orange-800/20"></div>
 
-              <div className="absolute left-6 top-6 animate-pulse text-7xl text-red-200 dark:text-red-800">"</div>
+              <div className="absolute left-6 top-6 animate-pulse text-7xl text-red-200 dark:text-red-800">&ldquo;</div>
               <div className="relative z-10 text-center">
                 <div className="mb-4 inline-flex items-center justify-center rounded-full bg-red-100 px-4 py-2 dark:bg-red-900/30">
                   <p className="text-lg font-semibold text-red-700 dark:text-red-300">
@@ -155,7 +155,7 @@ const Features = () => {
                   </span>
                 </div>
               </div>
-              <div className="absolute bottom-6 right-6 animate-pulse text-7xl text-red-200 dark:text-red-800" style={{ animationDelay: '0.5s' }}>"</div>
+              <div className="absolute bottom-6 right-6 animate-pulse text-7xl text-red-200 dark:text-red-800" style={{ animationDelay: '0.5s' }}>&rdquo;</div>
 
               {/* Animated border glow */}
               <div className="absolute inset-0 rounded-3xl border-2 border-red-400 opacity-0 transition-opacity duration-500 group-hover:opacity-30 dark:border-red-600"></div>
