@@ -70,6 +70,7 @@ const Features = () => {
 
           {/* Pain List */}
           <div className="mx-auto mb-16 max-w-5xl">
+
             <div className="grid gap-6 md:grid-cols-2">
               {painPoints.map((point, index) => (
                 <div
