@@ -43,14 +43,22 @@ const Hero = () => {
                       <span className="mr-2 animate-bounce">👉</span>
                       Dùng thử miễn phí
                     </span>
-                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
+                    {/* Shine effect */}
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
+                    {/* Shadow running effect - multiple layers for depth */}
+                    <span className="absolute -inset-2 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent blur-2xl transition-transform duration-1000 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
+                    <span className="absolute -inset-1 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent blur-xl transition-transform duration-1000 delay-75 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
                   </Link>
                   <Link
                     href="#features"
                     className="group relative inline-block w-full overflow-hidden rounded-xs border-2 border-primary bg-transparent px-8 py-4 text-center text-base font-semibold text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/10 hover:shadow-lg active:scale-95 dark:text-primary dark:hover:bg-primary/20"
                   >
                     <span className="relative z-10">Xem demo 90s</span>
-                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/10 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
+                    {/* Shine effect */}
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
+                    {/* Shadow running effect - multiple layers for depth */}
+                    <span className="absolute -inset-2 -translate-x-full bg-gradient-to-r from-transparent via-primary/40 to-transparent blur-2xl transition-transform duration-1000 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
+                    <span className="absolute -inset-1 -translate-x-full bg-gradient-to-r from-transparent via-primary/30 to-transparent blur-xl transition-transform duration-1000 delay-75 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
                   </Link>
                 </div>
 
