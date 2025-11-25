@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useMemo } from "react";
 
 const Features = () => {
   const painPoints = [
@@ -9,6 +10,16 @@ const Features = () => {
     "Không có báo cáo học sinh theo thời gian thực",
     "Dùng nhiều công cụ rời rạc, không nền tảng nào 'tròn trịa'",
   ];
+
+  // Generate random positions for particles once
+  const particleData = useMemo<Array<{ left: number; top: number; delay: number; duration: number }>>(() => {
+    return Array.from({ length: 12 }, () => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      delay: Math.random() * 3,
+      duration: 3 + Math.random() * 2,
+    }));
+  }, []);
 
   return (
     <>
@@ -23,15 +34,15 @@ const Features = () => {
 
         {/* Floating particles */}
         <div className="absolute inset-0 -z-0 overflow-hidden">
-          {[...Array(12)].map((_, i) => (
+          {particleData.map((particle, i) => (
             <div
               key={i}
               className="absolute h-2 w-2 rounded-full bg-primary/20 animate-float-delayed"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`,
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                animationDelay: `${particle.delay}s`,
+                animationDuration: `${particle.duration}s`,
               }}
             ></div>
           ))}
