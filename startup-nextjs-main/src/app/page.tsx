@@ -13,8 +13,8 @@ import Story from "@/components/Story";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Next.js Template for Startup and SaaS",
-  description: "This is Home for Startup Nextjs Template",
+  title: "Blue Edu - LMS gọn nhẹ + AI siêu tốc cho giáo viên thời đại mới",
+  description: "Blue Edu - LMS gọn nhẹ + AI siêu tốc cho giáo viên thời đại mới",
   // other metadata
 };
 

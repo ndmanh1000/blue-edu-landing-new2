@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import ThemeToggler from "./ThemeToggler";
+
 import menuData from "./menuData";
 
 const Header = () => {
@@ -122,7 +122,7 @@ const Header = () => {
                   } `}
               >
                 <Image
-                  src="/images/logo/logo1.png"
+                  src="/images/logo/logo3.png"
                   alt="logo"
                   width={120}
                   height={40}
