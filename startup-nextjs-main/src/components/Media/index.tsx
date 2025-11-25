@@ -13,8 +13,8 @@ export default function Media() {
       <section id="media" className="relative z-10 py-16 md:py-20 lg:py-28">
         <div className="container">
           <SectionTitle
-            title="We are ready to help"
-            paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+            title="Video demo"
+            paragraph="Xem video demo để hiểu rõ hơn về tính năng của Blue Edu"
             center
             mb="80px"
           />
