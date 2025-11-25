@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useMemo } from "react";
 
 const Blog = () => {
   const products = [
@@ -27,6 +28,16 @@ const Blog = () => {
     },
   ];
 
+  // Generate random positions for particles once
+  const particleData = useMemo<Array<{ left: number; top: number; delay: number; duration: number }>>(() => {
+    return Array.from({ length: 15 }, () => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      delay: Math.random() * 3,
+      duration: 3 + Math.random() * 2,
+    }));
+  }, []);
+
   return (
     <section
       id="blog"
@@ -51,15 +62,15 @@ const Blog = () => {
 
       {/* Floating Particles */}
       <div className="absolute inset-0 -z-0 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
+        {particleData.map((particle, i) => (
           <div
             key={i}
             className="absolute h-2 w-2 rounded-full bg-primary/20 animate-float-delayed"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
+              animationDelay: `${particle.delay}s`,
+              animationDuration: `${particle.duration}s`,
             }}
           ></div>
         ))}
