@@ -3,40 +3,58 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    if (path.startsWith("#")) {
+      e.preventDefault();
+      const targetId = path.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
   return (
     <>
-      <footer className="relative z-10 bg-white pt-16 dark:bg-gray-dark md:pt-20 lg:pt-24">
+      <footer className="relative z-10 bg-gradient-to-br from-gray-50 to-white pt-16 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:pt-20 lg:pt-24">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
+            {/* Logo & Description */}
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
               <div className="mb-12 max-w-[360px] lg:mb-16">
                 <Link href="/" className="mb-8 inline-block">
                   <Image
-                    src="/images/logo/logo-2.svg"
-                    alt="logo"
-                    className="w-full dark:hidden"
-                    width={140}
-                    height={30}
-                  />
-                  <Image
-                    src="/images/logo/logo.svg"
-                    alt="logo"
-                    className="hidden w-full dark:block"
-                    width={140}
-                    height={30}
+                    src="/images/logo/logo1.png"
+                    alt="BlueEdu Logo"
+                    width={100}
+                    height={20}
+                    className="h-auto w-auto max-w-[100px] object-contain"
                   />
                 </Link>
-                <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer lobortis.
+                <p className="mb-6 text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                  BlueEdu – LMS gọn nhẹ + AI siêu tốc cho giáo viên thời đại mới.
+                  Soạn bài nhanh hơn. Tạo đề trong vài giây. Quản lớp thông minh – nhàn hơn gấp đôi.
                 </p>
-                <div className="flex items-center">
+                <p className="mb-9 text-sm leading-relaxed text-body-color dark:text-body-color-dark">
+                  Một phần của hệ sinh thái giáo dục <span className="font-semibold text-primary">Blue Rise</span>
+                </p>
+
+                {/* Social Media */}
+                <div className="flex items-center gap-4">
                   <a
-                    href="/"
-                    aria-label="social-link"
+                    href="https://facebook.com"
+                    aria-label="Facebook"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-body-color transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white dark:text-body-color-dark"
                   >
                     <svg
                       width="18"
@@ -52,11 +70,11 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a
-                    href="/"
-                    aria-label="social-link"
+                    href="https://twitter.com"
+                    aria-label="Twitter"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-body-color transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white dark:text-body-color-dark"
                   >
                     <svg
                       width="18"
@@ -74,11 +92,11 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a
-                    href="/"
-                    aria-label="social-link"
+                    href="https://youtube.com"
+                    aria-label="YouTube"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-6 text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-body-color transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white dark:text-body-color-dark"
                   >
                     <svg
                       width="18"
@@ -90,11 +108,11 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a
-                    href="/"
-                    aria-label="social-link"
+                    href="https://linkedin.com"
+                    aria-label="LinkedIn"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-body-color transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white dark:text-body-color-dark"
                   >
                     <svg
                       width="17"
@@ -109,130 +127,154 @@ const Footer = () => {
               </div>
             </div>
 
+            {/* Navigation Links */}
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Useful Links
+                  Điều hướng
                 </h2>
                 <ul>
                   <li>
                     <Link
-                      href="/blog"
+                      href="#home"
+                      onClick={(e) => handleLinkClick(e, "#home")}
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Blog
+                      Trang chủ
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="#about"
+                      onClick={(e) => handleLinkClick(e, "#about")}
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Pricing
+                      Về chúng tôi
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/about"
+                      href="#pricing"
+                      onClick={(e) => handleLinkClick(e, "#pricing")}
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      About
+                      Bảng giá
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#blog"
+                      onClick={(e) => handleLinkClick(e, "#blog")}
+                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    >
+                      Hệ sinh thái
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#contact"
+                      onClick={(e) => handleLinkClick(e, "#contact")}
+                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    >
+                      Liên hệ
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
 
+            {/* Products */}
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Terms
+                  Sản phẩm
                 </h2>
                 <ul>
                   <li>
                     <Link
-                      href="/"
+                      href="#home"
+                      onClick={(e) => handleLinkClick(e, "#home")}
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      TOS
+                      BlueEdu
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/"
+                    <a
+                      href="#"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Privacy Policy
-                    </Link>
+                      Blue Rise
+                    </a>
                   </li>
                   <li>
-                    <Link
-                      href="/"
+                    <a
+                      href="#"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Refund Policy
-                    </Link>
+                      DSchool
+                    </a>
                   </li>
                 </ul>
               </div>
             </div>
 
+            {/* Support & Legal */}
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Support & Help
+                  Hỗ trợ & Pháp lý
                 </h2>
                 <ul>
                   <li>
                     <Link
-                      href="/contact"
+                      href="#contact"
+                      onClick={(e) => handleLinkClick(e, "#contact")}
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Open Support Ticket
+                      Liên hệ hỗ trợ
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/"
+                    <a
+                      href="#"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Terms of Use
-                    </Link>
+                      Chính sách bảo mật
+                    </a>
                   </li>
                   <li>
-                    <Link
-                      href="/about"
+                    <a
+                      href="#"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      About
-                    </Link>
+                      Điều khoản sử dụng
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                    >
+                      Câu hỏi thường gặp
+                    </a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div className="h-px w-full bg-linear-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
+          {/* Divider */}
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
+
+          {/* Copyright */}
           <div className="py-8">
             <p className="text-center text-base text-body-color dark:text-white">
-              Template by{" "}
-              <a
-                href="http://uideck.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary"
-              >
-                UIdeck
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://nextjstemplates.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary"
-              >
-                Next.js Templates
-              </a>
+              © {new Date().getFullYear()} <span className="font-semibold text-primary">BlueEdu</span>.
+              {" "}Bản quyền thuộc về Blue Rise.{" "}
+              <span className="text-sm text-body-color/70 dark:text-body-color-dark/70">
+                Một phần của hệ sinh thái giáo dục số Việt Nam.
+              </span>
             </p>
           </div>
         </div>

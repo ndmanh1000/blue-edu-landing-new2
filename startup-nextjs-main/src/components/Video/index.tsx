@@ -44,7 +44,7 @@ export default function Video() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-16 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-20 lg:py-28">
+      <section id="video" className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-16 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-20 lg:py-28">
         {/* Animated Background Elements */}
         <div className="absolute right-0 top-0 -z-0 animate-float-slow opacity-20">
           <div className="h-96 w-96 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 blur-3xl"></div>
@@ -91,7 +91,7 @@ export default function Video() {
                   <span className="inline-block animate-bounce">✨</span>
 
                 </div>
-                <h2 className="relative text-3xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-5xl lg:text-4xl">
+                <h2 className="relative text-2xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-3xl lg:text-3xl">
                   <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
                     Blue Edu – Trợ lý dạy học tốc độ cao với AI
                   </span>

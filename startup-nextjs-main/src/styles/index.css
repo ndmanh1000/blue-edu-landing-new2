@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap')
-layer(base);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap') layer(base);
 
 @import 'tailwindcss';
 
@@ -73,6 +72,7 @@ layer(base);
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -111,13 +111,13 @@ layer(base);
 }
 
 @utility dot {
-  input#togglePlan:checked ~ & {
+  input#togglePlan:checked~& {
     @apply translate-x-full;
   }
 }
 
 @utility box {
-  input#checkboxLabel:checked ~ & span {
+  input#checkboxLabel:checked~& span {
     @apply opacity-100;
   }
 }
@@ -125,10 +125,22 @@ layer(base);
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Improve scroll performance */
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-top: 100px;
+    /* Account for sticky header */
   }
-  
+
   body {
     font-family: "Inter", sans-serif;
+    /* Smooth scrolling for better UX */
+    overflow-x: hidden;
+  }
+
+  /* Smooth scroll for all anchor links */
+  * {
+    scroll-margin-top: 100px;
+    /* Offset for sticky header */
   }
 }
 
@@ -138,6 +150,7 @@ layer(base);
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -149,6 +162,7 @@ layer(base);
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -160,6 +174,7 @@ layer(base);
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -167,27 +182,36 @@ layer(base);
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
 }
 
 @keyframes floatSlow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
   }
+
   50% {
     transform: translateY(-30px) translateX(10px);
   }
 }
 
 @keyframes floatSlowReverse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
   }
+
   50% {
     transform: translateY(30px) translateX(-10px);
   }
@@ -197,6 +221,7 @@ layer(base);
   0% {
     background-position: -200% center;
   }
+
   100% {
     background-position: 200% center;
   }
@@ -207,9 +232,11 @@ layer(base);
     transform: translateX(-100%) translateY(0);
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     transform: translateX(100%) translateY(0);
     opacity: 0;
@@ -217,9 +244,12 @@ layer(base);
 }
 
 @keyframes gradient {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -353,7 +383,7 @@ layer(base);
   top: 0;
   width: 20px;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 .book-cover-content {
@@ -410,12 +440,10 @@ layer(base);
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: repeating-linear-gradient(
-    transparent,
-    transparent 31px,
-    #E5E7EB 31px,
-    #E5E7EB 32px
-  );
+  background-image: repeating-linear-gradient(transparent,
+      transparent 31px,
+      #E5E7EB 31px,
+      #E5E7EB 32px);
   pointer-events: none;
   opacity: 0.3;
 }
@@ -458,23 +486,37 @@ layer(base);
 }
 
 @media (max-width: 768px) {
+
   .book-cover,
   .book-pages {
     width: 300px;
     height: 450px;
   }
-  
+
   .book-cover-content {
     padding: 20px;
   }
-  
+
   .book-page-content {
     padding: 20px;
   }
 }
 
 @layer components {
-  input[type="checkbox"]:checked ~ label span svg {
+  input[type="checkbox"]:checked~label span svg {
     @apply inline-flex;
   }
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
 }

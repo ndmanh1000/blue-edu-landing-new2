@@ -38,6 +38,33 @@ const Header = () => {
 
   const usePathName = usePathname();
 
+  // Smooth scroll function with easing
+  const smoothScrollTo = (targetPosition: number, duration: number = 800) => {
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime: number | null = null;
+
+    // Easing function for smooth animation (ease-in-out-cubic)
+    const easeInOutCubic = (t: number): number => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+
+    const animation = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+
+      window.scrollTo(0, startPosition + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+  };
+
   // Handle smooth scroll for anchor links
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     // If it's an anchor link (starts with #)
@@ -57,15 +84,16 @@ const Header = () => {
         // Close mobile menu if open
         setNavbarOpen(false);
 
-        // Calculate offset for sticky header
-        const headerOffset = sticky ? 80 : 0;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        // Small delay to ensure menu closes smoothly
+        setTimeout(() => {
+          // Calculate offset for sticky header (with extra padding for better spacing)
+          const headerOffset = sticky ? 100 : 20;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
+          // Use custom smooth scroll for better control
+          smoothScrollTo(offsetPosition, 800);
+        }, 100);
       }
     }
   };

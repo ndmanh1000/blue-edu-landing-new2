@@ -1,51 +1,263 @@
+"use client";
+
 import { Testimonial } from "@/types/testimonial";
+import { useState, useRef, useEffect } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import SingleTestimonial from "./SingleTestimonial";
 
 const testimonialData: Testimonial[] = [
   {
     id: 1,
-    name: "Musharof Chy",
-    designation: "Founder @TailGrids",
+    name: "Thầy Bun",
+    designation: "Giáo viên Toán",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "BlueEdu đã giúp tôi giảm thời gian chấm bài đáng kể và tăng độ chính xác của việc chấm bài.",
     image: "/images/testimonials/auth-01.png",
     star: 5,
   },
   {
     id: 2,
-    name: "Devid Weilium",
-    designation: "Founder @UIdeck",
+    name: "Thầy Bin",
+    designation: "Giáo viên Vật Lý",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "BlueEdu đã giúp tôi giảm thời gian chấm bài đáng kể và tăng độ chính xác của việc chấm bài.",
     image: "/images/testimonials/auth-02.png",
     star: 5,
   },
   {
     id: 3,
-    name: "Lethium Frenci",
-    designation: "Founder @Lineicons",
+    name: "Thầy Bi",
+    designation: "Giáo viên Hóa Học",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "BlueEdu đã giúp tôi giảm thời gian chấm bài đáng kể và tăng độ chính xác của việc chấm bài.",
+    image: "/images/testimonials/auth-03.png",
+    star: 5,
+  },
+  {
+    id: 4,
+    name: "Cô T.",
+    designation: "Giáo viên",
+    content: "BlueEdu đã giúp tôi giảm thời gian chấm bài đáng kể và tăng độ chính xác của việc chấm bài.",
+    image: "/images/testimonials/auth-01.png",
+    star: 5,
+  },
+  {
+    id: 5,
+    name: "Thầy L.",
+    designation: "Giáo viên",
+    content: "BlueEdu đã giúp tôi giảm thời gian chấm bài đáng kể và tăng độ chính xác của việc chấm bài.",
+    image: "/images/testimonials/auth-02.png",
+    star: 5,
+  },
+  {
+    id: 6,
+    name: "Cô M.",
+    designation: "Giáo viên",
+    content: "BlueEdu đã giúp tôi giảm thời gian chấm bài đáng kể và tăng độ chính xác của việc chấm bài.",
     image: "/images/testimonials/auth-03.png",
     star: 5,
   },
 ];
 
 const Testimonials = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  // Cards visible at once based on screen size
+  const getCardsPerView = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth >= 1024) return 3; // lg: 3 cards
+      if (window.innerWidth >= 768) return 2; // md: 2 cards
+      return 1; // sm: 1 card
+    }
+    return 3;
+  };
+
+  const [cardsPerView, setCardsPerView] = useState(getCardsPerView());
+
+  const maxIndex = Math.max(0, testimonialData.length - cardsPerView);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCardsPerView(getCardsPerView());
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Sync currentIndex with scroll position
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const handleScroll = () => {
+      const containerWidth = carousel.clientWidth;
+      const cardWidth = containerWidth / cardsPerView;
+      const gap = 32;
+      const totalCardWidth = cardWidth + gap;
+      const newIndex = Math.round(carousel.scrollLeft / totalCardWidth);
+      const clampedIndex = Math.max(0, Math.min(newIndex, maxIndex));
+
+      if (clampedIndex !== currentIndex) {
+        setCurrentIndex(clampedIndex);
+      }
+    };
+
+    carousel.addEventListener('scroll', handleScroll);
+    return () => carousel.removeEventListener('scroll', handleScroll);
+  }, [cardsPerView, maxIndex, currentIndex]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!carouselRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !carouselRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    if (!carouselRef.current) return;
+
+    // Calculate which card should be in view
+    const containerWidth = carouselRef.current.clientWidth;
+    const cardWidth = containerWidth / cardsPerView;
+    const gap = 32; // 2rem = 32px
+    const totalCardWidth = cardWidth + gap;
+    const newIndex = Math.round(carouselRef.current.scrollLeft / totalCardWidth);
+    const clampedIndex = Math.max(0, Math.min(newIndex, maxIndex));
+
+    setCurrentIndex(clampedIndex);
+
+    // Smooth snap to card
+    carouselRef.current.scrollTo({
+      left: clampedIndex * totalCardWidth,
+      behavior: 'smooth',
+    });
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!carouselRef.current) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !carouselRef.current) return;
+    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    handleMouseUp();
+  };
+
+  const goToSlide = (index: number) => {
+    const clampedIndex = Math.max(0, Math.min(index, maxIndex));
+    setCurrentIndex(clampedIndex);
+    if (carouselRef.current) {
+      const containerWidth = carouselRef.current.clientWidth;
+      const cardWidth = containerWidth / cardsPerView;
+      const gap = 32; // 2rem = 32px
+      const totalCardWidth = cardWidth + gap;
+      carouselRef.current.scrollTo({
+        left: clampedIndex * totalCardWidth,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
-    <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
+    <section id="testimonials" className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Các đánh giá của các giáo viên đã sử dụng BlueEdu"
+          paragraph="Các giáo viên đã sử dụng BlueEdu và đánh giá tích cực về chất lượng và tính tiện lợi của nền tảng."
           center
         />
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          {testimonialData.map((testimonial) => (
-            <SingleTestimonial key={testimonial.id} testimonial={testimonial} />
-          ))}
+        {/* Carousel Container */}
+        <div className="relative">
+          {/* Carousel */}
+          <div
+            ref={carouselRef}
+            className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth"
+            style={{
+              cursor: isDragging ? 'grabbing' : 'grab',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {testimonialData.map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="flex-shrink-0"
+                style={{
+                  width: `calc((100% - ${(cardsPerView - 1) * 2}rem) / ${cardsPerView})`,
+                }}
+              >
+                <SingleTestimonial testimonial={testimonial} />
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation Dots */}
+          <div className="mt-8 flex items-center justify-center gap-2">
+            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
+                  ? 'w-8 bg-primary'
+                  : 'w-2 bg-gray-300 dark:bg-gray-600'
+                  }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={() => goToSlide(currentIndex - 1)}
+            disabled={currentIndex === 0}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 rounded-full bg-white p-3 shadow-lg transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 dark:bg-gray-800 lg:-translate-x-12"
+            aria-label="Previous slide"
+          >
+            <svg className="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            onClick={() => goToSlide(currentIndex + 1)}
+            disabled={currentIndex >= maxIndex}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 rounded-full bg-white p-3 shadow-lg transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 dark:bg-gray-800 lg:translate-x-12"
+            aria-label="Next slide"
+          >
+            <svg className="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
       <div className="absolute right-0 top-5 z-[-1]">

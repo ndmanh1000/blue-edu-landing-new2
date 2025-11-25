@@ -9,20 +9,20 @@ const menuData: Menu[] = [
   },
   {
     id: 2,
-    title: "About",
-    path: "#about",
+    title: "Vấn đề",
+    path: "#features",
     newTab: false,
   },
   {
     id: 33,
-    title: "Blog",
-    path: "#blog",
+    title: "Tính năng AI",
+    path: "#video",
     newTab: false,
   },
   {
     id: 3,
-    title: "Support",
-    path: "#contact",
+    title: "Tính năng LMS",
+    path: "#brands",
     newTab: false,
   },
   {
@@ -32,52 +32,42 @@ const menuData: Menu[] = [
     submenu: [
       {
         id: 41,
-        title: "About Page",
-        path: "/about",
+        title: "So sánh",
+        path: "#about",
         newTab: false,
       },
       {
         id: 42,
-        title: "Contact Page",
-        path: "/contact",
+        title: "Story",
+        path: "#story",
         newTab: false,
       },
       {
         id: 43,
-        title: "Blog Grid Page",
-        path: "/blog",
+        title: "Báo giá",
+        path: "#pricing",
         newTab: false,
       },
       {
         id: 44,
-        title: "Blog Sidebar Page",
-        path: "/blog-sidebar",
+        title: "Video",
+        path: "#video",
         newTab: false,
       },
       {
         id: 45,
-        title: "Blog Details Page",
-        path: "/blog-details",
+        title: "Review",
+        path: "#testimonials",
         newTab: false,
       },
       {
         id: 46,
-        title: "Sign In Page",
-        path: "/signin",
+        title: "Hệ sinh thái",
+        path: "#blog",
         newTab: false,
       },
-      {
-        id: 47,
-        title: "Sign Up Page",
-        path: "/signup",
-        newTab: false,
-      },
-      {
-        id: 48,
-        title: "Error Page",
-        path: "/error",
-        newTab: false,
-      },
+
+
     ],
   },
 ];

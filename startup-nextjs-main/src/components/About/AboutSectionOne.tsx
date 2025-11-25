@@ -64,7 +64,7 @@ const AboutSectionOne = () => {
       <div className="container relative z-10">
         {/* Section Title */}
         <div className="mb-16 text-center animate-fade-in-down">
-          <h2 className="mb-4 text-3xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-5xl">
+          <h2 className="mb-4 text-2xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-3xl">
             <span className="bg-gradient-to-r from-primary via-purple-600 to-primary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
               Vì sao Blue Edu vượt trội nhất trên thị trường?
             </span>
@@ -168,7 +168,7 @@ const AboutSectionOne = () => {
             <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-float-delayed rounded-full bg-purple-500/20 blur-2xl"></div>
 
             <div className="relative z-10 text-center">
-              <h3 className="mb-4 text-2xl font-bold text-black dark:text-white md:text-3xl">
+              <h3 className="mb-4 text-2xl font-bold text-black dark:text-white md:text-2xl">
                 Blue Edu - Giải pháp toàn diện cho giáo viên
               </h3>
               <p className="mb-6 text-lg leading-relaxed text-body-color dark:text-body-color-dark">

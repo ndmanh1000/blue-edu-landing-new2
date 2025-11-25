@@ -56,7 +56,7 @@ const Features = () => {
 
               <div className="relative inline-flex flex-col items-center justify-center sm:flex-row">
                 <div className="mb-4 animate-bounce text-5xl sm:mb-0 sm:mr-4 sm:text-6xl">⚠️</div>
-                <h2 className="relative text-3xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-5xl lg:text-4xl">
+                <h2 className="relative text-2xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-3xl lg:text-3xl">
                   <span className="relative bg-gradient-to-r from-red-500 via-orange-500 to-red-500 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
                     Giáo viên đang quá tải vì những việc &apos;không phải là dạy&apos;
                   </span>
@@ -142,16 +142,16 @@ const Features = () => {
                   </p>
                 </div>
                 <div className="mt-6 space-x-2 space-y-2 sm:space-x-4">
-                  <span className="inline-block animate-bounce rounded-lg bg-white/80 px-4 py-2 text-2xl font-bold text-red-600 shadow-md transition-all duration-300 hover:scale-110 dark:bg-gray-800/80 dark:text-red-400 md:text-3xl">
+                  <span className="inline-block animate-bounce rounded-lg bg-white/80 px-4 py-2 text-2xl font-bold text-red-600 shadow-md transition-all duration-300 hover:scale-110 dark:bg-gray-800/80 dark:text-red-400 md:text-2xl">
                     Rối.
                   </span>
-                  <span className="inline-block animate-bounce rounded-lg bg-white/80 px-4 py-2 text-2xl font-bold text-red-600 shadow-md transition-all duration-300 hover:scale-110 animation-delay-200 dark:bg-gray-800/80 dark:text-red-400 md:text-3xl">
+                  <span className="inline-block animate-bounce rounded-lg bg-white/80 px-4 py-2 text-2xl font-bold text-red-600 shadow-md transition-all duration-300 hover:scale-110 animation-delay-200 dark:bg-gray-800/80 dark:text-red-400 md:text-2xl">
                     Mệt.
                   </span>
-                  <span className="inline-block animate-bounce rounded-lg bg-white/80 px-4 py-2 text-2xl font-bold text-red-600 shadow-md transition-all duration-300 hover:scale-110 animation-delay-400 dark:bg-gray-800/80 dark:text-red-400 md:text-3xl">
+                  <span className="inline-block animate-bounce rounded-lg bg-white/80 px-4 py-2 text-2xl font-bold text-red-600 shadow-md transition-all duration-300 hover:scale-110 animation-delay-400 dark:bg-gray-800/80 dark:text-red-400 md:text-2xl">
                     Dễ lỗi.
                   </span>
-                  <span className="inline-block animate-bounce rounded-lg bg-white/80 px-4 py-2 text-2xl font-bold text-red-600 shadow-md transition-all duration-300 hover:scale-110 animation-delay-600 dark:bg-gray-800/80 dark:text-red-400 md:text-3xl">
+                  <span className="inline-block animate-bounce rounded-lg bg-white/80 px-4 py-2 text-2xl font-bold text-red-600 shadow-md transition-all duration-300 hover:scale-110 animation-delay-600 dark:bg-gray-800/80 dark:text-red-400 md:text-2xl">
                     Mất thời gian.
                   </span>
                 </div>
@@ -174,7 +174,7 @@ const Features = () => {
                 <div className="h-20 w-20 rounded-full bg-primary/20 blur-xl"></div>
               </div>
 
-              <p className="relative text-2xl font-bold text-black dark:text-white md:text-3xl lg:text-4xl">
+              <p className="relative text-2xl font-bold text-black dark:text-white md:text-3xl lg:text-3xl">
                 <span className="bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
                   BlueEdu được tạo ra để thay đổi điều đó.
                 </span>

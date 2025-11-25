@@ -104,7 +104,7 @@ const Brands = () => {
   const currentFeature = features[currentPage];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 py-16 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 md:py-20 lg:py-28">
+    <section id="brands" className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 py-16 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 md:py-20 lg:py-28">
       {/* Background decorative elements */}
       <div className="absolute right-0 top-0 -z-0 animate-float-slow opacity-10">
         <div className="h-96 w-96 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 blur-3xl"></div>
@@ -116,7 +116,7 @@ const Brands = () => {
       <div className="container relative z-10">
         {/* Section Title */}
         <div className="mb-12 text-center animate-fade-in-down">
-          <h2 className="mb-4 text-3xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-5xl">
+          <h2 className="mb-4 text-2xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-4xl">
             <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
               Tính năng chuyên sâu của Blue Edu
             </span>
