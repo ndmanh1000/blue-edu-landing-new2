@@ -51,7 +51,7 @@ const menuData: Menu[] = [
       {
         id: 44,
         title: "Video",
-        path: "#video",
+        path: "#media",
         newTab: false,
       },
       {

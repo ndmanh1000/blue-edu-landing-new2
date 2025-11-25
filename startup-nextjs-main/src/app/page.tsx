@@ -11,6 +11,7 @@ import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import Story from "@/components/Story";
 import { Metadata } from "next";
+import Media from "@/components/Media";
 
 export const metadata: Metadata = {
   title: "Blue Edu - LMS gọn nhẹ + AI siêu tốc cho giáo viên thời đại mới",
@@ -28,6 +29,7 @@ export default function Home() {
       <Brands />
       <AboutSectionOne />
       <Story />
+      <Media />
       <Pricing />
       <Testimonials />
       <Blog />
