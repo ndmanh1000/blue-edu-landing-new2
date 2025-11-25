@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import menuData from "./menuData";
 
+
 const Header = () => {
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -35,6 +36,18 @@ const Header = () => {
       setOpenIndex(index);
     }
   };
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (navbarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [navbarOpen]);
 
   const usePathName = usePathname();
 
@@ -133,33 +146,12 @@ const Header = () => {
             </div>
             <div className="flex w-full items-center justify-end px-4">
               <div className="ml-auto">
-                <button
-                  onClick={navbarToggleHandler}
-                  id="navbarToggler"
-                  aria-label="Mobile Menu"
-                  className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-3 py-[6px] focus:ring-2 lg:hidden z-50"
-                >
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "top-[7px] rotate-45" : " "
-                      }`}
-                  />
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0" : " "
-                      }`}
-                  />
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "top-[-8px] -rotate-45" : " "
-                      }`}
-                  />
-                </button>
+                {/* Desktop Navigation */}
                 <nav
                   id="navbarCollapse"
-                  className={`navbar border-body-color/50 dark:border-body-color/20 dark:bg-dark absolute right-0 z-50 w-[250px] rounded border-[.5px] bg-white px-6 py-4 duration-300 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 lg:ml-auto ${navbarOpen
-                    ? "visibility top-full opacity-100"
-                    : "invisible top-[120%] opacity-0"
-                    }`}
+                  className="hidden lg:block lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 lg:ml-auto"
                 >
-                  <ul className="block lg:flex lg:space-x-12">
+                  <ul className="flex space-x-12">
                     {menuData.map((menuItem, index) => (
                       <li key={index} className="group relative">
                         {menuItem.path ? (
@@ -216,16 +208,159 @@ const Header = () => {
                     ))}
                   </ul>
                 </nav>
+
+                {/* Mobile Menu Button */}
+                <button
+                  onClick={navbarToggleHandler}
+                  id="navbarToggler"
+                  aria-label="Mobile Menu"
+                  className={`ring-primary relative z-[999999] block rounded-lg p-2 focus:ring-2 lg:hidden transition-all duration-300 ${navbarOpen ? "bg-primary/10" : ""}`}
+                >
+                  <div className="flex h-6 w-6 flex-col items-center justify-center gap-1.5">
+                    <span
+                      className={`block h-0.5 w-6 bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "translate-y-2 rotate-45" : ""}`}
+                    />
+                    <span
+                      className={`block h-0.5 w-6 bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0" : ""}`}
+                    />
+                    <span
+                      className={`block h-0.5 w-6 bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "-translate-y-2 -rotate-45" : ""}`}
+                    />
+                  </div>
+                </button>
               </div>
-              {/* <div className="flex items-center justify-end pr-16 lg:pr-0">
-                <div>
-                  <ThemeToggler />
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Overlay - Outside header to avoid stacking context issues */}
+      <div
+        className={`fixed inset-0 z-[999998] bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${navbarOpen ? "opacity-100" : "pointer-events-none opacity-0"}`}
+        onClick={navbarToggleHandler}
+      />
+
+      {/* Mobile Menu Sidebar - Outside header to avoid stacking context issues */}
+      <div
+        className={`fixed top-0 right-0 z-[999999] h-full w-[85%] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-out dark:bg-gray-dark lg:hidden ${navbarOpen ? "translate-x-0" : "translate-x-full"}`}
+      >
+        {/* Mobile Menu Header */}
+        <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4 dark:border-gray-700">
+          <Image
+            src="/images/logo/logo3.png"
+            alt="logo"
+            width={100}
+            height={33}
+            className="h-auto w-auto max-w-[110px] object-contain"
+          />
+          <button
+            onClick={navbarToggleHandler}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+            aria-label="Close menu"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        {/* Mobile Menu Content */}
+        <div className="h-[calc(100%-80px)] overflow-y-auto px-4 py-6">
+          <ul className="space-y-2">
+            {menuData.map((menuItem, index) => (
+              <li key={index} className="group">
+                {menuItem.path ? (
+                  <Link
+                    href={menuItem.path}
+                    onClick={(e) => {
+                      handleLinkClick(e, menuItem.path);
+                      setNavbarOpen(false);
+                    }}
+                    className={`flex items-center gap-3 rounded-lg px-4 py-3 text-base font-medium transition-all hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 ${usePathName === menuItem.path || (menuItem.path.startsWith("#") && typeof window !== "undefined" && window.location.hash === menuItem.path)
+                      ? "bg-primary/10 text-primary dark:text-white"
+                      : "text-dark dark:text-white/70"
+                      }`}
+                  >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
+                      {index === 0 && "🏠"}
+                      {index === 1 && "⚠️"}
+                      {index === 2 && "🤖"}
+                      {index === 3 && "📚"}
+                      {index === 4 && "📄"}
+                    </span>
+                    {menuItem.title}
+                  </Link>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => handleSubmenu(index)}
+                      className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-dark transition-all hover:bg-primary/10 hover:text-primary dark:text-white/70 dark:hover:bg-primary/20"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
+                          📄
+                        </span>
+                        {menuItem.title}
+                      </div>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        className={`transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`}
+                      >
+                        <path
+                          d="M5 7.5L10 12.5L15 7.5"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${openIndex === index ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                        }`}
+                    >
+                      <ul className="ml-4 mt-2 space-y-1 border-l-2 border-primary/20 pl-4">
+                        {menuItem.submenu?.map((submenuItem, subIndex) => (
+                          <li key={subIndex}>
+                            <Link
+                              href={submenuItem.path}
+                              onClick={(e) => {
+                                if (submenuItem.path.startsWith("#")) {
+                                  handleLinkClick(e, submenuItem.path);
+                                }
+                                setNavbarOpen(false);
+                              }}
+                              className="block rounded-lg px-4 py-2.5 text-sm text-dark transition-all hover:bg-primary/10 hover:text-primary dark:text-white/70 dark:hover:text-white"
+                            >
+                              {submenuItem.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          {/* Theme Toggler in Mobile Menu */}
+
+        </div>
+      </div>
     </>
   );
 };
