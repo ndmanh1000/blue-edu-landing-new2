@@ -82,21 +82,21 @@ const Features = () => {
           {/* Pain List */}
           <div className="mx-auto mb-12 max-w-5xl">
 
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
               {painPoints.map((point, index) => (
                 <div
                   key={index}
-                  className="group animate-fade-in-up"
+                  className={`group flex animate-fade-in-up ${index === painPoints.length - 1 ? 'md:col-span-2 md:mx-auto md:max-w-2xl' : ''}`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="relative overflow-hidden rounded-lg border-l-4 border-red-400 bg-gradient-to-br from-white to-gray-50 p-4 shadow-lg transition-all duration-500 hover:scale-[1.03] hover:border-red-500 hover:shadow-2xl hover:shadow-red-200/50 dark:from-gray-800 dark:to-gray-900 dark:hover:shadow-red-900/20 sm:p-5">
+                  <div className="relative flex w-full flex-col overflow-hidden rounded-lg border-l-4 border-red-400 bg-gradient-to-br from-white to-gray-50 p-4 shadow-lg transition-all duration-500 hover:scale-[1.03] hover:border-red-500 hover:shadow-2xl hover:shadow-red-200/50 dark:from-gray-800 dark:to-gray-900 dark:hover:shadow-red-900/20 sm:p-5">
                     {/* Animated background gradient */}
                     <div className="absolute inset-0 -z-0 bg-gradient-to-r from-red-50/0 via-red-50/50 to-red-50/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-red-900/0 dark:via-red-900/20 dark:to-red-900/0"></div>
 
                     {/* Glow effect on hover */}
                     <div className="absolute -inset-1 -z-0 rounded-xl bg-gradient-to-r from-red-400 via-orange-400 to-red-400 opacity-0 blur transition-opacity duration-500 group-hover:opacity-20"></div>
 
-                    <div className="relative z-10 flex items-start">
+                    <div className="relative z-10 flex flex-1 items-start">
                       <div className="mr-4 flex-shrink-0">
                         <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-red-100 to-orange-100 text-red-600 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 dark:from-red-900/30 dark:to-orange-900/30 dark:text-red-400">
                           <svg
@@ -132,7 +132,7 @@ const Features = () => {
 
           {/* Pain Feeling - Quote Style */}
           <div className="mx-auto mb-12 max-w-4xl animate-fade-in-up animation-delay-600">
-            <div className="group relative overflow-hidden rounded-xl border-2 border-red-200 bg-gradient-to-br from-red-50 via-orange-50 to-red-50 p-5 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-red-200/50 dark:border-red-800 dark:from-red-900/20 dark:via-orange-900/20 dark:to-red-900/20 dark:hover:shadow-red-900/30 sm:p-6">
+            <div className="group relative overflow-hidden rounded-lg border-l-4 border-red-400 bg-gradient-to-br from-white to-gray-50 p-4 shadow-lg transition-all duration-500 hover:scale-[1.02] hover:border-red-500 hover:shadow-2xl hover:shadow-red-200/50 dark:from-gray-800 dark:to-gray-900 dark:border-red-800 dark:hover:shadow-red-900/20 sm:p-5">
               {/* Animated background pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute inset-0" style={{
@@ -170,7 +170,7 @@ const Features = () => {
               <div className="absolute bottom-4 right-4 animate-pulse text-3xl text-red-200 dark:text-red-800 sm:bottom-6 sm:right-6 sm:text-4xl" style={{ animationDelay: '0.5s' }}>&rdquo;</div>
 
               {/* Animated border glow */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-red-400 opacity-0 transition-opacity duration-500 group-hover:opacity-30 dark:border-red-600"></div>
+              <div className="absolute -inset-1 -z-0 rounded-lg bg-gradient-to-r from-red-400 via-orange-400 to-red-400 opacity-0 blur transition-opacity duration-500 group-hover:opacity-20"></div>
             </div>
           </div>
 

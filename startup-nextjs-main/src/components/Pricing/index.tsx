@@ -5,164 +5,125 @@ const Pricing = () => {
   const pricingPlans = [
     {
       id: "free",
-      title: "Free",
+      title: "Gói Free",
       price: "0",
-      priceNote: "VND/tháng",
-      description: "Xem AI có thể làm gì",
-      buttonText: "Gói hiện tại của bạn",
+      priceNote: "VNĐ",
+      description: "Thử xem Blue Edu có thể làm gì",
+      buttonText: "Dùng thử miễn phí",
       buttonStyle: "bg-gray-200 text-gray-700 hover:bg-gray-300",
-      isCurrent: true,
-      features: [
-        {
-          icon: "✨",
-          text: "Nhận lời giải thích đơn giản",
-        },
-        {
-          icon: "💬",
-          text: "Thực hiện các đoạn ngắn để giải đáp những câu hỏi thường gặp",
-        },
-        {
-          icon: "🖼️",
-          text: "Thử tính năng tạo hình ảnh",
-        },
-        {
-          icon: "💾",
-          text: "Tiết kiệm bộ nhớ và ngữ cảnh hạn chế",
-        },
-      ],
-      footnote: "Hiện tại bạn có kế hoạch rồi? Xem trợ giúp thanh toán",
-    },
-    {
-      id: "go",
-      title: "Go",
-      badge: "MỚI",
-      price: "132.000",
-      priceNote: "VND/tháng (bao gồm VAT)",
-      description: "Làm được nhiều việc hơn với AI thông minh hơn",
-      buttonText: "Nâng cấp lên Go",
-      buttonStyle: "bg-purple-600 text-white hover:bg-purple-700",
       isCurrent: false,
       features: [
         {
-          icon: "✨",
-          text: "Đào sâu với những câu hỏi khó hơn",
+          text: "Tạo lớp học",
         },
         {
-          icon: "💬",
-          text: "Trò chuyện lâu hơn và tải lên nhiều nội dung hơn",
+          text: "Giới hạn 50 học sinh/ lớp",
         },
         {
-          icon: "🖼️",
-          text: "Tạo hình ảnh chân thực cho dự án của bạn",
+          text: "Thống kê kết quả học tập",
         },
         {
-          icon: "💾",
-          text: "Lưu trữ nhiều ngữ cảnh hơn để nhận được câu trả lời thông minh hơn",
+          text: "Tạo Ma trận, tạo phiếu, chấm bài tự động",
         },
         {
-          icon: "👥",
-          text: "Nhận trợ giúp về việc lập kế hoạch và nhiệm vụ",
+          text: "Số lượt giao bài: 10 lượt",
         },
         {
-          icon: "⚙️",
-          text: "Khám phá các dự án, nhiệm vụ và GPT tùy chỉnh",
+          text: "Tải xuống đề bài: 1 lần",
+        },
+        {
+          text: "Báo cáo kết quả",
+        },
+        {
+          text: "100MB dung lượng lưu trữ",
+        },
+        {
+          text: "Tặng 5.000 Point AI",
         },
       ],
-      footnote: "Chỉ có ở một số khu vực nhất định. Có áp dụng giới hạn",
+      footnote: "",
     },
     {
-      id: "plus",
-      title: "Plus",
-      price: "522.500",
-      priceNote: "VND/tháng (bao gồm VAT)",
-      description: "Tận hưởng trải nghiệm đầy đủ",
-      buttonText: "Dùng bản Plus",
-      buttonStyle: "bg-black text-white hover:bg-gray-800",
+      id: "premium",
+      title: "Gói Premium",
+      price: "199.000",
+      priceNote: "VNĐ/ tháng",
+      description: "Làm việc chuyên nghiệp hơn với nhiều tính năng không giới hạn",
+      buttonText: "Đăng ký Premium",
+      buttonStyle: "bg-primary text-white hover:bg-primary/90",
       isCurrent: false,
       features: [
         {
-          icon: "✨",
-          text: "Giải quyết các vấn đề phức tạp",
+          text: "Tạo lớp học",
         },
         {
-          icon: "💬",
-          text: "Thực hiện những đoạn chat kéo dài qua nhiều phiên",
+          text: "Không giới hạn số lượng học sinh",
         },
         {
-          icon: "🖼️",
-          text: "Tạo nhiều hình ảnh hơn và nhanh hơn",
+          text: "Thống kê kết quả học tập tự động",
         },
         {
-          icon: "💾",
-          text: "Ghi nhớ các mục tiêu và cuộc trò chuyện trước đây",
+          text: "Tạo Ma trận, tạo phiếu, chấm bài tự động",
         },
         {
-          icon: "👥",
-          text: "Lên kế hoạch đi lại và nhiệm vụ với chế độ tác nhân",
+          text: "Số lượt giao bài: không giới hạn",
         },
         {
-          icon: "⚙️",
-          text: "Tổ chức các dự án và tùy chỉnh GPT",
+          text: "Tải xuống đề bài: không giới hạn",
         },
         {
-          icon: "🎥",
-          text: "Sản xuất và chia sẻ video trên Sora",
+          text: "Báo cáo kết quả tự động",
         },
         {
-          icon: "💻",
-          text: "Viết mã và xây dựng ứng dụng với Codex",
+          text: "5GB dung lượng lưu trữ",
+        },
+        {
+          text: "Tặng 20.000 Point AI",
         },
       ],
-      footnote: "Có áp dụng giới hạn",
+      footnote: "",
     },
     {
-      id: "pro",
-      title: "Pro",
-      price: "5.225.000",
-      priceNote: "VND/tháng (bao gồm VAT)",
-      description: "Tối đa hóa năng suất của bạn",
-      buttonText: "Chuyển sang Pro",
-      buttonStyle: "bg-black text-white hover:bg-gray-800",
+      id: "premium-plus",
+      title: "Gói Premium +",
+      price: "1.999.000",
+      priceNote: "VNĐ/ năm",
+      savings: "Tiết kiệm 17%",
+      description: "Phục vụ công việc lâu dài và chi phí tối ưu",
+      buttonText: "Đăng ký Premium +",
+      buttonStyle: "bg-primary text-white hover:bg-primary/90",
+      isHighlighted: true,
       isCurrent: false,
       features: [
         {
-          icon: "✨",
-          text: "Nắm vững các nhiệm vụ và chủ đề nâng cao",
+          text: "Tạo lớp học",
         },
         {
-          icon: "💬",
-          text: "Xử lý các dự án lớn với tin nhắn không giới hạn",
+          text: "Không giới hạn số lượng học sinh",
         },
         {
-          icon: "🖼️",
-          text: "Tạo hình ảnh chất lượng cao ở mọi tỷ lệ",
+          text: "Thống kê kết quả học tập tự động",
         },
         {
-          icon: "💾",
-          text: "Duy trì toàn bộ ngữ cảnh với bộ nhớ tối đa",
+          text: "Tạo Ma trận, tạo phiếu, chấm bài tự động",
         },
         {
-          icon: "👥",
-          text: "Tiến hành nghiên cứu và lập kế hoạch thực hiện nhiệm vụ với các tác nhân",
+          text: "Số lượt giao bài: không giới hạn",
         },
         {
-          icon: "⚙️",
-          text: "Mở rộng quy mô dự án của bạn và tự động hóa quy trình làm việc",
+          text: "Tải xuống đề bài: không giới hạn",
         },
         {
-          icon: "🎥",
-          text: "Mở rộng giới hạn của bạn với tính năng tạo video bằng Sora",
+          text: "Báo cáo kết quả tự động",
         },
         {
-          icon: "💻",
-          text: "Triển khai mã nhanh hơn với Codex",
+          text: "5GB dung lượng lưu trữ",
         },
         {
-          icon: "🧪",
-          text: "Nhận quyền truy cập sớm vào các tính năng thử nghiệm",
+          text: "Tặng 50.000 Point AI",
         },
       ],
-      footnote: "Không giới hạn tùy thuộc vào các quy định bảo vệ tránh lạm dụng. Tìm hiểu thêm",
+      footnote: "",
     },
   ];
 
@@ -177,11 +138,14 @@ const Pricing = () => {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-3">
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}
-              className="flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
+              className={`flex flex-col rounded-lg border bg-white p-5 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-[#f5f5ff] dark:bg-gray-800 dark:hover:bg-gray-800/50 sm:p-6 ${plan.isHighlighted
+                ? "border-gray-200 shadow-lg dark:border-gray-700"
+                : "border-gray-200 dark:border-gray-700"
+                }`}
             >
               {/* Header */}
               <div className="mb-4">
@@ -189,9 +153,9 @@ const Pricing = () => {
                   <h3 className="text-xl font-bold text-black dark:text-white">
                     {plan.title}
                   </h3>
-                  {plan.badge && (
-                    <span className="rounded-full bg-purple-100 px-2 py-0.5 text-xs font-semibold text-purple-700 dark:bg-purple-900 dark:text-purple-300">
-                      {plan.badge}
+                  {plan.savings && (
+                    <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary dark:bg-primary/20 dark:text-primary">
+                      {plan.savings}
                     </span>
                   )}
                 </div>
@@ -217,10 +181,20 @@ const Pricing = () => {
               </Link>
 
               {/* Features List */}
-              <div className="mb-6 flex-1 space-y-3">
+              <div className="mb-6 flex-1 space-y-2.5">
                 {plan.features.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <span className="mt-0.5 text-base">{feature.icon}</span>
+                  <div key={index} className="flex items-start gap-2">
+                    <svg
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       {feature.text}
                     </p>
@@ -229,9 +203,11 @@ const Pricing = () => {
               </div>
 
               {/* Footnote */}
-              <p className="mt-auto text-xs text-gray-500 dark:text-gray-500">
-                {plan.footnote}
-              </p>
+              {plan.footnote && (
+                <p className="mt-auto text-xs text-gray-500 dark:text-gray-500">
+                  {plan.footnote}
+                </p>
+              )}
             </div>
           ))}
         </div>

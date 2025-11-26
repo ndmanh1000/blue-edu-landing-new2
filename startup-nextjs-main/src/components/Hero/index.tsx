@@ -22,7 +22,7 @@ const Hero = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             {/* Content Section - Left */}
             <div className="w-full px-4 lg:w-1/2">
-              <div className="mx-auto max-w-[600px] lg:mx-0">
+              <div className="mx-auto max-w-[550px] lg:mx-0">
                 {/* Sub-headline */}
                 <p className="mb-4 text-lg font-semibold leading-relaxed text-primary dark:text-primary sm:text-xl md:text-lg lg:text-xl animate-fade-in-up animation-delay-200">
                   Soạn bài nhanh hơn. Tạo đề trong vài giây. Quản lớp thông minh – nhàn hơn gấp đôi.
@@ -71,7 +71,7 @@ const Hero = () => {
 
             {/* Visual Section - Right */}
             <div className="w-full px-4 lg:w-1/2">
-              <div className="relative mx-auto max-w-[600px] animate-fade-in-right lg:mx-0">
+              <div className="relative mx-auto max-w-[550px] animate-fade-in-right lg:mx-0">
                 <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-gray-light shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-primary/20 dark:bg-gray-dark">
                   {/* Placeholder for visual - Replace with actual image */}
                   <div className="flex h-full items-center justify-center">

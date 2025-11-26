@@ -112,7 +112,7 @@ export default function Video() {
                 className="group animate-fade-in-up"
                 style={{ animationDelay: `${feature.delay}ms` }}
               >
-                <div className="relative h-full overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+                <div className="relative h-full overflow-hidden rounded-xl border border-gray-200 bg-white p-5 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:p-6">
                   {/* Gradient Background on Hover */}
                   <div className={`absolute inset-0 -z-0 bg-gradient-to-br ${feature.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}></div>
 

@@ -194,7 +194,7 @@ const Testimonials = () => {
           {/* Carousel */}
           <div
             ref={carouselRef}
-            className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth"
+            className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth md:gap-8"
             style={{
               cursor: isDragging ? 'grabbing' : 'grab',
               scrollbarWidth: 'none',

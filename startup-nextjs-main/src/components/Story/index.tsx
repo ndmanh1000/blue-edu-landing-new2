@@ -40,7 +40,7 @@ export default function Story() {
         </div>
 
         <div className="container relative z-10">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
             {/* Content Section */}
             <div className="animate-fade-in-up">
               {/* Title */}
@@ -72,7 +72,7 @@ export default function Story() {
                   Chúng tôi tách BlueEdu ra để giáo viên cá nhân có thể sở hữu một công cụ <span className="font-semibold text-primary">LMS thực thụ</span>, dễ dùng, nhỏ gọn, nhưng vẫn mang sức mạnh từ nền tảng lớn.
                 </p>
 
-                <div className="relative rounded-xl border-2 border-primary/20 bg-gradient-to-br from-blue-50/50 to-purple-50/50 p-4 dark:from-gray-800/50 dark:to-gray-900/50 sm:p-6">
+                <div className="relative rounded-lg border-2 border-primary/20 bg-gradient-to-br from-blue-50/50 to-purple-50/50 p-4 dark:from-gray-800/50 dark:to-gray-900/50 sm:p-5">
                   <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 opacity-0 blur transition-opacity duration-500 group-hover:opacity-100"></div>
 
                   <p className="relative text-base font-medium leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">

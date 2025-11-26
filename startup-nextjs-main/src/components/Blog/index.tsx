@@ -96,14 +96,14 @@ const Blog = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="mb-12 grid gap-8 md:grid-cols-3 lg:gap-6">
+        <div className="mb-12 grid gap-5 md:grid-cols-3 lg:gap-6">
           {products.map((product, index) => (
             <div
               key={index}
               className="group animate-fade-in-up"
               style={{ animationDelay: `${product.delay}ms` }}
             >
-              <div className="relative h-full overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800">
+              <div className="relative h-full overflow-hidden rounded-xl border border-gray-200 bg-white p-5 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:p-6">
                 {/* Gradient Background on Hover */}
                 <div className={`absolute inset-0 -z-0 bg-gradient-to-br ${product.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}></div>
 
@@ -155,7 +155,7 @@ const Blog = () => {
 
         {/* Benefit Statement */}
         <div className="mb-12 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-blue-50/50 via-purple-50/50 to-blue-50/50 p-8 shadow-xl dark:from-gray-800/50 dark:via-gray-900/50 dark:to-gray-800/50">
+          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-xl border-2 border-primary/30 bg-gradient-to-r from-blue-50/50 via-purple-50/50 to-blue-50/50 p-6 shadow-xl dark:from-gray-800/50 dark:via-gray-900/50 dark:to-gray-800/50 sm:p-7">
             {/* Animated Border Glow */}
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 opacity-0 blur transition-opacity duration-500 hover:opacity-30"></div>
 

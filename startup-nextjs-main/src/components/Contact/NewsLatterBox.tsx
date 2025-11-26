@@ -6,11 +6,11 @@ const NewsLatterBox = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="shadow-three dark:bg-gray-dark relative z-10 rounded-xs bg-white p-8 sm:p-11 lg:p-8 xl:p-11">
+    <div className="shadow-three dark:bg-gray-dark relative z-10 rounded-xs bg-white p-6 sm:p-8 lg:p-7 xl:p-9">
       <h3 className="mb-4 text-2xl leading-tight font-bold text-black dark:text-white">
         Subscribe to receive future updates
       </h3>
-      <p className="border-body-color/25 text-body-color mb-11 border-b pb-11 text-base leading-relaxed dark:border-white/25">
+      <p className="border-body-color/25 text-body-color mb-8 border-b pb-8 text-base leading-relaxed dark:border-white/25">
         Lorem ipsum dolor sited Sed ullam corper consectur adipiscing Mae ornare
         massa quis lectus.
       </p>
