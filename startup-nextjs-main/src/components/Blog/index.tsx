@@ -186,7 +186,8 @@ const Blog = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-up" style={{ animationDelay: '400ms' }}>
           <Link
-            href="#"
+            href="https://bluerise.com.vn/"
+            target="_blank"
             className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-purple-600 to-primary px-5 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95 sm:px-6 sm:py-3 sm:text-base"
           >
             {/* Animated gradient background */}
@@ -198,17 +199,18 @@ const Blog = () => {
               <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
 
-            {/* Shine effect */}
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
-
-            {/* Shadow running effect */}
-            <span className="absolute -inset-3 -translate-x-full bg-gradient-to-r from-transparent via-white/60 to-transparent blur-3xl transition-transform duration-1000 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-            <span className="absolute -inset-2 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent blur-2xl transition-transform duration-1000 delay-75 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-            <span className="absolute -inset-1 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent blur-xl transition-transform duration-1000 delay-150 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
+            {/* Animated shadow running effect - auto */}
+            <span
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-xl"
+              style={{
+                animation: `shadowRun 3s ease-in-out infinite`,
+              }}
+            ></span>
           </Link>
 
           <Link
-            href="#"
+            href="https://dschool.vn/"
+            target="_blank"
             className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 px-5 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-orange-500/50 active:scale-95 sm:px-6 sm:py-3 sm:text-base"
           >
             {/* Animated gradient background */}
@@ -220,13 +222,14 @@ const Blog = () => {
               <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
 
-            {/* Shine effect */}
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
-
-            {/* Shadow running effect */}
-            <span className="absolute -inset-3 -translate-x-full bg-gradient-to-r from-transparent via-white/60 to-transparent blur-3xl transition-transform duration-1000 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-            <span className="absolute -inset-2 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent blur-2xl transition-transform duration-1000 delay-75 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-            <span className="absolute -inset-1 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent blur-xl transition-transform duration-1000 delay-150 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
+            {/* Animated shadow running effect - auto */}
+            <span
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-xl"
+              style={{
+                animation: `shadowRun 3s ease-in-out infinite`,
+                animationDelay: '0.3s',
+              }}
+            ></span>
           </Link>
         </div>
       </div>

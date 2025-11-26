@@ -47,8 +47,7 @@ export default function Story() {
               <div className="mb-8">
                 <div className="relative inline-block">
                   {/* Decorative Icons */}
-                  <div className="absolute -left-8 -top-4 animate-float-delayed text-3xl opacity-30">🌐</div>
-                  <div className="absolute -right-8 -top-4 animate-float text-3xl opacity-30">💎</div>
+
 
                   <h2 className="relative text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl">
                     <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">

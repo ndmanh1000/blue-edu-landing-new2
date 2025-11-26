@@ -88,7 +88,7 @@ export default function Video() {
 
               <div className="relative inline-flex flex-col items-center justify-center sm:flex-row">
                 <div className="mb-3 text-2xl sm:mb-0 sm:mr-3 sm:text-3xl">
-                  <span className="inline-block animate-bounce">✨</span>
+
 
                 </div>
                 <h2 className="relative text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl">
@@ -105,62 +105,126 @@ export default function Video() {
           </div>
 
           {/* Features Grid */}
-          <div className="mb-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group animate-fade-in-up"
-                style={{ animationDelay: `${feature.delay}ms` }}
-              >
-                <div className="relative h-full overflow-hidden rounded-xl border border-gray-200 bg-white p-5 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:p-6">
-                  {/* Gradient Background on Hover */}
-                  <div className={`absolute inset-0 -z-0 bg-gradient-to-br ${feature.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}></div>
+          <div className="mb-12">
+            {/* First 3 features */}
+            <div className="mb-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
+              {features.slice(0, 3).map((feature, index) => (
+                <div
+                  key={index}
+                  className="group animate-fade-in-up"
+                  style={{ animationDelay: `${feature.delay}ms` }}
+                >
+                  <div className="relative h-full overflow-hidden rounded-xl border border-gray-200 bg-white p-5 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:p-6">
+                    {/* Gradient Background on Hover */}
+                    <div className={`absolute inset-0 -z-0 bg-gradient-to-br ${feature.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}></div>
 
-                  {/* Animated Border Glow */}
-                  <div className={`absolute -inset-1 -z-0 rounded-2xl bg-gradient-to-r ${feature.gradient} opacity-0 blur transition-opacity duration-500 group-hover:opacity-30`}></div>
+                    {/* Animated Border Glow */}
+                    <div className={`absolute -inset-1 -z-0 rounded-2xl bg-gradient-to-r ${feature.gradient} opacity-0 blur transition-opacity duration-500 group-hover:opacity-30`}></div>
 
-                  {/* Icon */}
-                  <div className="mb-6 flex items-center justify-center">
-                    <div className={`relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} text-3xl shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
-                      <span className="relative z-10">{feature.icon}</span>
-                      {/* Pulse Ring */}
-                      <div className={`absolute inset-0 animate-ping rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-20`} style={{ animationDelay: `${feature.delay}ms` }}></div>
-                      {/* Shine Effect */}
-                      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
+                    {/* Icon */}
+                    <div className="mb-6 flex items-center justify-center">
+                      <div className={`relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} text-3xl shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
+                        <span className="relative z-10">{feature.icon}</span>
+                        {/* Pulse Ring */}
+                        <div className={`absolute inset-0 animate-ping rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-20`} style={{ animationDelay: `${feature.delay}ms` }}></div>
+                        {/* Shine Effect */}
+                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <h3 className="mb-3 text-lg font-bold text-black transition-colors duration-300 group-hover:text-primary dark:text-white sm:text-xl">
+                        <span className="mr-2 inline-block animate-pulse text-lg">✨</span>
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300 sm:text-base">
+                        {feature.description}
+                      </p>
+                    </div>
+
+                    {/* Animated Bottom Line */}
+                    <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${feature.gradient} transition-all duration-500 group-hover:w-full`}></div>
+
+                    {/* Floating Particles Inside Card */}
+                    <div className="absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      {[...Array(3)].map((_, i) => (
+                        <div
+                          key={i}
+                          className={`absolute h-2 w-2 rounded-full bg-gradient-to-br ${feature.gradient} animate-float-delayed`}
+                          style={{
+                            left: `${20 + i * 30}%`,
+                            top: `${30 + i * 20}%`,
+                            animationDelay: `${i * 0.3}s`,
+                          }}
+                        ></div>
+                      ))}
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <h3 className="mb-3 text-lg font-bold text-black transition-colors duration-300 group-hover:text-primary dark:text-white sm:text-xl">
-                      <span className="mr-2 inline-block animate-pulse text-lg">✨</span>
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300 sm:text-base">
-                      {feature.description}
-                    </p>
-                  </div>
-
-                  {/* Animated Bottom Line */}
-                  <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${feature.gradient} transition-all duration-500 group-hover:w-full`}></div>
-
-                  {/* Floating Particles Inside Card */}
-                  <div className="absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    {[...Array(3)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`absolute h-2 w-2 rounded-full bg-gradient-to-br ${feature.gradient} animate-float-delayed`}
-                        style={{
-                          left: `${20 + i * 30}%`,
-                          top: `${30 + i * 20}%`,
-                          animationDelay: `${i * 0.3}s`,
-                        }}
-                      ></div>
-                    ))}
-                  </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Last 2 features - centered */}
+            <div className="flex justify-center">
+              <div className="grid gap-5 md:grid-cols-2 md:gap-6" style={{ maxWidth: '800px' }}>
+                {features.slice(3).map((feature, index) => (
+                  <div
+                    key={index + 3}
+                    className="group animate-fade-in-up"
+                    style={{ animationDelay: `${feature.delay}ms` }}
+                  >
+                    <div className="relative h-full overflow-hidden rounded-xl border border-gray-200 bg-white p-5 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:p-6">
+                      {/* Gradient Background on Hover */}
+                      <div className={`absolute inset-0 -z-0 bg-gradient-to-br ${feature.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}></div>
+
+                      {/* Animated Border Glow */}
+                      <div className={`absolute -inset-1 -z-0 rounded-2xl bg-gradient-to-r ${feature.gradient} opacity-0 blur transition-opacity duration-500 group-hover:opacity-30`}></div>
+
+                      {/* Icon */}
+                      <div className="mb-6 flex items-center justify-center">
+                        <div className={`relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} text-3xl shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
+                          <span className="relative z-10">{feature.icon}</span>
+                          {/* Pulse Ring */}
+                          <div className={`absolute inset-0 animate-ping rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-20`} style={{ animationDelay: `${feature.delay}ms` }}></div>
+                          {/* Shine Effect */}
+                          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="relative z-10">
+                        <h3 className="mb-3 text-lg font-bold text-black transition-colors duration-300 group-hover:text-primary dark:text-white sm:text-xl">
+                          <span className="mr-2 inline-block animate-pulse text-lg">✨</span>
+                          {feature.title}
+                        </h3>
+                        <p className="text-sm leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300 sm:text-base">
+                          {feature.description}
+                        </p>
+                      </div>
+
+                      {/* Animated Bottom Line */}
+                      <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${feature.gradient} transition-all duration-500 group-hover:w-full`}></div>
+
+                      {/* Floating Particles Inside Card */}
+                      <div className="absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                        {[...Array(3)].map((_, i) => (
+                          <div
+                            key={i}
+                            className={`absolute h-2 w-2 rounded-full bg-gradient-to-br ${feature.gradient} animate-float-delayed`}
+                            style={{
+                              left: `${20 + i * 30}%`,
+                              top: `${30 + i * 20}%`,
+                              animationDelay: `${i * 0.3}s`,
+                            }}
+                          ></div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
           {/* CTA Section */}
@@ -190,13 +254,13 @@ export default function Video() {
                   <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </span>
 
-                {/* Shine effect */}
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
-
-                {/* Shadow running effect */}
-                <span className="absolute -inset-3 -translate-x-full bg-gradient-to-r from-transparent via-white/60 to-transparent blur-3xl transition-transform duration-1000 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-                <span className="absolute -inset-2 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent blur-2xl transition-transform duration-1000 delay-75 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-                <span className="absolute -inset-1 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent blur-xl transition-transform duration-1000 delay-150 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
+                {/* Animated shadow running effect - auto */}
+                <span
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-xl"
+                  style={{
+                    animation: `shadowRun 3s ease-in-out infinite`,
+                  }}
+                ></span>
 
                 {/* Pulse ring */}
                 <span className="absolute inset-0 rounded-xl border-2 border-white/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-ping"></span>

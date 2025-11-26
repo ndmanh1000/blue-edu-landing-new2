@@ -66,8 +66,15 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="w-full px-4">
-                    <button className="rounded-xs bg-primary px-6 py-2.5 text-sm font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark sm:px-7 sm:py-3 sm:text-base">
-                      Submit Ticket
+                    <button className="group relative overflow-hidden rounded-xs bg-primary px-6 py-2.5 text-sm font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark sm:px-7 sm:py-3 sm:text-base">
+                      {/* Animated shadow running effect - auto */}
+                      <span 
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-xl"
+                        style={{
+                          animation: `shadowRun 3s ease-in-out infinite`,
+                        }}
+                      ></span>
+                      <span className="relative z-10">Submit Ticket</span>
                     </button>
                   </div>
                 </div>

@@ -1,7 +1,50 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
 const Hero = () => {
+  // Smooth scroll function with easing
+  const smoothScrollTo = (targetPosition: number, duration: number = 800) => {
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime: number | null = null;
+
+    // Easing function for smooth animation (ease-in-out-cubic)
+    const easeInOutCubic = (t: number): number => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+
+    const animation = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+
+      window.scrollTo(0, startPosition + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+  };
+
+  // Handle smooth scroll to media section
+  const handleScrollToMedia = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetElement = document.getElementById("media");
+    if (targetElement) {
+      // Calculate offset for sticky header (with extra padding for better spacing)
+      const headerOffset = 100;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Use custom smooth scroll for better control
+      smoothScrollTo(offsetPosition, 800);
+    }
+  };
   return (
     <>
       <section
@@ -34,31 +77,64 @@ const Hero = () => {
                 </p>
 
                 {/* CTA Buttons */}
-                <div className="mb-6 flex flex-col items-start space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0 animate-fade-in-up animation-delay-600">
+                <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 animate-fade-in-up animation-delay-600">
+                  {/* Primary CTA Button */}
                   <Link
                     href=""
-                    className="group relative w-full overflow-hidden rounded-xs bg-primary px-5 py-2.5 text-center text-sm font-semibold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/90 hover:shadow-2xl active:scale-95"
+                    className="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-primary via-blue-600 to-primary px-6 py-3 text-center text-sm font-bold text-white shadow-xl transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95 sm:w-auto sm:px-8"
                   >
+                    {/* Animated gradient background */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-primary to-blue-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{
+                      backgroundSize: '200% 100%',
+                      animation: 'shimmer 3s linear infinite',
+                    }}></div>
+
                     <span className="relative z-10 flex items-center justify-center">
-                      <span className="mr-2 animate-bounce">👉</span>
-                      Dùng thử miễn phí
+                      <span className="mr-2 text-base animate-bounce">🚀</span>
+                      <span>Dùng thử miễn phí</span>
+                      <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </span>
-                    {/* Shine effect */}
-                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
-                    {/* Shadow running effect - multiple layers for depth */}
-                    <span className="absolute -inset-2 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent blur-2xl transition-transform duration-1000 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-                    <span className="absolute -inset-1 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent blur-xl transition-transform duration-1000 delay-75 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
+
+                    {/* Animated shadow running effect - auto */}
+                    <span
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-xl"
+                      style={{
+                        animation: `shadowRun 3s ease-in-out infinite`,
+                      }}
+                    ></span>
+
+                    {/* Glow effect */}
+                    <span className="absolute -inset-1 rounded-lg bg-primary/50 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"></span>
+
+                    {/* Pulse ring */}
+                    <span className="absolute inset-0 rounded-lg border-2 border-white/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-ping"></span>
                   </Link>
+
+                  {/* Secondary CTA Button */}
                   <Link
-                    href=""
-                    className="group relative inline-block w-full overflow-hidden rounded-xs border-2 border-primary bg-transparent px-5 py-2.5 text-center text-sm font-semibold text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/10 hover:shadow-lg active:scale-95 dark:text-primary dark:hover:bg-primary/20"
+                    href="#media"
+                    onClick={handleScrollToMedia}
+                    className="group relative w-full overflow-hidden rounded-lg border-2 border-primary bg-white px-6 py-3 text-center text-sm font-bold text-primary shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-gradient-to-r hover:from-primary/5 hover:via-blue-50 hover:to-primary/5 hover:shadow-xl hover:shadow-primary/20 active:scale-95 dark:bg-gray-800 dark:border-primary dark:text-primary dark:hover:bg-primary/10 sm:w-auto sm:px-8"
                   >
-                    <span className="relative z-10">Xem demo 90s</span>
-                    {/* Shine effect */}
-                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
-                    {/* Shadow running effect - multiple layers for depth */}
-                    <span className="absolute -inset-2 -translate-x-full bg-gradient-to-r from-transparent via-primary/40 to-transparent blur-2xl transition-transform duration-1000 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-                    <span className="absolute -inset-1 -translate-x-full bg-gradient-to-r from-transparent via-primary/30 to-transparent blur-xl transition-transform duration-1000 delay-75 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
+                    {/* Animated border glow */}
+                    <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-primary via-blue-500 to-primary opacity-0 blur transition-opacity duration-300 group-hover:opacity-50"></div>
+
+                    <span className="relative z-10 flex items-center justify-center">
+                      <span className="mr-2 text-base">▶️</span>
+                      <span>Xem demo 90s</span>
+                    </span>
+
+                    {/* Animated shadow running effect - auto */}
+                    <span
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent blur-xl"
+                      style={{
+                        animation: `shadowRun 3s ease-in-out infinite`,
+                        animationDelay: '0.3s',
+                      }}
+                    ></span>
+
+                    {/* Inner glow */}
+                    <span className="absolute inset-0 rounded-lg bg-primary/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
                   </Link>
                 </div>
 
