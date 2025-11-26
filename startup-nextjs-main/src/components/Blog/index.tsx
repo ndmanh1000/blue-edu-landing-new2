@@ -41,7 +41,7 @@ const Blog = () => {
   return (
     <section
       id="blog"
-      className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-16 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-20 lg:py-28"
+      className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-12 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-16 lg:py-20"
     >
       {/* Animated Background Elements */}
       <div className="absolute right-0 top-0 -z-0 animate-float-slow opacity-20">
@@ -80,10 +80,10 @@ const Blog = () => {
         {/* Section Title */}
         <div className="mb-12 text-center animate-fade-in-down">
           <div className="relative inline-block">
-            <div className="absolute -right-12 -top-8 animate-float-delayed text-6xl opacity-30">🌐</div>
-            <div className="absolute -left-12 -top-8 animate-float text-6xl opacity-30">🔗</div>
+            <div className="absolute -right-12 -top-8 animate-float-delayed text-4xl opacity-30">🌐</div>
+            <div className="absolute -left-12 -top-8 animate-float text-4xl opacity-30">🔗</div>
 
-            <h2 className="relative text-2xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-3xl lg:text-3xl">
+            <h2 className="relative text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
                 Hệ sinh thái giáo dục hoàn chỉnh
               </span>
@@ -112,7 +112,7 @@ const Blog = () => {
 
                 {/* Icon */}
                 <div className="mb-6 flex items-center justify-center">
-                  <div className={`relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${product.gradient} text-5xl shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
+                  <div className={`relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${product.gradient} text-4xl shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
                     <span className="relative z-10">{product.icon}</span>
                     {/* Pulse Ring */}
                     <div className={`absolute inset-0 animate-ping rounded-2xl bg-gradient-to-br ${product.gradient} opacity-20`} style={{ animationDelay: `${product.delay}ms` }}></div>
@@ -123,10 +123,10 @@ const Blog = () => {
 
                 {/* Content */}
                 <div className="relative z-10 text-center">
-                  <h3 className="mb-3 text-2xl font-bold text-black transition-colors duration-300 group-hover:text-primary dark:text-white">
+                  <h3 className="mb-3 text-xl font-bold text-black transition-colors duration-300 group-hover:text-primary dark:text-white sm:text-2xl">
                     {product.name}
                   </h3>
-                  <p className="leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300">
+                  <p className="text-sm leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300 sm:text-base">
                     {product.description}
                   </p>
                 </div>
@@ -160,15 +160,15 @@ const Blog = () => {
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 opacity-0 blur transition-opacity duration-500 hover:opacity-30"></div>
 
             <div className="relative z-10 text-center">
-              <div className="mb-4 text-5xl">✨</div>
-              <p className="text-xl font-semibold leading-relaxed text-body-color dark:text-body-color-dark md:text-2xl">
+              <div className="mb-4 text-3xl">✨</div>
+              <p className="text-base font-semibold leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
                 Dữ liệu của bạn được <span className="font-bold text-primary">đồng bộ xuyên suốt</span>, không bao giờ mất. Khi cần mở rộng, chỉ cần <span className="font-bold text-primary">nâng cấp</span> – không cần đổi nền tảng.
               </p>
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute -right-8 -top-8 animate-float text-6xl opacity-10">🔒</div>
-            <div className="absolute -bottom-8 -left-8 animate-float-delayed text-6xl opacity-10">📊</div>
+            <div className="absolute -right-8 -top-8 animate-float text-4xl opacity-10">🔒</div>
+            <div className="absolute -bottom-8 -left-8 animate-float-delayed text-4xl opacity-10">📊</div>
           </div>
         </div>
 
@@ -176,13 +176,13 @@ const Blog = () => {
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-up" style={{ animationDelay: '400ms' }}>
           <Link
             href="#"
-            className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-purple-600 to-primary px-8 py-4 text-lg font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95"
+            className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-purple-600 to-primary px-5 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95 sm:px-6 sm:py-3 sm:text-base"
           >
             {/* Animated gradient background */}
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-primary to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
             <span className="relative z-10 flex items-center">
-              <span className="mr-3 animate-bounce text-2xl">🚀</span>
+              <span className="mr-2 animate-bounce text-lg">🚀</span>
               <span>Tìm hiểu Blue Rise</span>
               <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
@@ -198,13 +198,13 @@ const Blog = () => {
 
           <Link
             href="#"
-            className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 px-8 py-4 text-lg font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-orange-500/50 active:scale-95"
+            className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 px-5 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-orange-500/50 active:scale-95 sm:px-6 sm:py-3 sm:text-base"
           >
             {/* Animated gradient background */}
             <div className="absolute inset-0 bg-gradient-to-r from-red-500 via-orange-500 to-red-500 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
             <span className="relative z-10 flex items-center">
-              <span className="mr-3 animate-bounce text-2xl">🏫</span>
+              <span className="mr-2 animate-bounce text-lg">🏫</span>
               <span>Tìm hiểu DSchool</span>
               <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>

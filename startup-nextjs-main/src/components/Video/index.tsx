@@ -44,7 +44,7 @@ export default function Video() {
 
   return (
     <>
-      <section id="video" className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-16 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-20 lg:py-28">
+      <section id="video" className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-12 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-16 lg:py-20">
         {/* Animated Background Elements */}
         <div className="absolute right-0 top-0 -z-0 animate-float-slow opacity-20">
           <div className="h-96 w-96 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 blur-3xl"></div>
@@ -80,18 +80,18 @@ export default function Video() {
 
         <div className="container relative z-10">
           {/* Section Title */}
-          <div className="mb-16 text-center animate-fade-in-down">
+          <div className="mb-12 text-center animate-fade-in-down">
             <div className="relative inline-block">
               {/* Decorative AI Icons */}
 
-              <div className="absolute -right-12 -top-8 animate-float-delayed text-6xl opacity-30">⚡</div>
+              <div className="absolute -right-8 -top-6 animate-float-delayed text-3xl opacity-30 sm:-right-12 sm:-top-8 sm:text-4xl">⚡</div>
 
               <div className="relative inline-flex flex-col items-center justify-center sm:flex-row">
-                <div className="mb-4 text-5xl sm:mb-0 sm:mr-4 sm:text-6xl">
+                <div className="mb-3 text-2xl sm:mb-0 sm:mr-3 sm:text-3xl">
                   <span className="inline-block animate-bounce">✨</span>
 
                 </div>
-                <h2 className="relative text-2xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-3xl lg:text-3xl">
+                <h2 className="relative text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl">
                   <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
                     Blue Edu – Trợ lý dạy học tốc độ cao với AI
                   </span>
@@ -105,7 +105,7 @@ export default function Video() {
           </div>
 
           {/* Features Grid */}
-          <div className="mb-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mb-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -121,7 +121,7 @@ export default function Video() {
 
                   {/* Icon */}
                   <div className="mb-6 flex items-center justify-center">
-                    <div className={`relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} text-4xl shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
+                    <div className={`relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} text-3xl shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
                       <span className="relative z-10">{feature.icon}</span>
                       {/* Pulse Ring */}
                       <div className={`absolute inset-0 animate-ping rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-20`} style={{ animationDelay: `${feature.delay}ms` }}></div>
@@ -132,11 +132,11 @@ export default function Video() {
 
                   {/* Content */}
                   <div className="relative z-10">
-                    <h3 className="mb-4 text-xl font-bold text-black transition-colors duration-300 group-hover:text-primary dark:text-white">
-                      <span className="mr-2 inline-block animate-pulse text-2xl">✨</span>
+                    <h3 className="mb-3 text-lg font-bold text-black transition-colors duration-300 group-hover:text-primary dark:text-white sm:text-xl">
+                      <span className="mr-2 inline-block animate-pulse text-lg">✨</span>
                       {feature.title}
                     </h3>
-                    <p className="leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300">
+                    <p className="text-sm leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300 sm:text-base">
                       {feature.description}
                     </p>
                   </div>
@@ -176,7 +176,7 @@ export default function Video() {
 
               <Link
                 href="#contact"
-                className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-purple-600 to-primary px-12 py-5 text-lg font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95"
+                className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-purple-600 to-primary px-6 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95 sm:px-7 sm:py-3 sm:text-base"
               >
                 {/* Animated gradient background */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-primary to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{
@@ -185,7 +185,7 @@ export default function Video() {
                 }}></div>
 
                 <span className="relative z-10 flex items-center">
-                  <span className="mr-3 animate-bounce text-2xl">🚀</span>
+                  <span className="mr-2 animate-bounce text-lg">🚀</span>
                   <span>Dùng thử miễn phí</span>
                   <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </span>

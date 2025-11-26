@@ -104,7 +104,7 @@ const Brands = () => {
   const currentFeature = features[currentPage];
 
   return (
-    <section id="brands" className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 py-16 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 md:py-20 lg:py-28">
+      <section id="brands" className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 py-12 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 md:py-16 lg:py-20">
       {/* Background decorative elements */}
       <div className="absolute right-0 top-0 -z-0 animate-float-slow opacity-10">
         <div className="h-96 w-96 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 blur-3xl"></div>
@@ -115,14 +115,14 @@ const Brands = () => {
 
       <div className="container relative z-10">
         {/* Section Title */}
-        <div className="mb-12 text-center animate-fade-in-down">
-          <h2 className="mb-4 text-2xl font-extrabold leading-tight text-black dark:text-white sm:text-4xl md:text-4xl">
+        <div className="mb-10 text-center animate-fade-in-down">
+          <h2 className="mb-4 text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl">
             <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
               Tính năng chuyên sâu của Blue Edu
             </span>
           </h2>
           {!isBookOpen && (
-            <p className="mt-4 text-lg text-body-color dark:text-body-color-dark">
+            <p className="mt-4 text-base text-body-color dark:text-body-color-dark sm:text-lg">
               👆 Click vào quyển vở để khám phá
             </p>
           )}
@@ -143,7 +143,7 @@ const Brands = () => {
                   <div className="book-spine"></div>
                   {!isBookOpen && (
                     <div className="book-cover-content">
-                      <div className="text-6xl mb-4">📖</div>
+                      <div className="text-4xl mb-4">📖</div>
                       <h3 className="text-2xl font-bold text-white">Blue Edu</h3>
                       <p className="text-white/80 mt-2">Tính năng chuyên sâu</p>
                     </div>
@@ -176,10 +176,10 @@ const Brands = () => {
                       {/* Content */}
                       <div className="page-body">
                         <div className="flex items-center gap-4 mb-6">
-                          <div className={`flex h-16 w-16 items-center justify-center rounded-xl ${feature.iconBg} ${feature.iconColor} text-4xl shadow-lg`}>
+                          <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${feature.iconBg} ${feature.iconColor} text-3xl shadow-lg`}>
                             {feature.icon}
                           </div>
-                          <h3 className="text-3xl font-bold text-black dark:text-white">
+                          <h3 className="text-xl font-bold text-black dark:text-white sm:text-2xl">
                             {feature.title}
                           </h3>
                         </div>
@@ -188,7 +188,7 @@ const Brands = () => {
                           {feature.features.map((item, itemIndex) => (
                             <li
                               key={itemIndex}
-                              className="flex items-start gap-3 text-lg leading-relaxed text-body-color dark:text-body-color-dark"
+                              className="flex items-start gap-3 text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg"
                             >
                               <span className="mt-1 flex-shrink-0 text-primary text-xl">•</span>
                               <span>{item}</span>
@@ -220,7 +220,7 @@ const Brands = () => {
                 <div className="book-cover-inner">
                   {!isBookOpen && (
                     <div className="book-cover-content">
-                      <div className="text-6xl mb-4">📚</div>
+                      <div className="text-4xl mb-4">📚</div>
                       <h3 className="text-2xl font-bold text-white">Blue Edu</h3>
                     </div>
                   )}
@@ -236,9 +236,9 @@ const Brands = () => {
             <button
               onClick={handlePrevPage}
               disabled={currentPage === 0}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white border-2 border-gray-300 text-gray-600 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white border-2 border-gray-300 text-gray-600 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300"
             >
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
@@ -258,9 +258,9 @@ const Brands = () => {
             <button
               onClick={handleNextPage}
               disabled={currentPage === features.length - 1}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white border-2 border-gray-300 text-gray-600 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white border-2 border-gray-300 text-gray-600 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300"
             >
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -272,10 +272,10 @@ const Brands = () => {
           <div className="mt-12 mx-auto max-w-3xl text-center animate-fade-in-up">
             <Link
               href="#contact"
-              className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-green-600 to-primary px-12 py-5 text-lg font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95"
+              className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-green-600 to-primary px-6 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95 sm:px-7 sm:py-3 sm:text-base"
             >
               <span className="relative z-10 flex items-center">
-                <span className="mr-3 animate-bounce text-2xl">🚀</span>
+                <span className="mr-2 animate-bounce text-lg">🚀</span>
                 <span>Bắt đầu ngay - miễn phí</span>
                 <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
               </span>

@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Story() {
   return (
     <>
-      <section id="story" className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-16 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-20 lg:py-28">
+      <section id="story" className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-12 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-16 lg:py-20">
         {/* Animated Background Elements */}
         <div className="absolute right-0 top-0 -z-0 animate-float-slow opacity-20">
           <div className="h-96 w-96 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 blur-3xl"></div>
@@ -47,10 +47,10 @@ export default function Story() {
               <div className="mb-8">
                 <div className="relative inline-block">
                   {/* Decorative Icons */}
-                  <div className="absolute -left-8 -top-4 animate-float-delayed text-4xl opacity-30">🌐</div>
-                  <div className="absolute -right-8 -top-4 animate-float text-4xl opacity-30">💎</div>
+                  <div className="absolute -left-8 -top-4 animate-float-delayed text-3xl opacity-30">🌐</div>
+                  <div className="absolute -right-8 -top-4 animate-float text-3xl opacity-30">💎</div>
 
-                  <h2 className="relative text-2xl font-extrabold leading-tight text-black dark:text-white sm:text-5xl md:text-3xl">
+                  <h2 className="relative text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl">
                     <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
                       BlueEdu là gì ?
                     </span>
@@ -63,20 +63,20 @@ export default function Story() {
               </div>
 
               {/* Text Content */}
-              <div className="space-y-6">
-                <p className="text-lg leading-relaxed text-body-color dark:text-body-color-dark md:text-xl">
+              <div className="space-y-4">
+                <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">
                   BlueEdu được sinh ra từ <span className="font-semibold text-primary">Blue Rise</span> – giải pháp chuyển đổi số giáo dục đang được sử dụng bởi nhiều đơn vị, trường học và trung tâm lớn tại Việt Nam.
                 </p>
 
-                <p className="text-lg leading-relaxed text-body-color dark:text-body-color-dark md:text-xl">
+                <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">
                   Chúng tôi tách BlueEdu ra để giáo viên cá nhân có thể sở hữu một công cụ <span className="font-semibold text-primary">LMS thực thụ</span>, dễ dùng, nhỏ gọn, nhưng vẫn mang sức mạnh từ nền tảng lớn.
                 </p>
 
-                <div className="relative rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-blue-50/50 to-purple-50/50 p-6 dark:from-gray-800/50 dark:to-gray-900/50">
-                  <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 opacity-0 blur transition-opacity duration-500 group-hover:opacity-100"></div>
+                <div className="relative rounded-xl border-2 border-primary/20 bg-gradient-to-br from-blue-50/50 to-purple-50/50 p-4 dark:from-gray-800/50 dark:to-gray-900/50 sm:p-6">
+                  <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 opacity-0 blur transition-opacity duration-500 group-hover:opacity-100"></div>
 
-                  <p className="relative text-lg font-medium leading-relaxed text-body-color dark:text-body-color-dark md:text-xl">
-                    <span className="mr-2 text-2xl">✨</span>
+                  <p className="relative text-base font-medium leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">
+                    <span className="mr-2 text-lg">✨</span>
                     Bạn không dùng công cụ rời rạc. Bạn đang dùng một <span className="font-bold text-primary">mảnh ghép chuyên nghiệp</span> trong một <span className="font-bold text-primary">hệ sinh thái giáo dục hoàn chỉnh</span>.
                   </p>
                 </div>
@@ -240,9 +240,9 @@ export default function Story() {
                 </div>
 
                 {/* Floating Icons */}
-                <div className="absolute -left-8 top-1/4 animate-float text-4xl opacity-30">💻</div>
-                <div className="absolute -right-12 top-1/2 animate-float-delayed text-4xl opacity-30">📱</div>
-                <div className="absolute bottom-0 left-1/4 animate-float text-3xl opacity-30">🌐</div>
+                <div className="absolute -left-8 top-1/4 animate-float text-3xl opacity-30">💻</div>
+                <div className="absolute -right-12 top-1/2 animate-float-delayed text-3xl opacity-30">📱</div>
+                <div className="absolute bottom-0 left-1/4 animate-float text-2xl opacity-30">🌐</div>
               </div>
             </div>
           </div>

@@ -6,16 +6,16 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px] mt-10"
+        className="relative z-10 overflow-hidden bg-white pb-12 pt-20 dark:bg-gray-dark md:pb-16 md:pt-24 lg:pb-20 lg:pt-28"
       >
         <div className="container">
           {/* Headline - Centered at top */}
-          <div className="mb-12 text-center animate-fade-in-down">
-            <h1 className="mx-auto max-w-4xl text-2xl font-extrabold leading-tight text-black dark:text-white sm:text-5xl sm:leading-tight md:text-3xl md:leading-tight lg:text-3xl xl:text-3xl">
+          <div className="mb-8 text-center animate-fade-in-down mt-24 md:mt-10">
+            <h1 className="mx-auto max-w-4xl text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl lg:text-4xl">
               <span className="bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
                 Blue Edu – LMS gọn nhẹ + AI siêu tốc cho giáo viên thời đại mới
               </span>
-                </h1>
+            </h1>
           </div>
 
           {/* Content Section - 2 columns layout */}
@@ -24,20 +24,20 @@ const Hero = () => {
             <div className="w-full px-4 lg:w-1/2">
               <div className="mx-auto max-w-[600px] lg:mx-0">
                 {/* Sub-headline */}
-                <p className="mb-6 text-xl font-semibold leading-relaxed text-primary dark:text-primary sm:text-2xl md:text-xl lg:text-2xl animate-fade-in-up animation-delay-200">
+                <p className="mb-4 text-lg font-semibold leading-relaxed text-primary dark:text-primary sm:text-xl md:text-lg lg:text-xl animate-fade-in-up animation-delay-200">
                   Soạn bài nhanh hơn. Tạo đề trong vài giây. Quản lớp thông minh – nhàn hơn gấp đôi.
                 </p>
 
                 {/* Description */}
-                <p className="mb-8 text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-base lg:text-lg animate-fade-in-up animation-delay-400">
+                <p className="mb-6 text-sm leading-relaxed text-body-color dark:text-body-color-dark sm:text-base md:text-sm lg:text-base animate-fade-in-up animation-delay-400">
                   BlueEdu là phiên bản LMS tinh gọn của Blue Rise – thiết kế riêng cho giáo viên cá nhân: dễ dùng, mạnh mẽ, chi phí hợp lý và AI được huấn luyện theo chương trình giáo dục Việt Nam.
                 </p>
 
                 {/* CTA Buttons */}
-                <div className="mb-8 flex flex-col items-start space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 animate-fade-in-up animation-delay-600">
+                <div className="mb-6 flex flex-col items-start space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0 animate-fade-in-up animation-delay-600">
                   <Link
                     href="#contact"
-                    className="group relative w-full overflow-hidden rounded-xs bg-primary px-8 py-4 text-center text-base font-semibold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/90 hover:shadow-2xl active:scale-95"
+                    className="group relative w-full overflow-hidden rounded-xs bg-primary px-5 py-2.5 text-center text-sm font-semibold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/90 hover:shadow-2xl active:scale-95"
                   >
                     <span className="relative z-10 flex items-center justify-center">
                       <span className="mr-2 animate-bounce">👉</span>
@@ -51,7 +51,7 @@ const Hero = () => {
                   </Link>
                   <Link
                     href="#features"
-                    className="group relative inline-block w-full overflow-hidden rounded-xs border-2 border-primary bg-transparent px-8 py-4 text-center text-base font-semibold text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/10 hover:shadow-lg active:scale-95 dark:text-primary dark:hover:bg-primary/20"
+                    className="group relative inline-block w-full overflow-hidden rounded-xs border-2 border-primary bg-transparent px-5 py-2.5 text-center text-sm font-semibold text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/10 hover:shadow-lg active:scale-95 dark:text-primary dark:hover:bg-primary/20"
                   >
                     <span className="relative z-10">Xem demo 90s</span>
                     {/* Shine effect */}
@@ -63,7 +63,7 @@ const Hero = () => {
                 </div>
 
                 {/* CTA Note */}
-                <p className="animate-fade-in-up animation-delay-800 text-sm text-body-color dark:text-body-color-dark sm:text-base">
+                <p className="animate-fade-in-up animation-delay-800 text-xs text-body-color dark:text-body-color-dark sm:text-sm">
                   <span className="inline-block animate-pulse">👉</span> Dùng ngay trong 3 phút – không cần hướng dẫn.
                 </p>
               </div>
@@ -76,7 +76,7 @@ const Hero = () => {
                   {/* Placeholder for visual - Replace with actual image */}
                   <div className="flex h-full items-center justify-center">
                     <div className="text-center">
-                      <div className="mb-4 animate-float text-6xl">📱</div>
+                      <div className="mb-4 animate-float text-4xl">📱</div>
                       <p className="text-body-color animate-fade-in text-sm dark:text-body-color-dark">
                         Ảnh minh họa màn hình giao diện hoặc animation AI
                       </p>

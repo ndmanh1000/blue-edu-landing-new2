@@ -167,11 +167,11 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="overflow-hidden bg-white py-16 dark:bg-gray-dark md:py-20 lg:py-28">
+    <section id="pricing" className="overflow-hidden bg-white py-12 dark:bg-gray-dark md:py-16 lg:py-20">
       <div className="container">
         {/* Section Title */}
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold !leading-tight text-black dark:text-white sm:text-4xl md:text-[45px]">
+        <div className="mb-10 text-center">
+          <h2 className="mb-4 text-xl font-bold !leading-tight text-black dark:text-white sm:text-2xl md:text-3xl">
             Đề Xuất Gói tính năng BlueEdu
           </h2>
         </div>
@@ -211,7 +211,7 @@ const Pricing = () => {
               {/* CTA Button */}
               <Link
                 href="#contact"
-                className={`mb-6 w-full rounded-lg px-4 py-3 text-center text-sm font-semibold transition-colors ${plan.buttonStyle}`}
+                className={`mb-4 w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-colors ${plan.buttonStyle}`}
               >
                 {plan.buttonText}
               </Link>
@@ -220,7 +220,7 @@ const Pricing = () => {
               <div className="mb-6 flex-1 space-y-3">
                 {plan.features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <span className="mt-0.5 text-lg">{feature.icon}</span>
+                    <span className="mt-0.5 text-base">{feature.icon}</span>
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       {feature.text}
                     </p>
