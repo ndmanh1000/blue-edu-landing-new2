@@ -32,11 +32,11 @@ const Footer = () => {
               <div className="mb-12 max-w-[360px] lg:mb-16">
                 <Link href="/" className="mb-8 inline-block">
                   <Image
-                    src="/images/logo/logo3.png"
+                    src="/images/logo/logo5.png"
                     alt="BlueEdu Logo"
                     width={100}
                     height={20}
-                    className="h-auto w-auto max-w-[80px] object-contain"
+                    className="h-auto w-auto max-w-[100px] object-contain"
                   />
                 </Link>
                 <p className="mb-6 text-base leading-relaxed text-body-color dark:text-body-color-dark">

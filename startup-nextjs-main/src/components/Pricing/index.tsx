@@ -5,7 +5,7 @@ const Pricing = () => {
   const pricingPlans = [
     {
       id: "free",
-      title: "Gói Free",
+      title: "Free",
       price: "0",
       priceNote: "VNĐ",
       description: "Thử xem Blue Edu có thể làm gì",
@@ -45,11 +45,11 @@ const Pricing = () => {
     },
     {
       id: "premium",
-      title: "Gói Premium",
+      title: "Premium",
       price: "199.000",
       priceNote: "VNĐ/ tháng",
       description: "Làm việc chuyên nghiệp hơn với nhiều tính năng không giới hạn",
-      buttonText: "Đăng ký Premium",
+      buttonText: "Nâng cấp lên Premium",
       buttonStyle: "bg-primary text-white hover:bg-primary/90",
       isCurrent: false,
       features: [
@@ -85,13 +85,13 @@ const Pricing = () => {
     },
     {
       id: "premium-plus",
-      title: "Gói Premium +",
+      title: "Premium +",
       price: "1.999.000",
       priceNote: "VNĐ/ năm",
       savings: "Tiết kiệm 17%",
       description: "Phục vụ công việc lâu dài và chi phí tối ưu",
-      buttonText: "Đăng ký Premium +",
-      buttonStyle: "bg-primary text-white hover:bg-primary/90",
+      buttonText: "Chuyển sang Premium +",
+      buttonStyle: "bg-black text-white hover:bg-gray-900 shadow-md",
       isHighlighted: true,
       isCurrent: false,
       features: [
@@ -175,7 +175,7 @@ const Pricing = () => {
               {/* CTA Button */}
               <Link
                 href="#contact"
-                className={`mb-4 w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-colors ${plan.buttonStyle}`}
+                className={`mb-4 w-full rounded-full px-4 py-2.5 text-center text-sm font-semibold transition-colors ${plan.buttonStyle}`}
               >
                 {plan.buttonText}
               </Link>

@@ -135,11 +135,11 @@ const Header = () => {
                   } `}
               >
                 <Image
-                  src="/images/logo/logo3.png"
+                  src="/images/logo/logo5.png"
                   alt="logo"
-                  width={120}
-                  height={40}
-                  className="h-auto w-auto max-w-[130px] object-contain"
+                  width={160}
+                  height={50}
+                  className="h-auto w-auto max-w-[155px] object-contain"
                   priority
                 />
               </Link>
@@ -247,11 +247,11 @@ const Header = () => {
         {/* Mobile Menu Header */}
         <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4 dark:border-gray-700">
           <Image
-            src="/images/logo/logo3.png"
+            src="/images/logo/logo5.png"
             alt="logo"
             width={100}
             height={33}
-            className="h-auto w-auto max-w-[110px] object-contain"
+            className="h-auto w-auto max-w-[130px] object-contain"
           />
           <button
             onClick={navbarToggleHandler}
