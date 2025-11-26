@@ -7,15 +7,15 @@ type PropsType = {
   isOpen: boolean;
   onClose: () => void;
 } & (
-    | {
+  | {
       channel: "youtube";
       videoId: string;
     }
-    | {
+  | {
       channel?: "custom";
       src: string;
     }
-  );
+);
 
 export default function VideoModal({ isOpen, onClose, ...props }: PropsType) {
   // Handle ESC key to close modal

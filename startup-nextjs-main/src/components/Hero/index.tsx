@@ -15,7 +15,7 @@ const Hero = () => {
               <span className="bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
                 Blue Edu – LMS gọn nhẹ + AI siêu tốc cho giáo viên thời đại mới
               </span>
-            </h1>
+                </h1>
           </div>
 
           {/* Content Section - 2 columns layout */}

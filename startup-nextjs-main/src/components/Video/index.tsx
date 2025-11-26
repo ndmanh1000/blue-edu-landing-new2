@@ -76,7 +76,7 @@ export default function Video() {
               }}
             ></div>
           ))}
-        </div>
+                  </div>
 
         <div className="container relative z-10">
           {/* Section Title */}
