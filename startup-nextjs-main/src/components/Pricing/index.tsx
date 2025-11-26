@@ -138,8 +138,8 @@ const Pricing = () => {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid gap-6 md:grid-cols-3">
-          {pricingPlans.map((plan) => (
+        <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
+          {pricingPlans.map((plan, index) => (
             <div
               key={plan.id}
               className={`flex flex-col rounded-lg border bg-white p-5 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-[#f5f5ff] dark:bg-gray-800 dark:hover:bg-gray-800/50 sm:p-6 ${plan.isHighlighted
@@ -148,7 +148,7 @@ const Pricing = () => {
                 }`}
             >
               {/* Header */}
-              <div className="mb-4">
+              <div className="mb-4 min-h-[120px]">
                 <div className="mb-2 flex items-center gap-2">
                   <h3 className="text-xl font-bold text-black dark:text-white">
                     {plan.title}
@@ -175,13 +175,21 @@ const Pricing = () => {
               {/* CTA Button */}
               <Link
                 href="#contact"
-                className={`mb-4 w-full rounded-full px-4 py-2.5 text-center text-sm font-semibold transition-colors ${plan.buttonStyle}`}
+                className={`group/button relative mb-4 w-full overflow-hidden rounded-full px-4 py-2.5 text-center text-sm font-semibold transition-colors ${plan.buttonStyle}`}
               >
-                {plan.buttonText}
+                {/* Animated Shadow Running Effect */}
+                <span
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-xl"
+                  style={{
+                    animation: `shadowRun 3s ease-in-out infinite`,
+                    animationDelay: `${index * 0.6}s`
+                  }}
+                ></span>
+                <span className="relative z-10">{plan.buttonText}</span>
               </Link>
 
               {/* Features List */}
-              <div className="mb-6 flex-1 space-y-2.5">
+              <div className="mb-4 flex-1 space-y-2.5">
                 {plan.features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2">
                     <svg
@@ -204,7 +212,7 @@ const Pricing = () => {
 
               {/* Footnote */}
               {plan.footnote && (
-                <p className="mt-auto text-xs text-gray-500 dark:text-gray-500">
+                <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">
                   {plan.footnote}
                 </p>
               )}

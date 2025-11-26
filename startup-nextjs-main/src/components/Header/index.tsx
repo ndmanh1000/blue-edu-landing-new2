@@ -27,6 +27,83 @@ const Header = () => {
     window.addEventListener("scroll", handleStickyNavbar);
   });
 
+  // Active section tracking for scroll spy
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = menuData
+        .flatMap((menu) => {
+          if (menu.path && menu.path.startsWith("#")) {
+            return [menu.path.substring(1)];
+          }
+          if (menu.submenu) {
+            return menu.submenu
+              .filter((sub) => sub.path && sub.path.startsWith("#"))
+              .map((sub) => sub.path.substring(1));
+          }
+          return [];
+        })
+        .filter(Boolean);
+
+      // Add home section if it exists
+      const allSections = ["home", ...sections.filter((s) => s !== "home")];
+
+      // If at top of page, set home as active
+      if (window.scrollY < 100) {
+        setActiveSection("home");
+        return;
+      }
+
+      // Find the section currently in view
+      let currentSection = "";
+      const scrollPosition = window.scrollY + 150; // Offset for header
+
+      for (let i = allSections.length - 1; i >= 0; i--) {
+        const sectionId = allSections[i];
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const offsetTop = element.offsetTop;
+
+          // Check if section is in viewport or above current scroll position
+          if (scrollPosition >= offsetTop || rect.top <= 150) {
+            currentSection = sectionId;
+            break;
+          }
+        }
+      }
+
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    // Initial check with small delay to ensure DOM is ready
+    const timeoutId = setTimeout(() => {
+      handleScroll();
+    }, 100);
+
+    // Listen to scroll events with throttling
+    let ticking = false;
+    const throttledHandleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", throttledHandleScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("scroll", throttledHandleScroll);
+    };
+  }, []);
+
   // submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
   const handleSubmenu = (index) => {
@@ -158,8 +235,9 @@ const Header = () => {
                           <Link
                             href={menuItem.path}
                             onClick={(e) => handleLinkClick(e, menuItem.path)}
-                            className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === menuItem.path || (menuItem.path.startsWith("#") && typeof window !== "undefined" && window.location.hash === menuItem.path)
-                              ? "text-primary dark:text-white"
+                            className={`flex py-2 text-base font-medium lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 transition-colors ${(menuItem.path.startsWith("#") && activeSection === menuItem.path.substring(1)) ||
+                              (usePathName === menuItem.path || (menuItem.path.startsWith("#") && typeof window !== "undefined" && window.location.hash === menuItem.path))
+                              ? "text-primary font-semibold dark:text-white"
                               : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
                               }`}
                           >
@@ -169,7 +247,7 @@ const Header = () => {
                           <>
                             <p
                               onClick={() => handleSubmenu(index)}
-                              className="text-dark group-hover:text-primary flex cursor-pointer items-center justify-between py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 dark:text-white/70 dark:group-hover:text-white"
+                              className="text-dark group-hover:text-primary flex cursor-pointer items-center justify-between py-2 text-base font-medium lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 dark:text-white/70 dark:group-hover:text-white"
                             >
                               {menuItem.title}
                               <span className="pl-3">
@@ -196,7 +274,10 @@ const Header = () => {
                                     }
                                   }}
                                   key={index}
-                                  className="text-dark hover:text-primary block rounded-sm py-2.5 text-sm lg:px-3 dark:text-white/70 dark:hover:text-white"
+                                  className={`block rounded-sm py-2.5 text-sm font-medium lg:px-3 transition-colors ${(submenuItem.path.startsWith("#") && activeSection === submenuItem.path.substring(1))
+                                    ? "text-primary font-semibold dark:text-white"
+                                    : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                                    }`}
                                 >
                                   {submenuItem.title}
                                 </Link>
@@ -286,7 +367,8 @@ const Header = () => {
                       handleLinkClick(e, menuItem.path);
                       setNavbarOpen(false);
                     }}
-                    className={`flex items-center gap-3 rounded-lg px-4 py-3 text-base font-medium transition-all hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 ${usePathName === menuItem.path || (menuItem.path.startsWith("#") && typeof window !== "undefined" && window.location.hash === menuItem.path)
+                    className={`flex items-center gap-3 rounded-lg px-4 py-3 text-base font-semibold transition-all hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 ${(menuItem.path.startsWith("#") && activeSection === menuItem.path.substring(1)) ||
+                      (usePathName === menuItem.path || (menuItem.path.startsWith("#") && typeof window !== "undefined" && window.location.hash === menuItem.path))
                       ? "bg-primary/10 text-primary dark:text-white"
                       : "text-dark dark:text-white/70"
                       }`}
@@ -304,7 +386,7 @@ const Header = () => {
                   <>
                     <button
                       onClick={() => handleSubmenu(index)}
-                      className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-dark transition-all hover:bg-primary/10 hover:text-primary dark:text-white/70 dark:hover:bg-primary/20"
+                      className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-semibold text-dark transition-all hover:bg-primary/10 hover:text-primary dark:text-white/70 dark:hover:bg-primary/20"
                     >
                       <div className="flex items-center gap-3">
                         <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
@@ -343,7 +425,10 @@ const Header = () => {
                                 }
                                 setNavbarOpen(false);
                               }}
-                              className="block rounded-lg px-4 py-2.5 text-sm text-dark transition-all hover:bg-primary/10 hover:text-primary dark:text-white/70 dark:hover:text-white"
+                              className={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-all hover:bg-primary/10 hover:text-primary ${(submenuItem.path.startsWith("#") && activeSection === submenuItem.path.substring(1))
+                                ? "bg-primary/10 text-primary font-semibold dark:text-white"
+                                : "text-dark dark:text-white/70 dark:hover:text-white"
+                                }`}
                             >
                               {submenuItem.title}
                             </Link>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo } from "react";
 
@@ -8,21 +9,21 @@ const Blog = () => {
     {
       name: "BlueEdu",
       description: "Module LMS chuyên biệt cho giáo viên",
-      icon: "📚",
+      imagePath: "/images/logo/logo5.png",
       gradient: "from-blue-500 to-cyan-500",
       delay: 0,
     },
     {
       name: "Blue Rise",
       description: "Hệ thống tổng thể cho trung tâm giáo dục",
-      icon: "🏢",
+      imagePath: "/images/logo/br.jpeg",
       gradient: "from-purple-500 to-pink-500",
       delay: 100,
     },
     {
       name: "DSchool",
       description: "Hệ thống quản lý toàn diện cho trường học",
-      icon: "🏫",
+      imagePath: "/images/logo/ds.png",
       gradient: "from-orange-500 to-red-500",
       delay: 200,
     },
@@ -112,10 +113,20 @@ const Blog = () => {
 
                 {/* Icon */}
                 <div className="mb-6 flex items-center justify-center">
-                  <div className={`relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${product.gradient} text-4xl shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
-                    <span className="relative z-10">{product.icon}</span>
+                  <div className={`relative flex h-16 w-16 items-center justify-center rounded-2xl ${product.name === "BlueEdu" || product.name === "Blue Rise" ? "bg-white" : `bg-gradient-to-br ${product.gradient}`} shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 overflow-hidden`}>
+                    <div className="relative z-10 h-full w-full p-2">
+                      <Image
+                        src={product.imagePath}
+                        alt={product.name}
+                        fill
+                        className="object-contain"
+                        sizes="64px"
+                      />
+                    </div>
                     {/* Pulse Ring */}
-                    <div className={`absolute inset-0 animate-ping rounded-2xl bg-gradient-to-br ${product.gradient} opacity-20`} style={{ animationDelay: `${product.delay}ms` }}></div>
+                    {product.name !== "BlueEdu" && product.name !== "Blue Rise" && (
+                      <div className={`absolute inset-0 animate-ping rounded-2xl bg-gradient-to-br ${product.gradient} opacity-20`} style={{ animationDelay: `${product.delay}ms` }}></div>
+                    )}
                     {/* Shine Effect */}
                     <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
                   </div>
@@ -182,7 +193,7 @@ const Blog = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-primary to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
             <span className="relative z-10 flex items-center">
-              <span className="mr-2 animate-bounce text-lg">🚀</span>
+
               <span>Tìm hiểu Blue Rise</span>
               <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
@@ -204,7 +215,7 @@ const Blog = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-red-500 via-orange-500 to-red-500 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
             <span className="relative z-10 flex items-center">
-              <span className="mr-2 animate-bounce text-lg">🏫</span>
+
               <span>Tìm hiểu DSchool</span>
               <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>

@@ -43,7 +43,7 @@ const AboutSectionOne = () => {
   ];
 
   return (
-      <section id="about" className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-12 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-16 lg:py-20">
+    <section id="about" className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 py-12 dark:from-gray-dark dark:via-gray-900 dark:to-gray-dark md:py-16 lg:py-20">
       {/* Background decorative elements */}
       <div className="absolute right-0 top-0 -z-0 animate-float-slow opacity-10">
         <div className="h-96 w-96 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 blur-3xl"></div>
@@ -162,7 +162,7 @@ const AboutSectionOne = () => {
 
         {/* Highlight Box */}
         <div className="mx-auto mt-12 max-w-4xl animate-fade-in-up animation-delay-600">
-                      <div className="relative overflow-hidden rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/10 via-purple-500/10 to-primary/10 p-6 shadow-xl dark:border-primary/30 sm:p-7">
+          <div className="relative overflow-hidden rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/10 via-purple-500/10 to-primary/10 p-6 shadow-xl dark:border-primary/30 sm:p-7">
             {/* Decorative elements */}
             <div className="absolute -right-10 -top-10 h-32 w-32 animate-float rounded-full bg-primary/20 blur-2xl"></div>
             <div className="absolute -bottom-10 -left-10 h-40 w-40 animate-float-delayed rounded-full bg-purple-500/20 blur-2xl"></div>
@@ -181,7 +181,7 @@ const AboutSectionOne = () => {
         {/* CTA Section */}
         <div className="mx-auto mt-12 max-w-3xl text-center animate-fade-in-up animation-delay-800">
           <Link
-            href="#contact"
+            href=""
             className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-purple-600 to-primary px-6 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95 sm:px-7 sm:py-3 sm:text-base"
           >
             {/* Animated gradient background */}

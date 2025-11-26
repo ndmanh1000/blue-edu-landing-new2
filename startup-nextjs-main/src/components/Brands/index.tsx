@@ -104,7 +104,7 @@ const Brands = () => {
   const currentFeature = features[currentPage];
 
   return (
-      <section id="brands" className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 py-12 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 md:py-16 lg:py-20">
+    <section id="brands" className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 py-12 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 md:py-16 lg:py-20">
       {/* Background decorative elements */}
       <div className="absolute right-0 top-0 -z-0 animate-float-slow opacity-10">
         <div className="h-96 w-96 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 blur-3xl"></div>
@@ -271,7 +271,7 @@ const Brands = () => {
         {isBookOpen && currentPage === features.length - 1 && (
           <div className="mt-12 mx-auto max-w-3xl text-center animate-fade-in-up">
             <Link
-              href="#contact"
+              href=""
               className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-green-600 to-primary px-6 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95 sm:px-7 sm:py-3 sm:text-base"
             >
               <span className="relative z-10 flex items-center">

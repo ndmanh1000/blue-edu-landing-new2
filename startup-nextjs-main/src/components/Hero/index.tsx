@@ -36,7 +36,7 @@ const Hero = () => {
                 {/* CTA Buttons */}
                 <div className="mb-6 flex flex-col items-start space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0 animate-fade-in-up animation-delay-600">
                   <Link
-                    href="#contact"
+                    href=""
                     className="group relative w-full overflow-hidden rounded-xs bg-primary px-5 py-2.5 text-center text-sm font-semibold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/90 hover:shadow-2xl active:scale-95"
                   >
                     <span className="relative z-10 flex items-center justify-center">
@@ -50,7 +50,7 @@ const Hero = () => {
                     <span className="absolute -inset-1 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent blur-xl transition-transform duration-1000 delay-75 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
                   </Link>
                   <Link
-                    href="#features"
+                    href=""
                     className="group relative inline-block w-full overflow-hidden rounded-xs border-2 border-primary bg-transparent px-5 py-2.5 text-center text-sm font-semibold text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary/10 hover:shadow-lg active:scale-95 dark:text-primary dark:hover:bg-primary/20"
                   >
                     <span className="relative z-10">Xem demo 90s</span>

@@ -76,7 +76,7 @@ export default function Video() {
               }}
             ></div>
           ))}
-                  </div>
+        </div>
 
         <div className="container relative z-10">
           {/* Section Title */}
@@ -175,7 +175,7 @@ export default function Video() {
               </div>
 
               <Link
-                href="#contact"
+                href=""
                 className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-purple-600 to-primary px-6 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95 sm:px-7 sm:py-3 sm:text-base"
               >
                 {/* Animated gradient background */}
