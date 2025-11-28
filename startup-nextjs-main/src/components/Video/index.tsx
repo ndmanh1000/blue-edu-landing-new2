@@ -1,40 +1,40 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import Image from "next/image";
 
 export default function Video() {
   const features = [
     {
-      icon: "📄",
+      image: "/images/all/tn1.png",
       title: "Số hóa tài liệu trong vài giây",
       description: "Upload PDF, ảnh đề → AI tự nhận diện toàn bộ câu hỏi, đáp án, format đúng chuẩn. Không gõ lại – không chỉnh tay – không mất cả buổi.",
       gradient: "from-blue-500 to-cyan-500",
       delay: 0,
     },
     {
-      icon: "💡",
+      image: "/images/all/tn2.png",
       title: "Tạo ngân hàng câu hỏi thông minh",
       description: "AI tự phân loại dạng bài, gợi ý độ khó, đề xuất thêm câu hỏi tương tự để mở rộng kho. Từ 10 câu → thành 50 câu trong tích tắc.",
       gradient: "from-purple-500 to-pink-500",
       delay: 100,
     },
     {
-      icon: "⚡",
+      image: "/images/all/tn3.png",
       title: "Sinh đề tự động & tạo nhiều phiên bản",
       description: "Chọn chương – độ khó – số câu → AI xếp đề hoàn chỉnh. Tạo đề A/B/C chỉ bằng 1 click.",
       gradient: "from-orange-500 to-red-500",
       delay: 200,
     },
     {
-      icon: "✅",
+      image: "/images/all/tn4.png",
       title: "Gợi ý đáp án – thang điểm – nhận xét bài làm",
       description: "AI hỗ trợ chấm, đánh dấu, đề xuất nhận xét theo từng dạng câu. Giảm thời gian chấm bài đến 60-70%.",
       gradient: "from-green-500 to-emerald-500",
       delay: 300,
     },
     {
-      icon: "📊",
+      image: "/images/all/tn5.png",
       title: "Phân tích tiến độ học sinh theo thời gian thực",
       description: "Theo dõi và phân tích chi tiết tiến độ học tập của từng học sinh, báo cáo tự động, đề xuất cải thiện.",
       gradient: "from-indigo-500 to-blue-500",
@@ -80,18 +80,12 @@ export default function Video() {
 
         <div className="container relative z-10">
           {/* Section Title */}
-          <div className="mb-12 text-center animate-fade-in-down">
+          <div className="mb-8 text-center animate-fade-in-down md:mb-12">
             <div className="relative inline-block">
-              {/* Decorative AI Icons */}
-
               <div className="absolute -right-8 -top-6 animate-float-delayed text-3xl opacity-30 sm:-right-12 sm:-top-8 sm:text-4xl">⚡</div>
 
               <div className="relative inline-flex flex-col items-center justify-center sm:flex-row">
-                <div className="mb-3 text-2xl sm:mb-0 sm:mr-3 sm:text-3xl">
-
-
-                </div>
-                <h2 className="relative text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl">
+                <h2 className="relative text-lg font-extrabold leading-tight text-black dark:text-white sm:text-xl md:text-2xl lg:text-3xl">
                   <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
                     Blue Edu – Trợ lý dạy học tốc độ cao với AI
                   </span>
@@ -104,127 +98,44 @@ export default function Video() {
             </div>
           </div>
 
-          {/* Features Grid */}
-          <div className="mb-12">
-            {/* First 3 features */}
-            <div className="mb-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
-              {features.slice(0, 3).map((feature, index) => (
+          {/* Features Grid with Zigzag Layout */}
+          <div className="mb-12 space-y-6 md:space-y-10 lg:space-y-12">
+            {features.map((feature, index) => {
+              const isEven = index % 2 === 1; // Card 2, 4 (index 1, 3) sẽ đảo ngược
+
+              return (
                 <div
                   key={index}
-                  className="group animate-fade-in-up"
+                  className={`animate-fade-in-up overflow-hidden dark:bg-gray-800 ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'
+                    } flex flex-col md:flex`}
                   style={{ animationDelay: `${feature.delay}ms` }}
                 >
-                  <div className="relative h-full overflow-hidden rounded-xl border border-gray-200 bg-white p-5 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:p-6">
-                    {/* Gradient Background on Hover */}
-                    <div className={`absolute inset-0 -z-0 bg-gradient-to-br ${feature.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}></div>
+                  {/* Image Section */}
+                  <div className="relative w-full md:w-1/2 h-56 sm:h-72 md:h-80 lg:h-96 overflow-hidden">
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
 
-                    {/* Animated Border Glow */}
-                    <div className={`absolute -inset-1 -z-0 rounded-2xl bg-gradient-to-r ${feature.gradient} opacity-0 blur transition-opacity duration-500 group-hover:opacity-30`}></div>
-
-                    {/* Icon */}
-                    <div className="mb-6 flex items-center justify-center">
-                      <div className={`relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} text-3xl shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
-                        <span className="relative z-10">{feature.icon}</span>
-                        {/* Pulse Ring */}
-                        <div className={`absolute inset-0 animate-ping rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-20`} style={{ animationDelay: `${feature.delay}ms` }}></div>
-                        {/* Shine Effect */}
-                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
-                      </div>
-                    </div>
-
+                  {/* Content Section */}
+                  <div className="relative w-full md:w-1/2 p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-center">
                     {/* Content */}
                     <div className="relative z-10">
-                      <h3 className="mb-3 text-lg font-bold text-black transition-colors duration-300 group-hover:text-primary dark:text-white sm:text-xl">
-                        <span className="mr-2 inline-block animate-pulse text-lg">✨</span>
+                      <h3 className="mb-3 text-base font-bold text-black dark:text-white sm:text-lg md:text-xl lg:text-2xl">
                         {feature.title}
                       </h3>
-                      <p className="text-sm leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300 sm:text-base">
+                      <p className="text-sm leading-relaxed text-body-color dark:text-body-color-dark sm:text-base md:text-lg">
                         {feature.description}
                       </p>
                     </div>
-
-                    {/* Animated Bottom Line */}
-                    <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${feature.gradient} transition-all duration-500 group-hover:w-full`}></div>
-
-                    {/* Floating Particles Inside Card */}
-                    <div className="absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      {[...Array(3)].map((_, i) => (
-                        <div
-                          key={i}
-                          className={`absolute h-2 w-2 rounded-full bg-gradient-to-br ${feature.gradient} animate-float-delayed`}
-                          style={{
-                            left: `${20 + i * 30}%`,
-                            top: `${30 + i * 20}%`,
-                            animationDelay: `${i * 0.3}s`,
-                          }}
-                        ></div>
-                      ))}
-                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Last 2 features - centered */}
-            <div className="flex justify-center">
-              <div className="grid gap-5 md:grid-cols-2 md:gap-6" style={{ maxWidth: '800px' }}>
-                {features.slice(3).map((feature, index) => (
-                  <div
-                    key={index + 3}
-                    className="group animate-fade-in-up"
-                    style={{ animationDelay: `${feature.delay}ms` }}
-                  >
-                    <div className="relative h-full overflow-hidden rounded-xl border border-gray-200 bg-white p-5 shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800 sm:p-6">
-                      {/* Gradient Background on Hover */}
-                      <div className={`absolute inset-0 -z-0 bg-gradient-to-br ${feature.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}></div>
-
-                      {/* Animated Border Glow */}
-                      <div className={`absolute -inset-1 -z-0 rounded-2xl bg-gradient-to-r ${feature.gradient} opacity-0 blur transition-opacity duration-500 group-hover:opacity-30`}></div>
-
-                      {/* Icon */}
-                      <div className="mb-6 flex items-center justify-center">
-                        <div className={`relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} text-3xl shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
-                          <span className="relative z-10">{feature.icon}</span>
-                          {/* Pulse Ring */}
-                          <div className={`absolute inset-0 animate-ping rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-20`} style={{ animationDelay: `${feature.delay}ms` }}></div>
-                          {/* Shine Effect */}
-                          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <div className="relative z-10">
-                        <h3 className="mb-3 text-lg font-bold text-black transition-colors duration-300 group-hover:text-primary dark:text-white sm:text-xl">
-                          <span className="mr-2 inline-block animate-pulse text-lg">✨</span>
-                          {feature.title}
-                        </h3>
-                        <p className="text-sm leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300 sm:text-base">
-                          {feature.description}
-                        </p>
-                      </div>
-
-                      {/* Animated Bottom Line */}
-                      <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${feature.gradient} transition-all duration-500 group-hover:w-full`}></div>
-
-                      {/* Floating Particles Inside Card */}
-                      <div className="absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                        {[...Array(3)].map((_, i) => (
-                          <div
-                            key={i}
-                            className={`absolute h-2 w-2 rounded-full bg-gradient-to-br ${feature.gradient} animate-float-delayed`}
-                            style={{
-                              left: `${20 + i * 30}%`,
-                              top: `${30 + i * 20}%`,
-                              animationDelay: `${i * 0.3}s`,
-                            }}
-                          ></div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+              );
+            })}
           </div>
 
           {/* CTA Section */}
@@ -271,4 +182,4 @@ export default function Video() {
       </section>
     </>
   );
-};
+}

@@ -216,7 +216,7 @@ const Header = () => {
                   alt="logo"
                   width={160}
                   height={50}
-                  className="h-auto w-auto max-w-[155px] object-contain"
+                  className="h-auto w-auto max-w-[200px] object-contain"
                   priority
                 />
               </Link>
@@ -373,13 +373,7 @@ const Header = () => {
                       : "text-dark dark:text-white/70"
                       }`}
                   >
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
-                      {index === 0 && "🏠"}
-                      {index === 1 && "⚠️"}
-                      {index === 2 && "🤖"}
-                      {index === 3 && "📚"}
-                      {index === 4 && "📄"}
-                    </span>
+
                     {menuItem.title}
                   </Link>
                 ) : (
@@ -389,9 +383,7 @@ const Header = () => {
                       className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-semibold text-dark transition-all hover:bg-primary/10 hover:text-primary dark:text-white/70 dark:hover:bg-primary/20"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
-                          📄
-                        </span>
+
                         {menuItem.title}
                       </div>
                       <svg

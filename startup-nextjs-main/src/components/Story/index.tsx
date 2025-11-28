@@ -41,14 +41,11 @@ export default function Story() {
 
         <div className="container relative z-10">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
-            {/* Content Section */}
+            {/* Content Section - Left */}
             <div className="animate-fade-in-up">
               {/* Title */}
               <div className="mb-8">
                 <div className="relative inline-block">
-                  {/* Decorative Icons */}
-
-
                   <h2 className="relative text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl">
                     <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
                       BlueEdu là gì ?
@@ -95,153 +92,23 @@ export default function Story() {
               </div>
             </div>
 
-            {/* Visual Section - Ecosystem Mockup */}
+            {/* Visual Section - Right - Image */}
             <div className="relative animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <div className="relative">
-                {/* Main Desktop/Laptop Mockup */}
-                <div className="relative mx-auto max-w-full">
-                  {/* Laptop Frame */}
-                  <div className="group relative mx-auto w-full max-w-2xl">
-                    {/* Laptop Screen */}
-                    <div className="relative overflow-hidden rounded-t-lg border-4 border-gray-800 bg-gray-900 shadow-2xl transition-all duration-500 group-hover:scale-[1.02] dark:border-gray-700">
-                      {/* Screen Content */}
-                      <div className="aspect-video bg-gradient-to-br from-blue-600 via-purple-600 to-blue-600">
-                        {/* Browser Chrome */}
-                        <div className="flex items-center gap-2 border-b border-gray-700 bg-gray-800 px-4 py-2">
-                          <div className="flex gap-1.5">
-                            <div className="h-3 w-3 rounded-full bg-red-500"></div>
-                            <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
-                            <div className="h-3 w-3 rounded-full bg-green-500"></div>
-                          </div>
-                          <div className="ml-4 flex-1 rounded bg-gray-700 px-3 py-1 text-xs text-gray-300">
-                            blueedu.vn
-                          </div>
-                        </div>
-                        {/* Web Interface Mockup */}
-                        <div className="flex h-full items-center justify-center p-8">
-                          <div className="w-full space-y-4">
-                            <div className="h-4 w-3/4 rounded bg-white/20"></div>
-                            <div className="h-4 w-1/2 rounded bg-white/15"></div>
-                            <div className="grid grid-cols-3 gap-4 pt-4">
-                              {[1, 2, 3].map((i) => (
-                                <div key={i} className="h-20 rounded-lg bg-white/10"></div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Shine Effect */}
-                      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
-                    </div>
-
-                    {/* Laptop Base */}
-                    <div className="h-2 rounded-b-lg bg-gray-800 shadow-xl dark:bg-gray-700"></div>
-                    <div className="mx-auto h-1 w-3/4 rounded-b-lg bg-gray-900 dark:bg-gray-800"></div>
-                  </div>
-
-                  {/* Mobile App Mockup - Floating */}
-                  <div className="absolute -right-4 top-1/4 z-10 animate-float-delayed md:-right-8">
-                    <div className="group relative">
-                      {/* Phone Frame */}
-                      <div className="relative h-64 w-32 overflow-hidden rounded-[2rem] border-4 border-gray-800 bg-gray-900 shadow-2xl transition-all duration-500 group-hover:scale-110 dark:border-gray-700">
-                        {/* Screen Content */}
-                        <div className="h-full bg-gradient-to-br from-blue-600 via-purple-600 to-blue-600">
-                          {/* Status Bar */}
-                          <div className="flex items-center justify-between border-b border-white/10 bg-black/20 px-3 py-1 text-xs text-white">
-                            <span>9:41</span>
-                            <div className="flex gap-1">
-                              <div className="h-1 w-1 rounded-full bg-white"></div>
-                              <div className="h-1 w-1 rounded-full bg-white"></div>
-                              <div className="h-1 w-1 rounded-full bg-white"></div>
-                            </div>
-                          </div>
-                          {/* App Interface */}
-                          <div className="flex h-[calc(100%-2.5rem)] flex-col items-center justify-center space-y-3 p-4">
-                            <div className="h-12 w-12 rounded-full bg-white/20"></div>
-                            <div className="h-2 w-20 rounded bg-white/15"></div>
-                            <div className="h-2 w-16 rounded bg-white/10"></div>
-                            <div className="mt-4 space-y-2">
-                              {[1, 2, 3].map((i) => (
-                                <div key={i} className="h-8 w-24 rounded bg-white/10"></div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Shine Effect */}
-                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
-                      </div>
-
-                      {/* Glow Effect */}
-                      <div className="absolute -inset-2 rounded-[2.5rem] bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-blue-500/30 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100"></div>
-                    </div>
-                  </div>
-
-                  {/* Tablet Mockup - Bottom Left */}
-                  <div className="absolute -bottom-8 -left-4 z-10 hidden animate-float md:block lg:-left-8">
-                    <div className="group relative">
-                      {/* Tablet Frame */}
-                      <div className="relative h-48 w-64 overflow-hidden rounded-xl border-4 border-gray-800 bg-gray-900 shadow-2xl transition-all duration-500 group-hover:scale-105 dark:border-gray-700">
-                        {/* Screen Content */}
-                        <div className="h-full bg-gradient-to-br from-purple-600 via-blue-600 to-purple-600">
-                          {/* App Interface */}
-                          <div className="flex h-full flex-col items-center justify-center space-y-3 p-6">
-                            <div className="h-16 w-16 rounded-full bg-white/20"></div>
-                            <div className="h-3 w-32 rounded bg-white/15"></div>
-                            <div className="grid grid-cols-2 gap-3 pt-4">
-                              {[1, 2].map((i) => (
-                                <div key={i} className="h-16 rounded-lg bg-white/10"></div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Shine Effect */}
-                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>
-                      </div>
-
-                      {/* Glow Effect */}
-                      <div className="absolute -inset-2 rounded-xl bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100"></div>
-                    </div>
-                  </div>
-
-                  {/* Connecting Lines Animation */}
-                  <div className="absolute inset-0 -z-10">
-                    <svg className="h-full w-full opacity-20">
-                      <line
-                        x1="50%"
-                        y1="30%"
-                        x2="75%"
-                        y2="25%"
-                        stroke="url(#gradient)"
-                        strokeWidth="2"
-                        className="animate-pulse"
-                      />
-                      <line
-                        x1="30%"
-                        y1="70%"
-                        x2="20%"
-                        y2="85%"
-                        stroke="url(#gradient)"
-                        strokeWidth="2"
-                        className="animate-pulse"
-                        style={{ animationDelay: '0.5s' }}
-                      />
-                      <defs>
-                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.5" />
-                          <stop offset="100%" stopColor="#a855f7" stopOpacity="0.5" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
+              <div className="relative w-full">
+                <div className="relative mx-auto w-full max-w-full overflow-hidden rounded-lg shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-primary/20 dark:shadow-gray-800">
+                  <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[4/3]">
+                    <Image
+                      src="/images/all/storyy.jpg"
+                      alt="Blue Edu - Đa nền tảng và đa thiết bị"
+                      fill
+                      className="object-cover object-center"
+                    // priority
+                    // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                    />
+                    {/* Overlay gradient for better text readability if needed */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent pointer-events-none"></div>
                   </div>
                 </div>
-
-                {/* Floating Icons */}
-                <div className="absolute -left-8 top-1/4 animate-float text-3xl opacity-30">💻</div>
-                <div className="absolute -right-12 top-1/2 animate-float-delayed text-3xl opacity-30">📱</div>
-                <div className="absolute bottom-0 left-1/4 animate-float text-2xl opacity-30">🌐</div>
               </div>
             </div>
           </div>

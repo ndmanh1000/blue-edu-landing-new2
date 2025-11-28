@@ -148,31 +148,22 @@ const Hero = () => {
             {/* Visual Section - Right */}
             <div className="w-full px-4 lg:w-1/2">
               <div className="relative mx-auto max-w-[550px] animate-fade-in-right lg:mx-0">
-                <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-gray-light shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-primary/20 dark:bg-gray-dark">
-                  {/* Placeholder for visual - Replace with actual image */}
-                  <div className="flex h-full items-center justify-center">
-                    <div className="text-center">
-                      <div className="mb-4 animate-float text-4xl">📱</div>
-                      <p className="text-body-color animate-fade-in text-sm dark:text-body-color-dark">
-                        Ảnh minh họa màn hình giao diện hoặc animation AI
-                      </p>
-                    </div>
-                  </div>
+                <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-gray-light shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-primary/20 dark:bg-gray-dark sm:aspect-video lg:aspect-square">
+                  {/* Image - Responsive for desktop and mobile */}
+                  <Image
+                    src="/images/all/tongquan.png"
+                    alt="Blue Edu Tổng quan"
+                    fill
+                    className="object-cover object-center"
+                  // priority
+                  // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
+                  />
                   {/* Floating particles effect */}
                   <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute left-1/4 top-1/4 h-2 w-2 animate-float-delayed rounded-full bg-primary/30"></div>
                     <div className="absolute right-1/4 top-1/3 h-3 w-3 animate-float-delayed-2 rounded-full bg-primary/20"></div>
                     <div className="absolute bottom-1/4 left-1/3 h-2 w-2 animate-float-delayed-3 rounded-full bg-primary/25"></div>
                   </div>
-                  {/* Uncomment when you have the actual image:
-                  <Image
-                    src="/images/hero/dashboard-preview.png"
-                    alt="Blue Edu Dashboard Preview"
-                    fill
-                    className="object-contain animate-fade-in"
-                    priority
-                  />
-                  */}
                 </div>
               </div>
             </div>

@@ -1,108 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import Image from "next/image";
 
 const Brands = () => {
-  const [isBookOpen, setIsBookOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
-
-  const features = [
-    {
-      title: "Quản lý lớp học",
-      icon: "🎯",
-      iconBg: "bg-red-500",
-      iconColor: "text-white",
-      features: [
-        "Tạo lớp 1 phút",
-        "Mời học sinh bằng link hoặc mã lớp",
-        "Tự động đồng bộ danh sách",
-      ],
-      gradient: "from-red-500 to-orange-500",
-      pageNumber: 1,
-    },
-    {
-      title: "Giao bài – chấm bài",
-      icon: "📝",
-      iconBg: "bg-green-500",
-      iconColor: "text-white",
-      features: [
-        "Tự luận, trắc nghiệm, file",
-        "Chấm trực tiếp trên giao diện",
-        "Lưu toàn bộ lịch sử điểm, bài nộp",
-      ],
-      gradient: "from-green-500 to-emerald-500",
-      pageNumber: 2,
-    },
-    {
-      title: "Kho tài nguyên giáo viên",
-      icon: "📚",
-      iconBg: "bg-green-500",
-      iconColor: "text-white",
-      features: [
-        "Lưu trữ đề – bài tập – tài liệu",
-        "Tái sử dụng cho nhiều lớp",
-        "Phân loại thông minh + tìm nhanh",
-      ],
-      gradient: "from-green-500 to-teal-500",
-      pageNumber: 3,
-    },
-    {
-      title: "Báo cáo học sinh",
-      icon: "📊",
-      iconBg: "bg-green-500",
-      iconColor: "text-white",
-      features: [
-        "Ai đã nộp – chưa nộp",
-        "Đúng hạn – trễ hạn",
-        "Điểm từng em – biểu đồ tổng quan lớp",
-      ],
-      gradient: "from-green-500 to-cyan-500",
-      pageNumber: 4,
-    },
-    {
-      title: "Hệ sinh thái Blue Rise",
-      icon: "🌊",
-      iconBg: "bg-black",
-      iconColor: "text-white",
-      features: [
-        "Khi bạn muốn mở rộng cấp độ quản lý → chuyển sang Blue Rise Enterprise trong 1 nốt nhạc",
-        "Không mất dữ liệu, không làm lại từ đầu",
-      ],
-      gradient: "from-gray-800 to-black",
-      pageNumber: 5,
-    },
-  ];
-
-  const handleBookClick = () => {
-    if (!isBookOpen) {
-      setIsBookOpen(true);
-    }
-  };
-
-  const handlePageClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (currentPage < features.length - 1) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const handlePrevPage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const handleNextPage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (currentPage < features.length - 1) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const currentFeature = features[currentPage];
-
   return (
     <section id="brands" className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 py-12 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 md:py-16 lg:py-20">
       {/* Background decorative elements */}
@@ -115,176 +15,229 @@ const Brands = () => {
 
       <div className="container relative z-10">
         {/* Section Title */}
-        <div className="mb-10 text-center animate-fade-in-down">
+        <div className="mb-8 text-center animate-fade-in-down md:mb-10">
           <h2 className="mb-4 text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl">
             <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
               Tính năng chuyên sâu của Blue Edu
             </span>
           </h2>
-          {!isBookOpen && (
-            <p className="mt-4 text-base text-body-color dark:text-body-color-dark sm:text-lg">
-              👆 Click vào quyển vở để khám phá
-            </p>
-          )}
         </div>
 
-        {/* Notebook Book */}
+        {/* Image Container - Responsive for desktop and mobile */}
         <div className="flex items-center justify-center">
-          <div
-            className="relative cursor-pointer perspective-1000"
-            onClick={handleBookClick}
-            style={{ perspective: '1000px' }}
-          >
-            {/* Book Container */}
-            <div className={`relative transition-all duration-1000 ${isBookOpen ? 'book-open' : 'book-closed'}`}>
-              {/* Left Cover */}
-              <div className={`book-cover book-cover-left ${isBookOpen ? 'open' : ''}`}>
-                <div className="book-cover-inner">
-                  <div className="book-spine"></div>
-                  {!isBookOpen && (
-                    <div className="book-cover-content">
-                      <div className="text-4xl mb-4">📖</div>
-                      <h3 className="text-2xl font-bold text-white">Blue Edu</h3>
-                      <p className="text-white/80 mt-2">Tính năng chuyên sâu</p>
-                    </div>
-                  )}
+          <div className="relative w-full max-w-6xl mx-auto px-4">
+            <div className="relative w-full aspect-[16/9] sm:aspect-[4/3] md:aspect-[16/10] lg:aspect-[16/9] overflow-hidden rounded-lg shadow-2xl transition-all duration-500 hover:shadow-primary/20 dark:shadow-gray-800">
+              <Image
+                src="/images/all/tinhnang.png"
+                alt="Tính năng chuyên sâu của Blue Edu"
+                fill
+                className="object-contain object-center"
+                priority
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1152px"
+              />
+
+              {/* Animated Overlay for Branch Effects */}
+              <div className="absolute inset-0 pointer-events-none">
+                {/* Top-Left Branch - Blue (Quản lý lớp học) */}
+                <div className="absolute left-[8%] top-[12%] sm:left-[10%] sm:top-[15%] md:left-[12%] md:top-[18%]">
+                  {/* Connection Line Animation */}
+                  <svg className="absolute left-[60%] top-[70%] w-[25%] h-[15%] opacity-60" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path
+                      d="M 0 0 Q 50 30 100 100"
+                      stroke="url(#gradient-blue-1)"
+                      strokeWidth="2"
+                      fill="none"
+                      className="animate-draw-line"
+                    />
+                    <defs>
+                      <linearGradient id="gradient-blue-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#4A6CF7" stopOpacity="0" />
+                        <stop offset="50%" stopColor="#4A6CF7" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#4A6CF7" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  {/* Glow Point */}
+                  <div className="absolute left-[60%] top-[70%] w-3 h-3 bg-primary rounded-full animate-pulse-blue shadow-lg shadow-primary/50"></div>
+                  {/* Floating Particles */}
+                  <div className="absolute left-[45%] top-[50%] w-1.5 h-1.5 bg-primary/60 rounded-full animate-float-delayed"></div>
+                  <div className="absolute left-[75%] top-[80%] w-1 h-1 bg-primary/40 rounded-full animate-float-delayed-2"></div>
                 </div>
-              </div>
 
-              {/* Pages */}
-              <div className={`book-pages ${isBookOpen ? 'open' : ''}`}>
-                {features.map((feature, index) => (
-                  <div
-                    key={index}
-                    className={`book-page ${index === currentPage ? 'active' : ''} ${index < currentPage ? 'turned' : ''} ${index === currentPage && isBookOpen ? 'cursor-pointer' : ''}`}
-                    onClick={index === currentPage ? handlePageClick : undefined}
-                    style={{
-                      zIndex: features.length - index,
-                    }}
-                  >
-                    {/* Page Content */}
-                    <div className="book-page-content">
-                      {/* Notebook Lines */}
-                      <div className="notebook-lines"></div>
+                {/* Top-Right Branch - Blue (Giao bài - Chấm bài) */}
+                <div className="absolute right-[8%] top-[12%] sm:right-[10%] sm:top-[15%] md:right-[12%] md:top-[18%]">
+                  {/* Connection Line Animation */}
+                  <svg className="absolute right-[60%] top-[70%] w-[25%] h-[15%] opacity-60" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path
+                      d="M 100 0 Q 50 30 0 100"
+                      stroke="url(#gradient-blue-2)"
+                      strokeWidth="2"
+                      fill="none"
+                      className="animate-draw-line"
+                      style={{ animationDelay: '0.3s' }}
+                    />
+                    <defs>
+                      <linearGradient id="gradient-blue-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#4A6CF7" stopOpacity="0" />
+                        <stop offset="50%" stopColor="#4A6CF7" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#4A6CF7" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  {/* Glow Point */}
+                  <div className="absolute right-[60%] top-[70%] w-3 h-3 bg-primary rounded-full animate-pulse-blue shadow-lg shadow-primary/50" style={{ animationDelay: '0.3s' }}></div>
+                  {/* Floating Particles */}
+                  <div className="absolute right-[45%] top-[50%] w-1.5 h-1.5 bg-primary/60 rounded-full animate-float-delayed" style={{ animationDelay: '0.5s' }}></div>
+                  <div className="absolute right-[75%] top-[80%] w-1 h-1 bg-primary/40 rounded-full animate-float-delayed-2" style={{ animationDelay: '0.7s' }}></div>
+                </div>
 
-                      {/* Page Header */}
-                      <div className="page-header">
-                        <div className="page-number">Trang {feature.pageNumber}</div>
-                        <div className="page-date">Blue Edu</div>
-                      </div>
+                {/* Bottom-Left Branch - Yellow (Báo cáo học sinh) */}
+                <div className="absolute left-[8%] bottom-[20%] sm:left-[10%] sm:bottom-[22%] md:left-[12%] md:bottom-[25%]">
+                  {/* Connection Line Animation */}
+                  <svg className="absolute left-[60%] bottom-[70%] w-[25%] h-[15%] opacity-60" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path
+                      d="M 0 100 Q 50 70 100 0"
+                      stroke="url(#gradient-yellow-1)"
+                      strokeWidth="2"
+                      fill="none"
+                      className="animate-draw-line"
+                      style={{ animationDelay: '0.6s' }}
+                    />
+                    <defs>
+                      <linearGradient id="gradient-yellow-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#FBBF24" stopOpacity="0" />
+                        <stop offset="50%" stopColor="#FBBF24" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#FBBF24" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  {/* Glow Point */}
+                  <div className="absolute left-[60%] bottom-[70%] w-3 h-3 bg-yellow-400 rounded-full animate-pulse-yellow shadow-lg shadow-yellow-400/50" style={{ animationDelay: '0.6s' }}></div>
+                  {/* Floating Particles */}
+                  <div className="absolute left-[45%] bottom-[50%] w-1.5 h-1.5 bg-yellow-400/60 rounded-full animate-float-delayed" style={{ animationDelay: '0.8s' }}></div>
+                  <div className="absolute left-[75%] bottom-[80%] w-1 h-1 bg-yellow-400/40 rounded-full animate-float-delayed-2" style={{ animationDelay: '1s' }}></div>
+                </div>
 
-                      {/* Content */}
-                      <div className="page-body">
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${feature.iconBg} ${feature.iconColor} text-3xl shadow-lg`}>
-                            {feature.icon}
-                          </div>
-                          <h3 className="text-xl font-bold text-black dark:text-white sm:text-2xl">
-                            {feature.title}
-                          </h3>
-                        </div>
+                {/* Bottom-Right Branch - Yellow (Kho tài nguyên giáo viên) */}
+                <div className="absolute right-[8%] bottom-[20%] sm:right-[10%] sm:bottom-[22%] md:right-[12%] md:bottom-[25%]">
+                  {/* Connection Line Animation */}
+                  <svg className="absolute right-[60%] bottom-[70%] w-[25%] h-[15%] opacity-60" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path
+                      d="M 100 100 Q 50 70 0 0"
+                      stroke="url(#gradient-yellow-2)"
+                      strokeWidth="2"
+                      fill="none"
+                      className="animate-draw-line"
+                      style={{ animationDelay: '0.9s' }}
+                    />
+                    <defs>
+                      <linearGradient id="gradient-yellow-2" x1="100%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" stopColor="#FBBF24" stopOpacity="0" />
+                        <stop offset="50%" stopColor="#FBBF24" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#FBBF24" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  {/* Glow Point */}
+                  <div className="absolute right-[60%] bottom-[70%] w-3 h-3 bg-yellow-400 rounded-full animate-pulse-yellow shadow-lg shadow-yellow-400/50" style={{ animationDelay: '0.9s' }}></div>
+                  {/* Floating Particles */}
+                  <div className="absolute right-[45%] bottom-[50%] w-1.5 h-1.5 bg-yellow-400/60 rounded-full animate-float-delayed" style={{ animationDelay: '1.1s' }}></div>
+                  <div className="absolute right-[75%] bottom-[80%] w-1 h-1 bg-yellow-400/40 rounded-full animate-float-delayed-2" style={{ animationDelay: '1.3s' }}></div>
+                </div>
 
-                        <ul className="space-y-4">
-                          {feature.features.map((item, itemIndex) => (
-                            <li
-                              key={itemIndex}
-                              className="flex items-start gap-3 text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg"
-                            >
-                              <span className="mt-1 flex-shrink-0 text-primary text-xl">•</span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
+                {/* Bottom Center Branch - Blue (Hệ sinh thái Blue Rise) */}
+                <div className="absolute left-1/2 bottom-[8%] sm:bottom-[10%] md:bottom-[12%] transform -translate-x-1/2">
+                  {/* Connection Line Animation - Vertical */}
+                  <svg className="absolute left-1/2 bottom-[60%] w-[2%] h-[20%] opacity-60 transform -translate-x-1/2" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path
+                      d="M 50 100 L 50 0"
+                      stroke="url(#gradient-blue-3)"
+                      strokeWidth="2"
+                      fill="none"
+                      className="animate-draw-line"
+                      style={{ animationDelay: '1.2s' }}
+                    />
+                    <defs>
+                      <linearGradient id="gradient-blue-3" x1="50%" y1="100%" x2="50%" y2="0%">
+                        <stop offset="0%" stopColor="#4A6CF7" stopOpacity="0" />
+                        <stop offset="50%" stopColor="#4A6CF7" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#4A6CF7" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  {/* Glow Point */}
+                  <div className="absolute left-1/2 bottom-[60%] w-3 h-3 bg-primary rounded-full animate-pulse-blue shadow-lg shadow-primary/50 transform -translate-x-1/2" style={{ animationDelay: '1.2s' }}></div>
+                  {/* Floating Particles */}
+                  <div className="absolute left-[45%] bottom-[50%] w-1.5 h-1.5 bg-primary/60 rounded-full animate-float-delayed" style={{ animationDelay: '1.4s' }}></div>
+                  <div className="absolute left-[55%] bottom-[70%] w-1 h-1 bg-primary/40 rounded-full animate-float-delayed-2" style={{ animationDelay: '1.6s' }}></div>
+                </div>
 
-                        {/* Click hint for current page */}
-                        {index === currentPage && currentPage < features.length - 1 && (
-                          <div className="mt-8 text-center">
-                            <p className="text-sm text-body-color dark:text-body-color-dark animate-pulse">
-                              👆 Click để lật trang tiếp theo
-                            </p>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Page Footer */}
-                      <div className="page-footer">
-                        <div className="page-footer-line"></div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Right Cover */}
-              <div className={`book-cover book-cover-right ${isBookOpen ? 'open' : ''}`}>
-                <div className="book-cover-inner">
-                  {!isBookOpen && (
-                    <div className="book-cover-content">
-                      <div className="text-4xl mb-4">📚</div>
-                      <h3 className="text-2xl font-bold text-white">Blue Edu</h3>
-                    </div>
-                  )}
+                {/* Central Circle Glow Effect */}
+                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-primary/20 rounded-full animate-ping"></div>
+                  <div className="absolute inset-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-primary/10 rounded-full animate-pulse"></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Navigation Controls */}
-        {isBookOpen && (
-          <div className="mt-12 flex items-center justify-center gap-4 animate-fade-in-up">
-            <button
-              onClick={handlePrevPage}
-              disabled={currentPage === 0}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white border-2 border-gray-300 text-gray-600 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300"
-            >
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            <div className="flex items-center gap-2">
-              {features.map((_, index) => (
-                <div
-                  key={index}
-                  className={`h-2 rounded-full transition-all duration-300 ${index === currentPage
-                    ? 'w-8 bg-primary'
-                    : 'w-2 bg-gray-300 dark:bg-gray-600'
-                    }`}
-                ></div>
-              ))}
-            </div>
-
-            <button
-              onClick={handleNextPage}
-              disabled={currentPage === features.length - 1}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white border-2 border-gray-300 text-gray-600 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300"
-            >
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        )}
-
-        {/* CTA Section */}
-        {isBookOpen && currentPage === features.length - 1 && (
-          <div className="mt-12 mx-auto max-w-3xl text-center animate-fade-in-up">
-            <Link
-              href=""
-              className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-green-600 to-primary px-6 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95 sm:px-7 sm:py-3 sm:text-base"
-            >
-              <span className="relative z-10 flex items-center">
-                <span className="mr-2 animate-bounce text-lg">🚀</span>
-                <span>Bắt đầu ngay - miễn phí</span>
-                <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </span>
-
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
-            </Link>
-          </div>
-        )}
       </div>
+
+      {/* Add custom animations to global CSS or use inline styles */}
+      <style jsx>{`
+        @keyframes draw-line {
+          0% {
+            stroke-dasharray: 0, 1000;
+            stroke-dashoffset: 0;
+          }
+          50% {
+            stroke-dasharray: 1000, 1000;
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dasharray: 1000, 1000;
+            stroke-dashoffset: -1000;
+          }
+        }
+        
+        @keyframes pulse-blue {
+          0%, 100% {
+            opacity: 0.6;
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(74, 108, 247, 0.7);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.2);
+            box-shadow: 0 0 0 8px rgba(74, 108, 247, 0);
+          }
+        }
+        
+        @keyframes pulse-yellow {
+          0%, 100% {
+            opacity: 0.6;
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.2);
+            box-shadow: 0 0 0 8px rgba(251, 191, 36, 0);
+          }
+        }
+        
+        .animate-draw-line {
+          animation: draw-line 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse-blue {
+          animation: pulse-blue 2s ease-in-out infinite;
+        }
+        
+        .animate-pulse-yellow {
+          animation: pulse-yellow 2s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };
