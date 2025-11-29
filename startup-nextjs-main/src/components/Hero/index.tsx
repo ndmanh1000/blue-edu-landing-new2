@@ -147,14 +147,14 @@ const Hero = () => {
 
             {/* Visual Section - Right */}
             <div className="w-full px-4 lg:w-1/2">
-              <div className="relative mx-auto max-w-[550px] animate-fade-in-right lg:mx-0">
+              <div className="relative w-full animate-fade-in-right lg:mx-0">
                 <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-gray-light shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-primary/20 dark:bg-gray-dark sm:aspect-video lg:aspect-square">
                   {/* Image - Responsive for desktop and mobile */}
                   <Image
                     src="/images/all/tongquan.png"
                     alt="Blue Edu Tổng quan"
                     fill
-                    className="object-cover object-center"
+                    className="object-contain object-center"
                   // priority
                   // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
                   />
