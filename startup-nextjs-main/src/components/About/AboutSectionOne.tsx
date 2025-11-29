@@ -132,7 +132,7 @@ const AboutSectionOne = () => {
                       <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} text-xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
                         {feature.icon}
                       </div>
-                      <p className="text-base font-semibold text-black dark:text-white md:text-lg">
+                      <p className="text-base font-semibold text-black dark:text-white md:text-base">
                         {feature.title}
                       </p>
                     </div>
