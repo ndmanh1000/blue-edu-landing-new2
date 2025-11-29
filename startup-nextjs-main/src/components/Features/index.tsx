@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useMemo } from "react";
+import Button from "@/components/Common/Button";
 
 const Features = () => {
   const painPoints = [
@@ -193,33 +194,15 @@ const Features = () => {
             </div>
 
             <div className="relative">
-              <Link
+              <Button
                 href=""
-                className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-blue-600 to-primary px-6 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95 sm:px-7 sm:py-3 sm:text-base"
+                variant="primary"
+                icon="🚀"
+                className="inline-block"
+                fullWidth={false}
               >
-                {/* Animated gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-primary to-blue-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{
-                  backgroundSize: '200% 100%',
-                  animation: 'shimmer 3s linear infinite',
-                }}></div>
-
-                <span className="relative z-10 flex items-center">
-                  <span className="mr-2 animate-bounce text-lg">🚀</span>
-                  <span>Bắt đầu ngay - miễn phí</span>
-                  <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </span>
-
-                {/* Shine effect */}
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
-
-                {/* Shadow running effect - multiple layers */}
-                <span className="absolute -inset-3 -translate-x-full bg-gradient-to-r from-transparent via-white/60 to-transparent blur-3xl transition-transform duration-1000 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-                <span className="absolute -inset-2 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent blur-2xl transition-transform duration-1000 delay-75 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-                <span className="absolute -inset-1 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent blur-xl transition-transform duration-1000 delay-150 group-hover:translate-x-full opacity-0 group-hover:opacity-100"></span>
-
-                {/* Pulse ring on hover */}
-                <span className="absolute inset-0 rounded-xl border-2 border-white/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-ping"></span>
-              </Link>
+                Bắt đầu ngay - miễn phí
+              </Button>
             </div>
           </div>
         </div>

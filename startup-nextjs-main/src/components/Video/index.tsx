@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import Button from "@/components/Common/Button";
 
 export default function Video() {
   const features = [
@@ -149,33 +150,15 @@ export default function Video() {
                 <div className="h-20 w-20 rounded-full bg-purple-500/20 blur-xl"></div>
               </div>
 
-              <Link
+              <Button
                 href=""
-                className="group relative inline-block overflow-hidden rounded-xl bg-gradient-to-r from-primary via-purple-600 to-primary px-6 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-primary/50 active:scale-95 sm:px-7 sm:py-3 sm:text-base"
+                variant="primary"
+                icon="🚀"
+                className="inline-block"
+                fullWidth={false}
               >
-                {/* Animated gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-primary to-purple-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{
-                  backgroundSize: '200% 100%',
-                  animation: 'shimmer 3s linear infinite',
-                }}></div>
-
-                <span className="relative z-10 flex items-center">
-                  <span className="mr-2 animate-bounce text-lg">🚀</span>
-                  <span>Dùng thử miễn phí</span>
-                  <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </span>
-
-                {/* Animated shadow running effect - auto */}
-                <span
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-xl"
-                  style={{
-                    animation: `shadowRun 3s ease-in-out infinite`,
-                  }}
-                ></span>
-
-                {/* Pulse ring */}
-                <span className="absolute inset-0 rounded-xl border-2 border-white/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-ping"></span>
-              </Link>
+                Dùng thử miễn phí
+              </Button>
             </div>
           </div>
         </div>
