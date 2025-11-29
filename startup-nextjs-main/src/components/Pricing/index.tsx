@@ -174,7 +174,7 @@ const Pricing = () => {
 
               {/* CTA Button */}
               <Link
-                href="#contact"
+                href="#"
                 className={`group/button relative mb-4 w-full overflow-hidden rounded-full px-4 py-2.5 text-center text-sm font-semibold transition-colors ${plan.buttonStyle}`}
               >
                 {/* Animated Shadow Running Effect */}
