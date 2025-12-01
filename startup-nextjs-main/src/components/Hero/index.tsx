@@ -55,9 +55,9 @@ const Hero = () => {
         <div className="container">
           {/* Headline - Centered at top */}
           <div className="mb-8 text-center animate-fade-in-down mt-24 md:mt-10">
-            <h1 className="mx-auto max-w-4xl text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl lg:text-4xl">
-              <span className="bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
-                Blue Edu – LMS gọn nhẹ + AI siêu tốc cho giáo viên thời đại mới
+            <h1 className="mx-auto max-w-2xl text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl lg:text-4xl">
+              <span className="bg-gradient-to-r text-black bg-clip-text animate-shimmer bg-[length:200%_auto]">
+                Blue Edu – Trợ lý giảng dạy siêu tốc cho giáo viên thời đại mới
               </span>
             </h1>
           </div>
@@ -67,15 +67,33 @@ const Hero = () => {
             {/* Content Section - Left */}
             <div className="w-full px-4 lg:w-1/2">
               <div className="mx-auto max-w-[550px] lg:mx-0">
-                {/* Sub-headline */}
-                <p className="mb-4 text-lg font-semibold leading-relaxed text-primary dark:text-primary sm:text-xl md:text-lg lg:text-xl animate-fade-in-up animation-delay-200">
-                  Soạn bài nhanh hơn. Tạo đề trong vài giây. Quản lớp thông minh – nhàn hơn gấp đôi.
-                </p>
-
-                {/* Description */}
-                <p className="mb-6 text-sm leading-relaxed text-black dark:text-body-color-dark sm:text-base md:text-sm lg:text-base animate-fade-in-up animation-delay-400">
-                  BlueEdu là phiên bản LMS tinh gọn của Blue Rise – thiết kế riêng cho giáo viên cá nhân: dễ dùng, mạnh mẽ, chi phí hợp lý và AI được huấn luyện theo chương trình giáo dục Việt Nam.
-                </p>
+                {/* Features List with Checkmarks */}
+                <div className="mb-6 space-y-3 animate-fade-in-up animation-delay-200">
+                  {[
+                    "X4 lần tốc độ soạn bài",
+                    "Giảm 10 lần thời gian tạo đề",
+                    "AI số hóa siêu tốc",
+                    "Quản lý lớp thông minh với 1 click"
+                  ].map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <svg
+                        className="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <span className="text-base font-medium text-black dark:text-white sm:text-lg">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
 
                 {/* CTA Buttons */}
                 <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4 animate-fade-in-up animation-delay-600">
