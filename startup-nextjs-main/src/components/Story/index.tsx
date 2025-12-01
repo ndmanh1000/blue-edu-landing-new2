@@ -106,7 +106,7 @@ export default function Story() {
                     // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                     />
                     {/* Overlay gradient for better text readability if needed */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent pointer-events-none"></div>
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent pointer-events-none"></div> */}
                   </div>
                 </div>
               </div>
