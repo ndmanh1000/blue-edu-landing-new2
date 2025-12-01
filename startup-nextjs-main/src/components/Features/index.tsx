@@ -118,7 +118,7 @@ const Features = () => {
                           <div className="absolute inset-0 animate-ping rounded-full border-2 border-red-400 opacity-20"></div>
                         </div>
                       </div>
-                      <p className="flex-1 text-sm leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-800 dark:text-body-color-dark dark:group-hover:text-gray-200 sm:text-base">
+                      <p className="flex-1 text-sm leading-relaxed text-black transition-colors duration-300 group-hover:text-gray-800 dark:text-body-color-dark dark:group-hover:text-gray-200 sm:text-base">
                         {point}
                       </p>
                     </div>

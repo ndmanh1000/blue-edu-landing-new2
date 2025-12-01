@@ -39,11 +39,11 @@ const Footer = () => {
                     className="h-auto w-auto max-w-[100px] object-contain"
                   />
                 </Link>
-                <p className="mb-6 text-base leading-relaxed text-body-color dark:text-body-color-dark">
+                <p className="mb-6 text-base leading-relaxed text-black dark:text-body-color-dark">
                   BlueEdu – LMS gọn nhẹ + AI siêu tốc cho giáo viên thời đại mới.
                   Soạn bài nhanh hơn. Tạo đề trong vài giây. Quản lớp thông minh – nhàn hơn gấp đôi.
                 </p>
-                <p className="mb-9 text-sm leading-relaxed text-body-color dark:text-body-color-dark">
+                <p className="mb-9 text-sm leading-relaxed text-black dark:text-body-color-dark">
                   Một phần của hệ sinh thái giáo dục <span className="font-semibold text-primary">Blue Rise</span>
                 </p>
 
@@ -138,7 +138,7 @@ const Footer = () => {
                     <Link
                       href="#home"
                       onClick={(e) => handleLinkClick(e, "#home")}
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Trang chủ
                     </Link>
@@ -147,7 +147,7 @@ const Footer = () => {
                     <Link
                       href="#about"
                       onClick={(e) => handleLinkClick(e, "#about")}
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Về chúng tôi
                     </Link>
@@ -156,7 +156,7 @@ const Footer = () => {
                     <Link
                       href="#pricing"
                       onClick={(e) => handleLinkClick(e, "#pricing")}
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Bảng giá
                     </Link>
@@ -165,7 +165,7 @@ const Footer = () => {
                     <Link
                       href="#blog"
                       onClick={(e) => handleLinkClick(e, "#blog")}
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Hệ sinh thái
                     </Link>
@@ -174,7 +174,7 @@ const Footer = () => {
                     <Link
                       href="#contact"
                       onClick={(e) => handleLinkClick(e, "#contact")}
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Liên hệ
                     </Link>
@@ -194,7 +194,7 @@ const Footer = () => {
                     <Link
                       href="/"
                       onClick={(e) => handleLinkClick(e, "#home")}
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
 
                     >
                       BlueEdu
@@ -203,7 +203,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="https://bluerise.com.vn/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -213,7 +213,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="https://dschool.vn/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -235,7 +235,7 @@ const Footer = () => {
                     <Link
                       href="#contact"
                       onClick={(e) => handleLinkClick(e, "#contact")}
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Liên hệ hỗ trợ
                     </Link>
@@ -243,7 +243,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="#"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Chính sách bảo mật
                     </a>
@@ -251,7 +251,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="#"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Điều khoản sử dụng
                     </a>
@@ -259,7 +259,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="#"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-base text-black duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Câu hỏi thường gặp
                     </a>
@@ -274,10 +274,10 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="py-8">
-            <p className="text-center text-base text-body-color dark:text-white">
+            <p className="text-center text-base text-black dark:text-white">
               © {new Date().getFullYear()} <span className="font-semibold text-primary">BlueEdu</span>.
               {" "}Bản quyền thuộc về Blue Rise.{" "}
-              <span className="text-sm text-body-color/70 dark:text-body-color-dark/70">
+              <span className="text-sm text-black dark:text-body-color-dark/70">
                 Một phần của hệ sinh thái giáo dục số Việt Nam.
               </span>
             </p>

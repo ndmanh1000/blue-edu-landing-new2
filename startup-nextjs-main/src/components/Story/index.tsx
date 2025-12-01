@@ -60,18 +60,18 @@ export default function Story() {
 
               {/* Text Content */}
               <div className="space-y-4">
-                <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">
+                <p className="text-base leading-relaxed text-black dark:text-body-color-dark sm:text-lg">
                   BlueEdu được sinh ra từ <span className="font-semibold text-primary">Blue Rise</span> – giải pháp chuyển đổi số giáo dục đang được sử dụng bởi nhiều đơn vị, trường học và trung tâm lớn tại Việt Nam.
                 </p>
 
-                <p className="text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">
+                <p className="text-base leading-relaxed text-black dark:text-body-color-dark sm:text-lg">
                   Chúng tôi tách BlueEdu ra để giáo viên cá nhân có thể sở hữu một công cụ <span className="font-semibold text-primary">LMS thực thụ</span>, dễ dùng, nhỏ gọn, nhưng vẫn mang sức mạnh từ nền tảng lớn.
                 </p>
 
                 <div className="relative rounded-lg border-2 border-primary/20 bg-gradient-to-br from-blue-50/50 to-purple-50/50 p-4 dark:from-gray-800/50 dark:to-gray-900/50 sm:p-5">
                   <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 opacity-0 blur transition-opacity duration-500 group-hover:opacity-100"></div>
 
-                  <p className="relative text-base font-medium leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">
+                  <p className="relative text-base font-medium leading-relaxed text-black dark:text-body-color-dark sm:text-lg">
                     <span className="mr-2 text-lg">✨</span>
                     Bạn không dùng công cụ rời rạc. Bạn đang dùng một <span className="font-bold text-primary">mảnh ghép chuyên nghiệp</span> trong một <span className="font-bold text-primary">hệ sinh thái giáo dục hoàn chỉnh</span>.
                   </p>
@@ -82,12 +82,12 @@ export default function Story() {
               <div className="mt-8 flex items-center gap-4">
                 <div className="flex items-center gap-2">
                   <div className="h-3 w-3 animate-pulse rounded-full bg-primary"></div>
-                  <span className="text-sm font-medium text-body-color dark:text-body-color-dark">Hệ sinh thái hoàn chỉnh</span>
+                  <span className="text-sm font-medium text-black dark:text-body-color-dark">Hệ sinh thái hoàn chỉnh</span>
                 </div>
                 <div className="h-4 w-px bg-gray-300 dark:bg-gray-600"></div>
                 <div className="flex items-center gap-2">
                   <div className="h-3 w-3 animate-pulse rounded-full bg-purple-500"></div>
-                  <span className="text-sm font-medium text-body-color dark:text-body-color-dark">Nền tảng mạnh mẽ</span>
+                  <span className="text-sm font-medium text-black dark:text-body-color-dark">Nền tảng mạnh mẽ</span>
                 </div>
               </div>
             </div>

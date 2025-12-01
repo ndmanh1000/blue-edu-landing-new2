@@ -137,7 +137,7 @@ const Blog = () => {
                   <h3 className="mb-3 text-xl font-bold text-black transition-colors duration-300 group-hover:text-primary dark:text-white sm:text-2xl">
                     {product.name}
                   </h3>
-                  <p className="text-sm leading-relaxed text-body-color transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300 sm:text-base">
+                  <p className="text-sm leading-relaxed text-black transition-colors duration-300 group-hover:text-gray-700 dark:text-body-color-dark dark:group-hover:text-gray-300 sm:text-base">
                     {product.description}
                   </p>
                 </div>
@@ -172,7 +172,7 @@ const Blog = () => {
 
             <div className="relative z-10 text-center">
               <div className="mb-4 text-3xl">✨</div>
-              <p className="text-base font-semibold leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
+              <p className="text-base font-semibold leading-relaxed text-black dark:text-body-color-dark sm:text-lg md:text-xl">
                 Dữ liệu của bạn được <span className="font-bold text-primary">đồng bộ xuyên suốt</span>, không bao giờ mất. Khi cần mở rộng, chỉ cần <span className="font-bold text-primary">nâng cấp</span> – không cần đổi nền tảng.
               </p>
             </div>

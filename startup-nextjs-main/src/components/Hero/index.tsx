@@ -73,7 +73,7 @@ const Hero = () => {
                 </p>
 
                 {/* Description */}
-                <p className="mb-6 text-sm leading-relaxed text-body-color dark:text-body-color-dark sm:text-base md:text-sm lg:text-base animate-fade-in-up animation-delay-400">
+                <p className="mb-6 text-sm leading-relaxed text-black dark:text-body-color-dark sm:text-base md:text-sm lg:text-base animate-fade-in-up animation-delay-400">
                   BlueEdu là phiên bản LMS tinh gọn của Blue Rise – thiết kế riêng cho giáo viên cá nhân: dễ dùng, mạnh mẽ, chi phí hợp lý và AI được huấn luyện theo chương trình giáo dục Việt Nam.
                 </p>
 
@@ -101,7 +101,7 @@ const Hero = () => {
                 </div>
 
                 {/* CTA Note */}
-                <p className="animate-fade-in-up animation-delay-800 text-xs text-body-color dark:text-body-color-dark sm:text-sm">
+                <p className="animate-fade-in-up animation-delay-800 text-xs text-black dark:text-body-color-dark sm:text-sm">
                   <span className="inline-block animate-pulse">👉</span> Dùng ngay trong 3 phút – không cần hướng dẫn.
                 </p>
               </div>

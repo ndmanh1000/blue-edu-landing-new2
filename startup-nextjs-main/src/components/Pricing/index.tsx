@@ -160,14 +160,14 @@ const Pricing = () => {
                   )}
                 </div>
                 <div className="mb-2">
-                  <span className="text-3xl font-light text-gray-600 dark:text-gray-400">
+                  <span className="text-3xl font-light text-black dark:text-gray-400">
                     {plan.price}
                   </span>
-                  <span className="ml-1 text-sm text-gray-500 dark:text-gray-500">
+                  <span className="ml-1 text-sm text-black dark:text-gray-500">
                     {plan.priceNote}
                   </span>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-black dark:text-gray-400">
                   {plan.description}
                 </p>
               </div>
@@ -203,7 +203,7 @@ const Pricing = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                    <p className="text-sm text-black dark:text-gray-300">
                       {feature.text}
                     </p>
                   </div>

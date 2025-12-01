@@ -77,9 +77,9 @@ const AboutSectionOne = () => {
           <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
             {/* Table Header - Hidden on mobile, shown on desktop */}
             <div className="hidden border-b border-gray-200 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10 p-4 md:p-6 dark:border-gray-700 md:grid md:grid-cols-3 md:gap-4 md:text-center">
-              <div className="font-bold text-gray-600 dark:text-gray-300">Tính năng</div>
+              <div className="font-bold text-black dark:text-gray-300">Tính năng</div>
               <div className="font-bold text-primary dark:text-primary">Blue Edu</div>
-              <div className="font-bold text-gray-400 dark:text-gray-500">Hệ thống khác</div>
+              <div className="font-bold text-black dark:text-gray-500">Hệ thống khác</div>
             </div>
 
             {/* Table Body */}
@@ -172,7 +172,7 @@ const AboutSectionOne = () => {
               <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl">
                 Blue Edu - Giải pháp toàn diện cho giáo viên
               </h3>
-              <p className="mb-6 text-base leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg">
+              <p className="mb-6 text-base leading-relaxed text-black dark:text-body-color-dark sm:text-lg">
                 Tất cả những gì bạn cần trong một nền tảng duy nhất, được thiết kế đặc biệt cho giáo viên Việt Nam
               </p>
             </div>
