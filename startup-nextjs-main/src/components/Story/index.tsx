@@ -40,9 +40,9 @@ export default function Story() {
         </div>
 
         <div className="container relative z-10">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+          <div className="grid gap-8 lg:grid-cols-5 lg:items-center lg:gap-12">
             {/* Content Section - Left */}
-            <div className="animate-fade-in-up">
+            <div className="animate-fade-in-up lg:col-span-2">
               {/* Title */}
               <div className="mb-8">
                 <div className="relative inline-block">
@@ -93,7 +93,7 @@ export default function Story() {
             </div>
 
             {/* Visual Section - Right - Image */}
-            <div className="relative animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <div className="relative animate-fade-in-up lg:col-span-3" style={{ animationDelay: '200ms' }}>
               <div className="relative w-full">
                 <div className="relative mx-auto w-full max-w-full overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-primary/20 dark:shadow-gray-800">
                   <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[4/3]">

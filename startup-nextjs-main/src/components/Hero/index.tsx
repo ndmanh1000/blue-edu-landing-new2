@@ -55,7 +55,7 @@ const Hero = () => {
         <div className="container">
           {/* Headline - Centered at top */}
           <div className="mb-8 text-center animate-fade-in-down mt-24 md:mt-10">
-            <h1 className="mx-auto max-w-2xl text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl lg:text-4xl">
+            <h1 className="mx-auto max-w-xl text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl lg:text-3xl">
               <span className="bg-gradient-to-r text-black bg-clip-text animate-shimmer bg-[length:200%_auto]">
                 Blue Edu – Trợ lý giảng dạy siêu tốc cho giáo viên thời đại mới
               </span>
@@ -65,7 +65,7 @@ const Hero = () => {
           {/* Content Section - 2 columns layout */}
           <div className="-mx-4 flex flex-wrap items-center">
             {/* Content Section - Left */}
-            <div className="w-full px-4 lg:w-1/2">
+            <div className="w-full px-4 lg:w-2/5">
               <div className="mx-auto max-w-[550px] lg:mx-0">
                 {/* Features List with Checkmarks */}
                 <div className="mb-6 space-y-3 animate-fade-in-up animation-delay-200">
@@ -126,7 +126,7 @@ const Hero = () => {
             </div>
 
             {/* Visual Section - Right */}
-            <div className="w-full px-4 lg:w-1/2">
+            <div className="w-full px-4 lg:w-3/5">
               <div className="relative w-full animate-fade-in-right lg:mx-0">
                 <div className="relative aspect-square w-full overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-primary/20 dark:bg-gray-dark sm:aspect-video lg:aspect-square">
                   {/* Image - Responsive for desktop and mobile */}
@@ -135,8 +135,7 @@ const Hero = () => {
                     alt="Blue Edu Tổng quan"
                     fill
                     className="object-contain object-center"
-                  // priority
-                  // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
+
                   />
                   {/* Floating particles effect */}
                   <div className="absolute inset-0 overflow-hidden">

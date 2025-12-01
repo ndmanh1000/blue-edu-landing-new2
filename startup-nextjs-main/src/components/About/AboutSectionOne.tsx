@@ -1,43 +1,44 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Button from "@/components/Common/Button";
 
 const AboutSectionOne = () => {
   const features = [
     {
       title: "AI chuyên sâu tài liệu giáo dục",
-      icon: "🤖",
+      image: "/images/all/aichuyensau.svg",
       gradient: "from-blue-500 to-purple-500",
       delay: 0,
     },
     {
       title: "Tạo đề thi tự động",
-      icon: "⚡",
+      image: "/images/all/taodethitudong.svg",
       gradient: "from-purple-500 to-pink-500",
       delay: 100,
     },
     {
       title: "Số hóa tài liệu cực nhanh",
-      icon: "📄",
+      image: "/images/all/sohoatailieucucnhanh.svg",
       gradient: "from-green-500 to-emerald-500",
       delay: 200,
     },
     {
       title: "Dễ dùng cho giáo viên cá nhân",
-      icon: "👨‍🏫",
+      image: "/images/all/dedungchogvcanhan.svg",
       gradient: "from-orange-500 to-red-500",
       delay: 300,
     },
     {
       title: "Báo cáo tiến độ học sinh",
-      icon: "📊",
+      image: "/images/all/baocaotiendohocsinh.svg",
       gradient: "from-cyan-500 to-blue-500",
       delay: 400,
     },
     {
       title: "Khả năng mở rộng lên hệ thống lớn",
-      icon: "🚀",
+      image: "/images/all/khanangmoronghethonglon.svg",
       gradient: "from-indigo-500 to-purple-500",
       delay: 500,
     },
@@ -95,8 +96,14 @@ const AboutSectionOne = () => {
                     <div className="p-4">
                       {/* Feature Title */}
                       <div className="mb-4 flex items-center gap-3">
-                        <div className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} text-lg shadow-lg`}>
-                          {feature.icon}
+                        <div className={`relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} shadow-lg overflow-hidden`}>
+                          <Image
+                            src={feature.image}
+                            alt={feature.title}
+                            width={20}
+                            height={20}
+                            className="object-contain"
+                          />
                         </div>
                         <p className="text-sm font-semibold text-black dark:text-white">
                           {feature.title}
@@ -107,16 +114,16 @@ const AboutSectionOne = () => {
                       <div className="flex items-center justify-between rounded-lg bg-gray-50 p-3 dark:bg-gray-800/50">
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-medium text-gray-600 dark:text-gray-400">Blue Edu:</span>
-                          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 text-white shadow-md">
-                            <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 text-white shadow-md">
+                            <svg className="h-2.5 w-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                             </svg>
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-medium text-gray-600 dark:text-gray-400">Hệ thống khác:</span>
-                          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 text-white dark:bg-gray-600">
-                            <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-gray-300 text-white dark:bg-gray-600">
+                            <svg className="h-2.5 w-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                           </div>
@@ -129,8 +136,14 @@ const AboutSectionOne = () => {
                   <div className="hidden md:grid md:grid-cols-3 md:gap-4 md:p-6">
                     {/* Feature Column */}
                     <div className="flex items-center gap-4">
-                      <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} text-xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
-                        {feature.icon}
+                      <div className={`relative flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 overflow-hidden`}>
+                        <Image
+                          src={feature.image}
+                          alt={feature.title}
+                          width={32}
+                          height={32}
+                          className="object-contain"
+                        />
                       </div>
                       <p className="text-base font-semibold text-black dark:text-white md:text-base">
                         {feature.title}
@@ -139,8 +152,8 @@ const AboutSectionOne = () => {
 
                     {/* Blue Edu Column */}
                     <div className="flex items-center justify-center">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 text-white shadow-lg transition-all duration-300 group-hover:scale-110">
-                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 text-white shadow-lg transition-all duration-300 group-hover:scale-110">
+                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
@@ -148,8 +161,8 @@ const AboutSectionOne = () => {
 
                     {/* Competitor Column */}
                     <div className="flex items-center justify-center">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-300 text-white dark:bg-gray-600 transition-all duration-300 group-hover:scale-110">
-                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 text-white dark:bg-gray-600 transition-all duration-300 group-hover:scale-110">
+                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                       </div>
