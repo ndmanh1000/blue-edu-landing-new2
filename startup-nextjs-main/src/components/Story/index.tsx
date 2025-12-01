@@ -95,13 +95,13 @@ export default function Story() {
             {/* Visual Section - Right - Image */}
             <div className="relative animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <div className="relative w-full">
-                <div className="relative mx-auto w-full max-w-full overflow-hidden rounded-lg shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-primary/20 dark:shadow-gray-800">
+                <div className="relative mx-auto w-full max-w-full overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-primary/20 dark:shadow-gray-800">
                   <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[4/3]">
                     <Image
-                      src="/images/all/storyy.jpg"
+                      src="/images/all/mockup1.png"
                       alt="Blue Edu - Đa nền tảng và đa thiết bị"
                       fill
-                      className="object-cover object-center"
+                      className="object-contain object-center"
                     // priority
                     // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                     />

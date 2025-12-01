@@ -26,14 +26,14 @@ const Brands = () => {
         {/* Image Container - Responsive for desktop and mobile */}
         <div className="flex items-center justify-center">
           <div className="relative w-full max-w-6xl mx-auto px-4">
-            <div className="relative w-full aspect-[16/9] sm:aspect-[4/3] md:aspect-[16/10] lg:aspect-[16/9] overflow-hidden rounded-lg shadow-2xl transition-all duration-500 hover:shadow-primary/20 dark:shadow-gray-800">
+            <div className="relative w-full aspect-[16/9] sm:aspect-[4/3] md:aspect-[16/10] lg:aspect-[16/9] overflow-hidden transition-all duration-500 hover:shadow-primary/20 dark:shadow-gray-800">
               <Image
                 src="/images/all/tinhnang.png"
                 alt="Tính năng chuyên sâu của Blue Edu"
                 fill
                 className="object-contain object-center"
-                priority
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1152px"
+              // priority
+              // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1152px"
               />
 
               {/* Animated Overlay for Branch Effects */}
