@@ -52,7 +52,21 @@ const Hero = () => {
         id="home"
         className="relative z-10 overflow-hidden bg-white pb-12 pt-20 dark:bg-gray-dark md:pb-16 md:pt-24 lg:pb-20 lg:pt-28"
       >
-        <div className="container">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover opacity-30 dark:opacity-20"
+        >
+          <source src="/images/video/bgnen3.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-white/50 dark:bg-gray-dark/50"></div>
+
+        <div className="container relative z-10">
           {/* Headline - Centered at top */}
           <div className="text-center animate-fade-in-down mt-24 md:mt-10">
             <h1 className="mx-auto max-w-2xl text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl lg:text-4xl">
