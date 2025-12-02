@@ -98,7 +98,7 @@ export default function Story() {
                 <div className="relative mx-auto w-full max-w-full overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-primary/20 dark:shadow-gray-800">
                   <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[4/3]">
                     <Image
-                      src="/images/all/mockup1.png"
+                      src="/images/all/mockupy.png"
                       alt="Blue Edu - Đa nền tảng và đa thiết bị"
                       fill
                       className="object-contain object-center"

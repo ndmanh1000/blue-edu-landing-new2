@@ -96,7 +96,7 @@ const AboutSectionOne = () => {
                     <div className="p-4">
                       {/* Feature Title */}
                       <div className="mb-4 flex items-center gap-3">
-                        <div className={`relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} shadow-lg overflow-hidden`}>
+                        <div className="relative flex h-10 w-10 flex-shrink-0 items-center justify-center">
                           <Image
                             src={feature.image}
                             alt={feature.title}
@@ -136,7 +136,7 @@ const AboutSectionOne = () => {
                   <div className="hidden md:grid md:grid-cols-3 md:gap-4 md:p-6">
                     {/* Feature Column */}
                     <div className="flex items-center gap-4">
-                      <div className={`relative flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 overflow-hidden`}>
+                      <div className="relative flex h-12 w-12 flex-shrink-0 items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
                         <Image
                           src={feature.image}
                           alt={feature.title}
@@ -185,7 +185,7 @@ const AboutSectionOne = () => {
               <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl">
                 Blue Edu - Giải pháp toàn diện cho giáo viên
               </h3>
-              <p className="mb-6 text-base leading-relaxed text-black dark:text-body-color-dark sm:text-lg">
+              <p className="mb-6 text-base leading-relaxed text-black dark:text-body-color-dark sm:text-lg md:text-base mx-auto">
                 Tất cả những gì bạn cần trong một nền tảng duy nhất, được thiết kế đặc biệt cho giáo viên Việt Nam
               </p>
             </div>

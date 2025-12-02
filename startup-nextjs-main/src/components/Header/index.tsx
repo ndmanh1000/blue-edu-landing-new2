@@ -29,9 +29,15 @@ const Header = () => {
 
   // Active section tracking for scroll spy
   const [activeSection, setActiveSection] = useState("");
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [clickedSection, setClickedSection] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Don't update if user just clicked a menu item (scrolling programmatically)
+      if (isScrolling) {
+        return;
+      }
       const sections = menuData
         .flatMap((menu) => {
           if (menu.path && menu.path.startsWith("#")) {
@@ -55,21 +61,54 @@ const Header = () => {
         return;
       }
 
+      // If user just clicked a section, don't override it yet
+      if (clickedSection) {
+        return;
+      }
+
       // Find the section currently in view
       let currentSection = "";
-      const scrollPosition = window.scrollY + 150; // Offset for header
+      const scrollPosition = window.scrollY + 200; // Offset for header
+      const viewportHeight = window.innerHeight;
 
+      // Find the section that is most visible in the viewport
+      let maxVisible = 0;
       for (let i = allSections.length - 1; i >= 0; i--) {
         const sectionId = allSections[i];
         const element = document.getElementById(sectionId);
         if (element) {
           const rect = element.getBoundingClientRect();
-          const offsetTop = element.offsetTop;
 
-          // Check if section is in viewport or above current scroll position
-          if (scrollPosition >= offsetTop || rect.top <= 150) {
-            currentSection = sectionId;
-            break;
+          // Calculate how much of the section is visible
+          const visibleTop = Math.max(0, -rect.top);
+          const visibleBottom = Math.min(rect.height, viewportHeight - rect.top);
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+          const visibleRatio = visibleHeight / Math.min(rect.height, viewportHeight);
+
+          // Check if section is in viewport and has significant visibility (at least 40% visible)
+          if (rect.top <= 200 && rect.bottom >= 0 && visibleRatio > 0.4) {
+            if (visibleRatio > maxVisible) {
+              maxVisible = visibleRatio;
+              currentSection = sectionId;
+            }
+          }
+        }
+      }
+
+      // Fallback: if no section is significantly visible, find the one closest to top
+      if (!currentSection) {
+        for (let i = allSections.length - 1; i >= 0; i--) {
+          const sectionId = allSections[i];
+          const element = document.getElementById(sectionId);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            const offsetTop = element.offsetTop;
+
+            // Only set as active if section is clearly in view (top is above 200px from top)
+            if (scrollPosition >= offsetTop && rect.top <= 150) {
+              currentSection = sectionId;
+              break;
+            }
           }
         }
       }
@@ -162,6 +201,13 @@ const Header = () => {
       e.preventDefault();
       const targetId = path.substring(1);
 
+      // Set active section immediately when clicked
+      setActiveSection(targetId);
+      setClickedSection(targetId);
+
+      // Disable scroll spy temporarily while scrolling
+      setIsScrolling(true);
+
       // If not on home page, navigate to home first
       if (usePathName !== "/") {
         window.location.href = `/${path}`;
@@ -183,6 +229,24 @@ const Header = () => {
 
           // Use custom smooth scroll for better control
           smoothScrollTo(offsetPosition, 800);
+
+          // Re-enable scroll spy after scroll animation completes and ensure correct section is active
+          setTimeout(() => {
+            // Double check that we're at the right section
+            const finalElement = document.getElementById(targetId);
+            if (finalElement) {
+              const finalRect = finalElement.getBoundingClientRect();
+              // If section is in viewport, keep it active
+              if (finalRect.top <= 200 && finalRect.bottom >= 0) {
+                setActiveSection(targetId);
+              }
+            }
+            setIsScrolling(false);
+            // Clear clicked section after a delay to allow scroll spy to work again
+            setTimeout(() => {
+              setClickedSection(null);
+            }, 500);
+          }, 1200);
         }, 100);
       }
     }
@@ -235,10 +299,9 @@ const Header = () => {
                           <Link
                             href={menuItem.path}
                             onClick={(e) => handleLinkClick(e, menuItem.path)}
-                            className={`flex py-2 text-base font-medium lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 transition-colors ${(menuItem.path.startsWith("#") && activeSection === menuItem.path.substring(1)) ||
-                              (usePathName === menuItem.path || (menuItem.path.startsWith("#") && typeof window !== "undefined" && window.location.hash === menuItem.path))
-                              ? "text-primary font-semibold dark:text-white"
-                              : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                            className={`relative flex py-2 text-base font-medium lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 transition-all duration-300 border-b-2 ${menuItem.path.startsWith("#") && activeSection === menuItem.path.substring(1)
+                              ? "text-primary font-semibold dark:text-white border-primary"
+                              : "text-dark dark:text-white/70 border-transparent"
                               }`}
                           >
                             {menuItem.title}
@@ -265,18 +328,20 @@ const Header = () => {
                               className={`submenu dark:bg-dark relative top-full left-0 rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${openIndex === index ? "block" : "hidden"
                                 }`}
                             >
-                              {menuItem.submenu.map((submenuItem, index) => (
+                              {menuItem.submenu.map((submenuItem, subIndex) => (
                                 <Link
                                   href={submenuItem.path}
                                   onClick={(e) => {
                                     if (submenuItem.path.startsWith("#")) {
                                       handleLinkClick(e, submenuItem.path);
                                     }
+                                    // Close submenu after click
+                                    setOpenIndex(-1);
                                   }}
-                                  key={index}
-                                  className={`block rounded-sm py-2.5 text-sm font-medium lg:px-3 transition-colors ${(submenuItem.path.startsWith("#") && activeSection === submenuItem.path.substring(1))
-                                    ? "text-primary font-semibold dark:text-white"
-                                    : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                                  key={subIndex}
+                                  className={`block rounded-sm py-2.5 text-sm font-medium lg:px-3 transition-all duration-300 border-l-2 ${submenuItem.path.startsWith("#") && activeSection === submenuItem.path.substring(1)
+                                    ? "text-primary font-semibold dark:text-white bg-primary/5 dark:bg-primary/10 border-primary"
+                                    : "text-dark dark:text-white/70 border-transparent"
                                     }`}
                                 >
                                   {submenuItem.title}
@@ -367,10 +432,9 @@ const Header = () => {
                       handleLinkClick(e, menuItem.path);
                       setNavbarOpen(false);
                     }}
-                    className={`flex items-center gap-3 rounded-lg px-4 py-3 text-base font-semibold transition-all hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 ${(menuItem.path.startsWith("#") && activeSection === menuItem.path.substring(1)) ||
-                      (usePathName === menuItem.path || (menuItem.path.startsWith("#") && typeof window !== "undefined" && window.location.hash === menuItem.path))
-                      ? "bg-primary/10 text-primary dark:text-white"
-                      : "text-dark dark:text-white/70"
+                    className={`flex items-center gap-3 rounded-lg px-4 py-3 text-base font-semibold transition-all duration-300 border-l-4 ${menuItem.path.startsWith("#") && activeSection === menuItem.path.substring(1)
+                      ? "bg-primary/15 text-primary dark:text-white border-primary"
+                      : "text-dark dark:text-white/70 border-transparent"
                       }`}
                   >
 
@@ -417,9 +481,9 @@ const Header = () => {
                                 }
                                 setNavbarOpen(false);
                               }}
-                              className={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-all hover:bg-primary/10 hover:text-primary ${(submenuItem.path.startsWith("#") && activeSection === submenuItem.path.substring(1))
-                                ? "bg-primary/10 text-primary font-semibold dark:text-white"
-                                : "text-dark dark:text-white/70 dark:hover:text-white"
+                              className={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-300 border-l-4 ${submenuItem.path.startsWith("#") && activeSection === submenuItem.path.substring(1)
+                                ? "bg-primary/15 text-primary font-semibold dark:text-white border-primary"
+                                : "text-dark dark:text-white/70 border-transparent"
                                 }`}
                             >
                               {submenuItem.title}

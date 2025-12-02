@@ -9,7 +9,7 @@ const menuData: Menu[] = [
   },
 
   {
-    id: 33,
+    id: 2,
     title: "Tính năng AI",
     path: "#video",
     newTab: false,
@@ -21,13 +21,13 @@ const menuData: Menu[] = [
     newTab: false,
   },
   {
-    id: 43,
+    id: 4,
     title: "Báo giá",
     path: "#pricing",
     newTab: false,
   },
   {
-    id: 4,
+    id: 5,
     title: "Pages",
     newTab: false,
     submenu: [
@@ -44,7 +44,7 @@ const menuData: Menu[] = [
         newTab: false,
       },
       {
-        id: 2,
+        id: 43,
         title: "Vấn đề",
         path: "#features",
         newTab: false,
