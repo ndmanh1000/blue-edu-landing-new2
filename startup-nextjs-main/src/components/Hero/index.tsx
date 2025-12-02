@@ -55,7 +55,7 @@ const Hero = () => {
         <div className="container">
           {/* Headline - Centered at top */}
           <div className="text-center animate-fade-in-down mt-24 md:mt-10">
-            <h1 className="mx-auto max-w-xl text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl lg:text-4xl">
+            <h1 className="mx-auto max-w-2xl text-xl font-extrabold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl lg:text-4xl">
               <span className="bg-gradient-to-r text-black bg-clip-text animate-shimmer bg-[length:200%_auto]">
                 Blue Edu – Trợ lý giảng dạy siêu tốc cho giáo viên thời đại mới
               </span>
