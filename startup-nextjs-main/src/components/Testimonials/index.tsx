@@ -183,11 +183,14 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-12 md:py-16 lg:py-20">
       <div className="container">
-        <SectionTitle
-          title="Các đánh giá của các giáo viên đã sử dụng BlueEdu"
-          paragraph="Các giáo viên đã sử dụng BlueEdu và đánh giá tích cực về chất lượng và tính tiện lợi của nền tảng."
-          center
-        />
+        <div className="mx-auto mb-12 max-w-4xl text-center">
+          <h2 className="mb-4 text-xl font-bold leading-tight text-black dark:text-white sm:text-2xl md:text-3xl line-clamp-2">
+            Các đánh giá của các giáo viên đã sử dụng BlueEdu
+          </h2>
+          <p className="text-sm leading-relaxed text-black sm:text-base md:text-lg line-clamp-2">
+            Các giáo viên đã sử dụng BlueEdu và đánh giá tích cực về chất lượng và tính tiện lợi của nền tảng.
+          </p>
+        </div>
 
         {/* Carousel Container */}
         <div className="relative">
